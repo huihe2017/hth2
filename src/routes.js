@@ -16,6 +16,7 @@ import Auth from './containers/auth/'
 import ForexPresentation from './containers/forexPresentation/'
 import DetailUserMsg from './containers/detailUserMsg/'
 import BaseUserMsg from './containers/baseUserMsg/'
+import PartnerReg from './containers/partnerReg/'
 
 export default () => {
 
@@ -38,6 +39,7 @@ export default () => {
             <Route path="/auth" component={Auth}/>
             <Route path="/detailUserMsg" component={DetailUserMsg}/>
                 <Route path="/baseUserMsg" component={BaseUserMsg}/>
+            <Route path="/partnerReg" component={PartnerReg}/>
 
         </Router>
     )

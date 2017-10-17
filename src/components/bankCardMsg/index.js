@@ -113,7 +113,7 @@ class BankCardMsg extends React.Component {
                                     <div>
                                         <UploadField onFiles={onFiles}>
                                             <div className={style.selimg}>
-                                                {this.state.upImg? <img src={require('../../containers/home/images/MT4bg3X.png')} alt=""/> : <span className={style.filetext}>点击上传银行卡正面</span>}
+                                                {this.state.upImg? <img src={require('../../containers/home/images/mt4.png')} alt=""/> : <span className={style.filetext}>点击上传银行卡正面</span>}
                                             </div>
                                         </UploadField>
                                         {progress ? `Progress: ${progress}` : null}
