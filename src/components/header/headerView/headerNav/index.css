@@ -1,0 +1,18 @@
+
+:local(.nav){
+    height: 40px;
+    padding: 0 25px;
+    font-size: 18px;
+    line-height: 40px;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    font-family: "Microsoft YaHei", Arial;
+
+}
+:local(.isborder){
+    border:1px solid;
+}
+:local(.noborder){
+    border:0;
+}

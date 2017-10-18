@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import Layer from '../../../renderLayer/index'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router'
 import style from './sideBar.css'
 import {hashHistory} from 'react-router';
 
@@ -16,9 +15,7 @@ class SideBar extends Component {
     }
 
     checkedForPath(sidePath) {
-        if (sidePath === hashHistory.getCurrentLocation().pathname) {//alert(22)
-            return style.checked
-        }
+       
     }
 
     render() {
@@ -96,7 +93,7 @@ class SideBar extends Component {
 
 
                 </div>
-                {this.props.show ? <Layer></Layer> : ''}
+
 
             </div>
         )

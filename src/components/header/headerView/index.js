@@ -1,17 +1,13 @@
 import React, {Component} from 'react'
-import SideBar from './sideBar/index'
-import Login from '../../login/index'
-import Register from '../../register/index'
-import Layer from '../../renderLayer/index'
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router';
 import style from './header.css';
-import HeaderNav from '../../headerNav'
+import HeaderNav from './headerNav'
 import {hashHistory} from 'react-router';
-
+import SideBar from './sideBar';
 export default class Header extends Component {
 
     checkedForPath(sidePath) {
-        if (sidePath === hashHistory.getCurrentLocation().pathname) {
+        if (true) {
             return true
         }else {
             return false
@@ -33,14 +29,15 @@ export default class Header extends Component {
                     className={this.props.otherStyle ? ( style.header + ' ' + style[this.props.position] + ' ' + style.otherStyle) : ( style.header + ' ' + style[this.props.position])}>
                     <div className={style.logo}>
                         {
-                            this.props.otherStyle ? <Link to="/"><img className={style.logoimg} src={require("./logoO.png")}/></Link> :
+                            this.props.otherStyle ? <Link to="/"><img src={require("./logoO.png")}/></Link> :
                                 <Link to="/">
-                                    <img className={style.logoimg} src={require("./logo.png")}/>
+                                    <img src={require("./logo.png")}/>
                                 </Link>
                         }
+
                     </div>
                     <div className={style.line}></div>
-                    <div className={style.nav}>
+                    <div className={style.nav} >
                         <div className={style.personCenter}>
                             <Link to="/userCenter">
                                 <HeaderNav showBorder={(() => {return this.checkedForPath('/userCenter')})()} content="个人中心" ischangecolor={this.props.otherStyle} />
@@ -86,13 +83,7 @@ export default class Header extends Component {
                         </a>
                     </div>
                 </div>
-                {this.props.isShowLogin ?
-                    <Layer closeFn={this.props.hideLogin}><Login login={this.props.login} toReg={this.props.toggle.bind(this)} toFind={this.props.ftoggle.bind(this)}/></Layer> : ''}
-                {this.props.isShowReg ?
-                    <Layer closeFn={this.props.hideReg}><Register title={"注册海豚汇账号"} hid={false} login={this.props.login} toLogin={this.props.toggle.bind(this)}  butword={"完成注册并登录"}/></Layer> : ''}
-                {this.props.isShowFind ?
-                    <Layer closeFn={this.props.hideFind}><Register title={"忘记密码"} hid={true} login={this.props.login}  butword={"确认修改密码"} /></Layer> : ''}
-            </div>
+          </div>
         )
     }
 }

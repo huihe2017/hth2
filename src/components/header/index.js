@@ -1,41 +1,126 @@
 import React from 'react';
+import HeaderR from './headerView'
 import style from "./index.css"
-import {Drawer} from 'antd-mobile';
-import {hashHistory, Link} from 'react-router';
+import {hashHistory} from 'react-router';
+import axios from "axios"
 
-class Header extends React.Component {
+class TitValueBox extends React.Component {
     constructor(props) {
-        console.log(hashHistory)
         super(props);
         this.state = {
-            open: false,
             position: 'relative',
-            otherStyle: true
-
+            otherStyle: true,
+            isShowReg: false,
+            isShowLogin: false,
+            isShowSideBar: false,
+            isShowFind: false,
+            isLogin: localStorage.userName === 'null' ? false : localStorage.userName
         }
+        this.hideLogin = this.hideLogin.bind(this)
+        this.hideReg = this.hideReg.bind(this)
+        this.toggle = this.toggle.bind(this)
+        this.hideSideBar = this.hideSideBar.bind(this)
+        this.showSideBar = this.showSideBar.bind(this)
         this.choceType = this.choceType.bind(this)
-
 
     }
 
+    login() {
+        this.state.isLogin = true
+        this.state.isShowReg = false
+        this.state.isShowLogin = false
+        this.state.isShowFind = false
 
-    componentWillMount() {
-        this.choceType()
+        this.setState({
+            state: this.state
+        })
+    }
+
+    signOut() {
+        // let _this = this
+        // axios.post('http://47.91.236.245:8000/user/customer/sign-out', {
+        //     token: localStorage.token,
+        //     agent: 'web'
+        // }).then(function (response) {
+        //     if (response.data.code === 0) {
+        //         localStorage.userName = null
+        //         _this.setState({
+        //             isLogin: false
+        //         }, () => {
+        //
+        //         })
+        //     }
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
+        let _this = this
+        localStorage.userName = null
+        _this.setState({
+            isLogin: false
+        }, () => {
+
+        })
+    }
+
+    hideLogin() {
+        this.setState({isShowLogin: false}, () => {
+        })
+    }
+
+    hideReg() {
+        this.setState({isShowReg: false}, () => {
+        })
+    }
+
+    hideFind() {
+        this.setState({isShowFind: false}, () => {
+        })
+    }
+
+    toggle(flag) {
+
+        let state = this.state
+        state.isShowLogin = flag
+        state.isShowReg = !flag
+        this.setState({state: state});
+    }
+
+    ftoggle(flag) {
+        console.log(this.state)
+        let state = this.state
+        state.isShowLogin = flag
+        state.isShowFind = !flag
+        this.setState({state: state});
+    }
+
+    hideSideBar() {
+        this.setState({isShowSideBar: false});
+    }
+
+    showSideBar() {
+        this.setState({isShowSideBar: true});
     }
 
     componentWillReceiveProps() {
-        // if (window.location.hash.substr(1).indexOf('/') !== -1) {
-        //     this.setState({position: 'relative'})
-        //     this.setState({otherStyle: true})
-        //     window.onscroll = null
-        //     return true
-        // } else {
-        //     if (!window.onscroll) {
-        //         this.choceType()
-        //         return true
-        //     }
-        // }
-        // return true
+        this.setState({isShowSideBar: false})
+
+        if (window.location.hash.substr(1).indexOf('/?') !== -1) {
+            this.setState({position: 'relative'})
+            this.setState({otherStyle: true})
+            window.onscroll = null
+            return true
+        } else {
+            if (!window.onscroll) {
+                this.choceType()
+                return true
+            }
+        }
+        return true
+    }
+
+    componentWillMount() {
+        this.choceType()
+
     }
 
     choceType() {
@@ -71,52 +156,16 @@ class Header extends React.Component {
 
     }
 
-    onOpenChange = (...args) => {
-        console.log(args);
-        this.setState({open: !this.state.open});
-    }
-
     render() {
-        const Array=[{label:'登录与注册',link:'/auth'},{label:'首页',link:'/'},{label:'产品交易',link:'/forexPresentation'},{label:'交易平台',link:'/tradingPlatform'},{label:'关于海豚汇',link:'/aboutUs'},{label:'海豚学院',link:'/school'},{label:'账户出金',link:'/outgold'},{label:'账户入金',link:'/ingold'},{label:'用户资料',link:'/detailUserMsg'},{label:'更改密码',link:'/modifyPwd'},{label:'历史记录',link:'/history'}]
-        const sidebar = (<ul style={{paddingTop:20}} >
-            {Array.map((i, index) => {
-                return (<li  className={style.navlist} key={index}>
-                    <Link to={i.link}>
-                        {i.label}
-                    </Link>
-                    </li>);
-            })}
-        </ul>);
         return (
-            <div>
-                <div
-                    className={this.state.otherStyle ? ( style.wrap + ' ' + style[this.state.position] + ' ' + style.otherStyle) : ( style.wrap + ' ' + style[this.state.position])}>
-                    <div className={style.logo}>
-                        {
-                            this.state.otherStyle ? <Link to="/"><img src={require("./logoO.png")}/></Link> :
-                                <Link to="/">
-                                    <img src={require("./logo.png")}/>
-                                </Link>
-                        }
-                    </div>
-                    <div onClick={this.onOpenChange} className={style.sider}>
-                    </div>
-                </div>
-                <Drawer
-                    className="my-drawer"
-                    style={{minHeight: document.documentElement.clientHeight - 200,position:'fixed',zIndex:this.state.open?100:-1}}
-                    sidebar={sidebar}
-                    open={this.state.open}
-                    position="right"
-                    // contentStyle={{zIndex:this.state.open?98:-1}}
-                    // overlayStyle={{zIndex:this.state.open?99:-1}}
-                    onOpenChange={this.onOpenChange}
-                    sidebarStyle={{background:'#656b6f'}}
-                >
-                </Drawer>
-            </div>
+            <HeaderR login={this.login.bind(this)} signOut={this.signOut.bind(this)} {...this.state}
+                     hideLogin={this.hideLogin} hideReg={this.hideReg} hideFind={this.hideFind.bind(this)}
+                     toggle={this.toggle} ftoggle={this.ftoggle.bind(this)}
+                     hideSideBar={this.hideSideBar} showSideBar={this.showSideBar}
+
+            />
         )
     }
 }
 
-export default Header;
+export default TitValueBox;

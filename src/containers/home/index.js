@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './index.css'
-import { Button } from 'antd';
+import {Button} from 'antd';
 import Header from '../../components/header'
-import { hashHistory } from 'react-router'
+import {hashHistory} from 'react-router'
 
 class Home extends React.Component {
     speedAccound() {
@@ -12,9 +12,16 @@ class Home extends React.Component {
     render() {
         return (
             <div className={style.wrap}>
+                <Header/>
                 <header className={style.header}>
                     <div className={style.button}>
-                        <Button type="primary"  style={{width:'200',height:'60',position: 'absolute',bottom:'120', fontSize: '24px'}}>极速开户</Button>
+                        <Button type="primary" style={{
+                            width: '200',
+                            height: '60',
+                            position: 'absolute',
+                            bottom: '120',
+                            fontSize: '24px'
+                        }}>极速开户</Button>
                     </div>
                 </header>
                 <div className="section">
@@ -75,9 +82,17 @@ class Home extends React.Component {
                             <a href="javascript:void (0);" className={style.mt4bg}>
                             </a>
                             <div className={style.downloadlist}>
-                                <Button ghost icon="windows" style={{width:'220',height:'60', fontSize: '20',marginBottom:'30'}}>&nbsp;windows下载</Button>
-                                <Button ghost icon="apple" style={{width:'220',height:'60', fontSize: '20',marginBottom:'30'}}> &nbsp;&nbsp;&nbsp;&nbsp;iOS下载&nbsp;&nbsp;&nbsp;&nbsp;</Button>
-                                <Button ghost icon="android" style={{width:'220',height:'60',fontSize: '20'}}>&nbsp;Android下载</Button>
+                                <Button ghost icon="windows"
+                                        style={{width: '220', height: '60', fontSize: '20', marginBottom: '30'}}>&nbsp;
+                                    windows下载</Button>
+                                <Button ghost icon="apple" style={{
+                                    width: '220',
+                                    height: '60',
+                                    fontSize: '20',
+                                    marginBottom: '30'
+                                }}> &nbsp;&nbsp;&nbsp;&nbsp;iOS下载&nbsp;&nbsp;&nbsp;&nbsp;</Button>
+                                <Button ghost icon="android" style={{width: '220', height: '60', fontSize: '20'}}>&nbsp;
+                                    Android下载</Button>
 
                             </div>
                         </div>
@@ -85,7 +100,7 @@ class Home extends React.Component {
                     <div className={style.partner}>
                         <div className={style.partnercon}>
                             <div className={style.pctitle}>
-                                合作伙伴  /
+                                合作伙伴 /
                             </div>
                             <div className={style.pccontent}>
                                 <div className={style.buddy}>

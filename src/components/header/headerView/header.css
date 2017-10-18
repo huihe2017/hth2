@@ -1,5 +1,5 @@
 
-.header {
+:local(.header) {
     height: 68px;
     padding-left: 36px;
     border-bottom: 1px solid rgba(59,61,64,0.5);
@@ -12,32 +12,28 @@
    
 }
 
-.header.fixed {
+:local(.header.fixed){
     /*color: #656b6f;*/
     /*background: #fff;*/
     position: fixed;
 
 }
 
-.header.absolute {
+:local(.header.absolute) {
     position: absolute;
 }
-.header.relative {
+:local(.header.relative) {
     position: relative;
 }
-.header.otherStyle {
+:local(.header.otherStyle) {
     color: #656b6f;
     background: #fff;
 }
-.logo {
+:local(.logo) {
     float: left;
     padding-top: 12px;
-
 }
-.logo img{
-    height: 30px;
-}
-.line{
+:local(.line){
     float: left;
     margin-left: 50px;
     margin-top: 19px;
@@ -45,50 +41,50 @@
     width: 1px;
     height: 30px;
 }
-.nav{
+:local(.nav){
 
     margin-left: 25px;
     margin-top: 14px;
     float: left;
 
 }
-.personCenter{
+:local(.personCenter){
     float: left;
 }
-.headerRight {
+:local(.headerRight) {
     float: right;
     line-height: 67px;
 }
-.headerRight > a {
+:local(.headerRight) > a {
     font-size: 18px;
 }
-.headerRight > a:first-child {
+:local(.headerRight > a:first-child) {
     margin-right: 45px;
 }
-.headerRight > a:hover {
+:local(.headerRight > a:hover) {
     color: #5262ff;
     cursor: pointer;
 }
 
-.headerRight > a.checked:hover {
+:local(.headerRight > a.checked:hover) {
     color: #fff;
     background: #5262ff;
     border: 1px solid #5262ff;
 }
-.headerRight > a.isPand:hover {
+:local(.headerRight > a.isPand:hover) {
     color: #fff;
 }
-.login {
+:local(.login) {
     padding: 0 30px;
 }
 
-.checked {
+:local(.checked) {
     padding: 10px;
     border: 1px solid #656b6f;
     border-radius: 5px;
 }
 
-.headerRight .isPand {
+:local(.headerRight .isPand) {
     height: 67px;
     display: inline-block;
     width: 175px;
@@ -101,7 +97,7 @@
     z-index: 28;
 }
 
-@media screen and (max-width: 750px){
+:local(@media screen and (max-width: 750px)){
     .nav{
         display: none;
     }
