@@ -42,6 +42,8 @@
 }
 :local(.perselphone){
     height: 80px;
+    position: relative;
+
 }
 :local(.submit){
     display: block;
@@ -154,8 +156,90 @@
     float: left;
     margin-left: 20px;
 }
-:local(.kaihuhang):first-child{
+:local(.kaihuhan){
+    width: 160px;
+    float: left;
 
     margin-left: 0;
 }
+.ant-form-explain, .ant-form-extra{
+    display: none;
+}
+.ant-form-item{
+    margin-bottom: 0!important;
+}
+.has-error.has-feedback:after{
+    display: none;
+}
+.has-success.has-feedback:after{
+    display: none;
+}
+:local(.errors){
+     color: #f59294;
+     font-size: 12px;
+     text-align: left;
+     line-height: 40px;
+}
+:local(.errorsp){
+    color: #f59294;
+    font-size: 12px;
+    text-align: left;
+    line-height: 40px;
+    position: absolute;
+    left: -120px;
+    top: 0;
+}
+:local(.right){
+    color: #dfdce4;
+    font-size: 12px;
+    text-align: left;
+    line-height: 40px;
+}
+:local(.rightp){
+    color: #dfdce4;
+    font-size: 12px;
+    text-align: left;
+    line-height: 40px;
+    position: absolute;
+    left: -120px;
+    top: 0;
+}
+.has-error .ant-input, .has-error .ant-input:hover {
+    border-color: #f59294!important;
+}
+:local(.input){
+    height: 40px!important;
+    padding-left: 12px!important;
 
+}
+:local(.inputp){
+    height: 40px!important;
+
+    margin-top: 40px;
+}
+.ant-select-lg .ant-select-selection__rendered{
+    line-height: 38px!important;
+    padding-left: 5px!important;
+    font-size: 14px!important;
+}
+.ant-select-lg .ant-select-selection--single{
+    height: 40px!important;
+}
+.has-error .ant-select-selection{
+    border-color: #f59294!important;
+}
+.ant-select-search__field__placeholder, .ant-select-selection__placeholder{
+    margin-left: 5px;
+}
+form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-selection__clear, form .has-feedback>.ant-select .ant-select-arrow, form .has-feedback>.ant-select .ant-select-selection__clear{
+    right: 8px!important;
+}
+
+:local(.but):hover{
+    background-color: #5262ff!important;
+    color: #fff!important;
+}
+:local(.but){
+    color: #5262ff!important;
+    border-color: #5262ff!important;
+}

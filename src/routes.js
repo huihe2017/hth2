@@ -17,10 +17,9 @@ import ForexPresentation from './containers/forexPresentation/'
 import DetailUserMsg from './containers/detailUserMsg/'
 import BaseUserMsg from './containers/baseUserMsg/'
 import PartnerReg from './containers/partnerReg/'
+import UserCenter from './containers/userCenter/'
 
 export default () => {
-
-
     return (
         <Router history={hashHistory}>
             <Route path="/" component={Home}/>
@@ -38,9 +37,9 @@ export default () => {
             <Route path="/forexPresentation" component={ForexPresentation}/>
             <Route path="/auth" component={Auth}/>
             <Route path="/detailUserMsg" component={DetailUserMsg}/>
-                <Route path="/baseUserMsg" component={BaseUserMsg}/>
+            <Route path="/baseUserMsg" component={BaseUserMsg}/>
             <Route path="/partnerReg" component={PartnerReg}/>
-
+            <Route path="/userCenter" component={UserCenter}/>
         </Router>
     )
 }

@@ -110,8 +110,19 @@ class PartnerReg extends React.Component {
 
     render() {
         const { getFieldDecorator,getFieldError } = this.props.form;
+        console.log(getFieldDecorator)
         const { autoCompleteResult } = this.state;
         const errors = getFieldError('email');
+        const errorsp = getFieldError('phone');
+        const errorsi = getFieldError('idCard');
+        const errorse = getFieldError('userName');
+        const errorsl = getFieldError('nickname');
+        const errorss = getFieldError('setAccount');
+        const errorsn = getFieldError('setNumber');
+        const errorssb = getFieldError('selectBank');
+        const errorsss = getFieldError('selectsheng');
+        const errorssc = getFieldError('selectCity');
+
 
         const formItemLayout = {
             labelCol: {
@@ -157,20 +168,15 @@ class PartnerReg extends React.Component {
                         <Title content={"/联络人信息【必填】"} color={"#5262ff"}/>
                         <div className={style.perimport}>
                             <div className={style.percontent}>
-                                <FormItem
-
-                                    hasFeedback
-                                >
+                                <FormItem hasFeedback>
                                     {getFieldDecorator('email', {
                                         rules: [{
-                                            type: 'email', message: 'The input is not valid E-mail!',
+                                            type: 'email',
                                         }, {
-                                            required: true, message: 'Please input your E-mail!',pattern:/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/}],
+                                            required: true,}],pattern:/^\S*$/
                                     })(
                                         <div>
-                                            {(errors) ? <div style={{color:'red'}} >wehwehwehw</div> : "111111"}
-                                            <div><Input placeholder="邮箱"/></div>
-                                        </div>
+                                            {(errors) ? <div className={style.errors} >联络人姓名需与身份证姓名一致</div> :<div className={style.right}>联络人姓名需与身份证姓名一致</div>}<Input className={style.input} placeholder="邮箱"/></div>
 
                                     )}
                                 </FormItem>
@@ -182,7 +188,8 @@ class PartnerReg extends React.Component {
                                 >
                                     {getFieldDecorator('userName', {rules: [ {required: true, message: '请输入账户名!', whitespace: true }],
                                     })(
-                                        <TextImport tip="文案待定" pla="账户名"/>)}
+                                        <div>
+                                            {(errorse) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}<Input className={style.input} placeholder="账户名"/></div>)}
                                 </FormItem>
                             </div>
                             <div className={style.percontent}>
@@ -191,16 +198,14 @@ class PartnerReg extends React.Component {
                                     hasFeedback
                                 >
                                     {getFieldDecorator('nickname', {
-                                        rules: [{ required: true, message: '请输入联络人信息', whitespace: true }],
-                                    })(
-                                        <TextImport tip="联络人姓名需与身份证姓名一致" pla="联络人"/>)}
+                                        rules: [{ required: true, message: '请输入联络人信息', whitespace: true,pattern:/^\S*$/}],})(<div>
+                                        {(errorsl) ? <div className={style.errors} >联络人姓名需与身份证姓名一致</div> :<div className={style.right}>联络人姓名需与身份证姓名一致</div>}<Input className={style.input} placeholder="联络人"/></div>)}
                                 </FormItem>
                             </div>
                             <div className={style.perselphone}>
-                                <span className={style.tiptext}>联络人姓名需与身份证姓名一致</span>
                                 <div className={style.selphone}>
                                     <div className={style.qh}>
-                                        <Select defaultValue="+86" size={'large'} style={{ width: 100,height:40,lineHeight:40 }} onChange={handleChange} dropdownStyle={{width:'520'}}>
+                                        <Select defaultValue="+86" size={'large'} style={{ width: 100,height:40,lineHeight:40,marginTop:40 }} onChange={handleChange} dropdownStyle={{width:'520'}}>
                                             {
                                                 qh.map((v,i)=>{
                                                     console.log(v.value[1]);
@@ -211,9 +216,9 @@ class PartnerReg extends React.Component {
                                         </Select>
                                     </div>
                                     <div className={style.phone}><FormItem>{getFieldDecorator('phone', {
-                                                rules: [{ required: true, message: 'Please input your phone number!' }],
-                                            })(
-                                                <TextImport  pla="手机号"/>
+                                                rules: [{ required: true, message: 'Please input your phone number!',pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/ }],
+                                            })(<div>
+                                        {(errorsp) ? <div className={style.errorsp} >文案待定</div> :<div className={style.rightp}>文案待定</div>}<Input className={style.inputp} placeholder="手机号"/></div>
                                             )}
                                         </FormItem>
 
@@ -225,10 +230,8 @@ class PartnerReg extends React.Component {
                                     //{...formItemLayout}
                                     hasFeedback
                                 >
-                                    {getFieldDecorator('idCard', {rules: [ {required: true, whitespace: true }],
-                                    })(
-                                        <TextImport tip="请填写15位一代身份证号或18位二代身份证号，同一个身份证号只能绑定一个海豚汇账号" pla="身份证号"/>)}
-                                </FormItem>
+                                    {getFieldDecorator('idCard', {rules: [ {required: true, whitespace: true,pattern:/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/ }],})(<div>
+                                        {(errorsi) ? <div className={style.errors} >请填写15位一代身份证号或18位二代身份证号，同一个身份证号只能绑定一个海豚汇账号</div> :<div className={style.right}>请填写15位一代身份证号或18位二代身份证号，同一个身份证号只能绑定一个海豚汇账号</div>}<Input className={style.input} placeholder="身份证号"/></div>)}</FormItem>
                             </div>
                         </div>
                         <div className={style.upfile}>
@@ -253,7 +256,7 @@ class PartnerReg extends React.Component {
                         </div>
                     </div>
                     <div className={style.bankmsg}>
-                        <Title content={"/银行卡信息【必填】"} color={"#5262ff"}/>
+                        <Title content={"/银行信息【必填】"} color={"#5262ff"}/>
                         <div className={style.perimport}>
                             <div className={style.percontent}>
                                 <FormItem
@@ -261,8 +264,8 @@ class PartnerReg extends React.Component {
                                     hasFeedback
                                 >
                                     {getFieldDecorator('setAccount', {rules: [ {required: true, whitespace: true }],
-                                    })(
-                                        <TextImport tip="文案待定" pla="结算户名"/>)}
+                                    })(<div>
+                                        {(errorss) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}<Input className={style.input} placeholder="结算户名"/></div>)}
                                 </FormItem>
 
                             </div>
@@ -273,11 +276,11 @@ class PartnerReg extends React.Component {
                                 >
                                     {getFieldDecorator('setNumber', {rules: [ {required: true, whitespace: true }],
                                     })(
-                                        <TextImport tip="文案待定" pla="结算卡号"/>)}
+                                        <div>
+                                            {(errorsn) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}<Input className={style.input} placeholder="结算卡号"/></div>)}
                                 </FormItem>
                             </div>
                             <div className={style.percontent}>
-                                <span className={style.tiptext}>文案待定</span>
                                 <FormItem
 
                                     hasFeedback
@@ -287,32 +290,27 @@ class PartnerReg extends React.Component {
                                             { required: true, message: 'Please select your country!' },
                                         ],
                                     })(
-                                        <Select placeholder="请选择银行" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
+                                        <div>
+                                            {(errorssb) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}<Select placeholder="请选择银行" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
                                             {
                                                 bank.map((v,i)=>{
                                                     console.log(v.value);
                                                     return (<Option value={v.value}>{v.value}</Option>)
-
                                                 })
                                             }
-                                        </Select>
+                                        </Select></div>
                                     )}
                                 </FormItem>
 
                             </div>
                             <div className={style.percontent}>
-                                <span className={style.tiptext}>联络人姓名需与身份证姓名一致</span>
                                 <div className={style.selphone}>
-                                    <div className={style.kaihuhang}>
-                                        <FormItem
-                                             hasFeedback
-                                        >
-                                            {getFieldDecorator('selectBank', {
+                                        <FormItem hasFeedback>
+                                            {getFieldDecorator('selectsheng', {
                                                 rules: [
                                                     { required: true, message: 'Please select your country!' },
                                                 ],
-                                            })(
-                                                <Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
+                                            })(<div className={style.selbank}>{(errorssb) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>} <div className={style.kaihuhan}><Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
                                                     {
                                                         sheng.map((v,i)=>{
                                                             console.log(v.value);
@@ -320,41 +318,18 @@ class PartnerReg extends React.Component {
 
                                                         })
                                                     }
-                                                </Select>
-                                            )}
-                                        </FormItem>
-                                    </div>
-                                    <div className={style.kaihuhang}>
-                                        <FormItem
-                                             hasFeedback
-                                        >
-                                            {getFieldDecorator('selectBank', {
-                                                rules: [
-                                                    { required: true, message: 'Please select your country!' },
-                                                ],
-                                            })(
-                                                <Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
-                                                    {
-                                                        city.map((v,i)=>{
-                                                            console.log(v.value);
-                                                            return (<Option value={v.value}>{v.value}</Option>)
+                                                </Select></div><div className={style.kaihuhang}><Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
+                                                  {
+                                                      city.map((v,i)=>{
+                                                          console.log(v.value);
+                                                          return (<Option value={v.value}>{v.value}</Option>)
 
-                                                        })
-                                                    }
-                                                </Select>
-                                            )}
-                                        </FormItem>
-                                    </div>
-                                    <div className={style.kaihuhang}>
-                                        <FormItem
-                                            //{...formItemLayout}
-                                            hasFeedback
-                                        >
-                                            {getFieldDecorator('accBank', {rules: [ {required: true, whitespace: true }],})(<Input size="large" placeholder="开户行"/>)}
+                                                      })
+                                                  }
+                                              </Select></div><div className={style.kaihuhang}><Input className={style.input} size="large" placeholder="开户行"/></div></div>)}
                                         </FormItem>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         <div className={style.upfile}>
                             <span className={style.pertip}>
@@ -374,13 +349,6 @@ class PartnerReg extends React.Component {
                                 </p>
                             </div>
                         </div>
-                    {/*<div className={style.part}>*/}
-                        {/*<Bannkmsg change={this.change} data={this.state.bankMsg}/>*/}
-                    {/*</div>*/}
-                    {/*<div className={style.part}>*/}
-                        {/*<Companymsg change={this.change} data={this.state.companyMsg}/>*/}
-                    {/*</div>*/}
-
                     </div>
                     <div className={style.companymsg}>
                         <Title content={"/公司信息【选填】"} color={"#5262ff"}/>
@@ -393,7 +361,43 @@ class PartnerReg extends React.Component {
                                             message: 'Please input your nickname',
                                         }],
                                     })(
-                                        <TextImport tip="文案待定" pla="公司名"/>
+                                        <div>
+                                            <div className={style.right}>联络人姓名需与身份证姓名一致</div><Input className={style.input} placeholder="邮箱"/></div>
+                                    )}
+                                </FormItem>
+
+                            </div>
+                            <div className={style.percontent}>
+                                <FormItem >
+                                    {getFieldDecorator('Companyname', {
+                                        rules: [{
+                                            required: this.state.checkNick,
+                                            message: 'Please input your nickname',
+                                        }],
+                                    })(<div><div className={style.right}>联络人姓名需与身份证姓名一致</div><Input  className={style.input} placeholder="公司地址"/>
+                                        </div>)}
+                                </FormItem>
+                            </div>
+                            <div className={style.percontent}>
+                                <FormItem >
+                                    {getFieldDecorator('Companyname', {
+                                        rules: [{
+                                            required: this.state.checkNick,
+                                            message: 'Please input your nickname',
+                                        }],
+                                    })(<div><div className={style.right}>联络人姓名需与身份证姓名一致</div><Input className={style.input} placeholder="统一公司引用代码"/></div>)}
+                                </FormItem>
+
+                            </div>
+                            <div className={style.percontent}>
+                                <FormItem >
+                                    {getFieldDecorator('Companyname', {
+                                        rules: [{
+                                            required: this.state.checkNick,
+                                            message: 'Please input your nickname',
+                                        }],
+                                    })(
+                                        <div><div className={style.right}>联络人姓名需与身份证姓名一致</div><Input className={style.input} placeholder="组织机构代码"/></div>
                                     )}
                                 </FormItem>
 
@@ -406,47 +410,7 @@ class PartnerReg extends React.Component {
                                             message: 'Please input your nickname',
                                         }],
                                     })(
-                                        <TextImport tip="文案待定" pla="公司地址"/>
-                                    )}
-                                </FormItem>
-
-
-                            </div>
-                            <div className={style.percontent}>
-                                <FormItem >
-                                    {getFieldDecorator('Companyname', {
-                                        rules: [{
-                                            required: this.state.checkNick,
-                                            message: 'Please input your nickname',
-                                        }],
-                                    })(
-                                        <TextImport tip="联络人姓名需与身份证姓名一致" pla="统一公司引用代码"/>
-                                    )}
-                                </FormItem>
-
-                            </div>
-                            <div className={style.percontent}>
-                                <FormItem >
-                                    {getFieldDecorator('Companyname', {
-                                        rules: [{
-                                            required: this.state.checkNick,
-                                            message: 'Please input your nickname',
-                                        }],
-                                    })(
-                                        <TextImport tip="联络人姓名需与身份证姓名一致" pla="组织机构代码"/>
-                                    )}
-                                </FormItem>
-
-                            </div>
-                            <div className={style.percontent}>
-                                <FormItem >
-                                    {getFieldDecorator('Companyname', {
-                                        rules: [{
-                                            required: this.state.checkNick,
-                                            message: 'Please input your nickname',
-                                        }],
-                                    })(
-                                        <TextImport tip="联络人姓名需与身份证姓名一致" pla="法人"/>
+                                        <div><div className={style.right}>联络人姓名需与身份证姓名一致</div><Input className={style.input} placeholder="法人"/></div>
                                     )}
                                 </FormItem>
 
@@ -475,7 +439,7 @@ class PartnerReg extends React.Component {
                                 <span className={style.protocol}>
                         提交申请即表示您已阅读并同意 <a href="javascript:void (0);">《海豚汇服务协议》</a>
                     </span>
-                        <Button type="primary" ghost htmlType="submit" style={{ display:'block',width: 200, height: 60, margin: '0 auto', marginTop: 120,fontSize: 20}}>提交申请</Button>
+                        <Button type="primary" ghost htmlType="submit" className={style.but} style={{ display:'block',width: 200, height: 60, margin: '0 auto', marginTop: 120,fontSize: 20}}>提交申请</Button>
                     </div>
                 </div>
             </Form>
