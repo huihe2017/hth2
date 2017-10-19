@@ -9,7 +9,7 @@ import Log from './components/loginBox/'
 import Reg from './components/registerBox/'
 import DolphinSchool from './containers/dolphinSchool/'
 import AboutUs from './containers/aboutUs/'
-import DealTerrace from './containers/dealTerrace/'
+import MT4Download from './containers/MT4Download/'
 import ProductDeal from './containers/productDeal/'
 import PartnerEntry from './containers/partnerEntry/'
 
@@ -23,7 +23,7 @@ export default () => {
             <Route path="/reg" component={Reg}/>
             <Route path="/aboutUs" component={AboutUs}/>
             <Route path="/DolphinSchool" component={DolphinSchool}/>
-            <Route path="/DealTerrace" component={DealTerrace}/>
+            <Route path="/MT4Download" component={MT4Download}/>
             <Route path="/ProductDeal" component={ProductDeal}/>
             <Route path="/partnerEntry" component={PartnerEntry}/>
         </Router>

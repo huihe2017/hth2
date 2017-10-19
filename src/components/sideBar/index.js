@@ -35,13 +35,13 @@ class SideBar extends Component {
                     <Link to="/ProductDeal">
                         <div className={(() => {
                             return this.checkedForPath('/ProductDeal')
-                        })()}>产品交易
+                        })()}>交易产品
                         </div>
                     </Link>
-                    <Link to="/DealTerrace">
+                    <Link to="/MT4Download">
                         <div className={(() => {
-                            return this.checkedForPath('/DealTerrace')
-                        })()}>交易平台
+                            return this.checkedForPath('/MT4Download')
+                        })()}>MT4软件下载
                         </div>
                     </Link>
                     <Link to="/aboutUs">
@@ -50,12 +50,7 @@ class SideBar extends Component {
                         })()}>关于海豚汇
                         </div>
                     </Link>
-                    <Link to="/DolphinSchool">
-                        <div className={(() => {
-                            return this.checkedForPath('/DolphinSchool')
-                        })()}>合伙人计划
-                        </div>
-                    </Link>
+
                     <Link to="/DolphinSchool">
                         <div className={(() => {
                             return this.checkedForPath('/DolphinSchool')
@@ -74,10 +69,11 @@ class SideBar extends Component {
                         {/*})()}>代理系统*/}
                         {/*</div>*/}
                     {/*</Link>*/}
+
                     <Link to="/partnerEntry">
                         <div className={(() => {
                             return this.checkedForPath('/partnerEntry')
-                        })()}>合伙人入口
+                        })()}>合伙人计划
                         </div>
                     </Link>
                     {/*<Link to="/partnerReg">*/}
