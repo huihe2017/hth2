@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './index.css'
 import {Button} from 'antd';
-import Header from '../../components/header'
+import Header from '../../components/header22'
 import {hashHistory} from 'react-router'
 
 class Home extends React.Component {
