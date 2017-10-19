@@ -38,7 +38,7 @@ class SideBar extends Component {
                         })()}>交易产品
                         </div>
                     </Link>
-                    <Link to="/DealTerrace">
+                    <Link to="/MT4Download">
                         <div className={(() => {
                             return this.checkedForPath('/MT4Download')
                         })()}>MT4软件下载
