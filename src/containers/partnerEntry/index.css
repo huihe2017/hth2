@@ -1,0 +1,38 @@
+:local(.partnerEntry){
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+}
+:local(.parenimg){
+    width: 1200px;
+    height: 360px;
+    background-image: url("./images/partnerentry-bg.png");
+}
+:local(.parencon){
+    width: 1200px;
+    height: 200px;
+    background-color: #fff;
+    padding-top: 40px;
+    font-size: 21px;
+}
+:local(.lbut){
+    float: left;
+    margin-left: 280px;
+
+}
+:local(.rbut){
+    float: left;
+    margin-left: 200px;
+
+}
+:local(.parencon) button{
+    width: 220px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #5262ff;
+    color: #5262ff;
+    font-size: 21px;
+    outline: none;
+    cursor: pointer;
+}
