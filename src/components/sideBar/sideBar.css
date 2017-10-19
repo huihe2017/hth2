@@ -2,32 +2,33 @@
     width: 420px;
     position: fixed;
     right: 0px;
+    top: 43px;
     transition: right 0.5s, 0.5s ease-out;
     background-color: rgba(59, 61, 64, 0.5);
 
 }
 
-:local(.sideBar a){
+:local(.sideBar a)  {
     color: #fff;
 
 }
 
-:local(.sideBar.hide) {
+:local(.sideBar.hide)  {
     right: -420px;
 }
 
-:local(.sideBar div) {
+:local(.sideBar div)  {
     line-height: 60px;
     font-size: 18px;
     text-align: left;
     padding-left: 30px;
 }
 
-:local(.sideBar div:hover) {
+:local(.sideBar div:hover)  {
     background: rgba(54, 59, 93, 0.5);
 }
 
-:local(.sideBar div.checked) {
+:local(.sideBar div.checked)  {
 
 }
 

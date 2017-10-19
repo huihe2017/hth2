@@ -1,7 +1,8 @@
 import React from 'react'
 import style from './index.css'
 import {Button} from 'antd';
-import Header from '../../components/header22'
+import Header from '../../components/header'
+import SideBar from '../../components/sideBar'
 import {hashHistory} from 'react-router'
 
 class Home extends React.Component {
@@ -13,6 +14,7 @@ class Home extends React.Component {
         return (
             <div className={style.wrap}>
                 <Header/>
+                <SideBar/>
                 <header className={style.header}>
                     <div className={style.button}>
                         <Button type="primary" style={{
