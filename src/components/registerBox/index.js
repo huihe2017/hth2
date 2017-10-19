@@ -2,6 +2,8 @@ import React from 'react'
 import style from "./index.css"
 import {connect} from 'react-redux'
 import { Modal,Input,Select,Form,AutoComplete,Button,Row, Col } from 'antd';
+import {bindActionCreators} from 'redux'
+import {hideAuth,showLogin} from '../../actions/auth'
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
@@ -29,9 +31,10 @@ class RegisterBox extends React.Component {
         }
     }
     hideModal = () => {
-        this.setState({
-            visible: false,
-        });
+        this.props.hideAuth()
+        // this.setState({
+        //     visible: false,
+        // });
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -155,7 +158,7 @@ class RegisterBox extends React.Component {
                                     <Button type="primary" htmlType="submit" style={{width:'100%',height:40,marginTop:20}}>完成注册并登录</Button>
                                 </FormItem>
                                 <div className={style.toggletab}>
-                                    <a className={style.reg} href="javascript:void (0)">立即登录</a>
+                                    <a onClick={()=>{this.props.showLogin()}} className={style.reg} href="javascript:void (0)">立即登录</a>
                                     <span className={style.noacc}>
                                     已有账户、
                                 </span>
@@ -176,7 +179,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        hideAuth:bindActionCreators(hideAuth,dispatch),
+        showLogin:bindActionCreators(showLogin,dispatch)
     }
 }
 

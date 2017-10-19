@@ -2,14 +2,15 @@ import {combineReducers} from 'redux'
 
 import merge from 'lodash/merge'
 
-import sign from './sign'
 import foreignExchange from './foreignExchange'
 import user from './user'
+import auth from './auth'
 
 let states = {
-    sign,
     foreignExchange,
-    user
+    user,
+    auth
+
 }
 
 let _states = {}

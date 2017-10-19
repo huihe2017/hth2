@@ -1,9 +1,14 @@
 import React from 'react';
 import style from "./index.css"
-// import {Drawer} from 'antd-mobile';
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import SideBar from '../sideBar'
+import {bindActionCreators} from 'redux'
+import {showLogin, showRegister, hideAuth} from '../../actions/auth'
+import {logout} from '../../actions/user'
+import LoginBox from '../../components/loginBox'
+import RegisterBox from '../../components/registerBox'
+
 
 class Header extends React.Component {
     constructor(props) {
@@ -79,7 +84,16 @@ class Header extends React.Component {
     closeSlider = () => {
         this.setState({open: false});
     }
+    logout = ()=>{
+        this.props.logout({
 
+        }, (errorText) => {
+            if (errorText) {
+            } else {
+                hashHistory.push('/')
+            }
+        })
+    }
     render() {
 
         return (
@@ -94,10 +108,19 @@ class Header extends React.Component {
                                 </Link>
                         }
                     </div>
+
+                    {
+                        this.props.user.userName ?
+                            <div><span  style={{color:'red'}} >{this.props.user.userName}</span>      <span onClick={this.logout} style={{color:'red'}} >退出</span></div>
+                            :
+                            <div><span onClick={()=>{this.props.showLogin()}} style={{color:'red'}} >登录</span>      <span onClick={this.props.showRegister} style={{color:'red'}} >注册</span></div>
+                    }
                     <div onMouseOver={this.openSlider} onMouseLeave={this.closeSlider} className={style.sider}>
                         <SideBar show={this.state.open}/>
                     </div>
                 </div>
+                {this.props.auth.showLoginBox ? <LoginBox/> : ''}
+                {this.props.auth.showRegisterBox ? <RegisterBox/> : ''}
             </div>
         )
     }
@@ -105,12 +128,17 @@ class Header extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
-        user: state.user
+        user: state.user,
+        auth: state.auth
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return {
+        showLogin: bindActionCreators(showLogin, dispatch),
+        logout: bindActionCreators(logout, dispatch),
+        showRegister: bindActionCreators(showRegister, dispatch)
+    }
 }
 
 Header = connect(mapStateToProps, mapDispatchToProps)(Header)

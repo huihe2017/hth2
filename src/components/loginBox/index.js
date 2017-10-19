@@ -1,68 +1,70 @@
 import React from 'react'
 import style from "./index.css"
 import {connect} from 'react-redux'
-import { Modal,Input,Select,Form,AutoComplete,Button } from 'antd';
+import { Modal,Input,Select,Form,Button } from 'antd';
+import {bindActionCreators} from 'redux'
+import {hideAuth,showRegister} from '../../actions/auth'
+import {login} from '../../actions/user'
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
 const Option = Select.Option;
 const qh=[{
     value:["中国大陆","+86"],
-    key:1
+    key:86
 }, {
     value:["中国香港","+886"],
-    key:2
+    key:886
 }, {
     value:["中国台湾","+853"],
-    key:3,
+    key:853
 
 }];
 
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
 
 class LoginBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: true
+            visible: true,
+            areaCode: ["86"],
+            picCode: '',
+            picImg: this.getPicImg(),
+            phone: '',
+            pwd: '',
         }
     }
-
+    getPicImg() {
+        return <img onClick={(e) => {
+            e.target.src = 'http://47.91.236.245:4030/user/image-captcha?tm=' + Math.random()
+        }}
+                    className={style.authCode}
+                    src={"http://47.91.236.245:4030/user/image-captcha?tm=" + Math.random()}/>
+    }
 
     hideModal = () => {
-        this.setState({
-            visible: false,
-        });
+        this.props.hideAuth()
     }
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                this.props.login({
+                    phone: this.state.areaCode + " " + this.state.phone,
+                    pwd: this.state.pwd,
+                    picCode: this.state.picCode
+                }, (errorText) => {
+                    this.setState({picImg: this.getPicImg()})
+                    if (errorText) {
+                        //this.props.hideAuth()
+                    } else {
+                        this.props.hideAuth()
+                    }
+                })
             }
         });
     }
-    handleConfirmBlur = (e) => {
-        const value = e.target.value;
-        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-    }
-    checkPassword = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && value !== form.getFieldValue('password')) {
-            callback('Two passwords that you enter is inconsistent!');
-        } else {
-            callback();
-        }
-    }
-    checkConfirm = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
-        }
-        callback();
-    }
+
 
 
 
@@ -87,13 +89,10 @@ class LoginBox extends React.Component {
                         <div className={style.perselphone}>
                             <div className={style.selphone}>
                                 <div className={style.qh}>
-                                    <Select defaultValue="+86" size={'large'} style={{ width: 80,height:40,lineHeight:40,}} onChange={handleChange} dropdownStyle={{width:'520'}}>
-                                        {
-                                            qh.map((v,i)=>{
-                                                console.log(v.value[1]);
-                                                return (<Option value={v.value[1]}>{v.value[1]}</Option>)
-                                            })
-                                        }
+                                    <Select  value={this.state.areaCode} size={'large'} style={{ width: 80,height:40,lineHeight:40,}} onChange={(value)=>{this.setState({areaCode:value})}} dropdownStyle={{width:'520'}}>
+                                        <Option value="86">+86</Option>
+                                        <Option value="87">+87</Option>
+                                        <Option value="88">+88</Option>
                                     </Select>
                                 </div>
                                 <div className={style.phone}>
@@ -101,17 +100,17 @@ class LoginBox extends React.Component {
                                     rules: [{
                                         required: true, message: '请输入正确格式的手机号码!',pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/}],
                                 })(<div>
-                                    <Input className={style.inputp} placeholder="手机号"/></div>
+                                    <Input onChange={(e)=>{this.setState({phone:e.target.value})}} className={style.inputp} placeholder="手机号"/></div>
                                 )}
                                 </FormItem>
                                 </div>
                             </div>
                             <div className={style.tuxing}>
-                                <img className={style.authCode} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508392689327&di=de9f7dd0fb15a19b677b80a6e88956f2&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F875028%2F201605%2F875028-20160513234811280-1452474757.png" alt=""/>
+                                {this.state.picImg}
                                 <FormItem>{getFieldDecorator('authCode', {
                                     rules: [{ required: true, message: '请输入正确格式的验证码!' }],
                                 })(<div>
-                                    <Input className={style.inputp} placeholder="请输入图形验证码"/></div>
+                                    <Input onChange={(e)=>{this.setState({picCode:e.target.value})}} className={style.inputp} placeholder="请输入图形验证码"/></div>
                                 )}
                                 </FormItem>
                             </div>
@@ -119,7 +118,7 @@ class LoginBox extends React.Component {
                                 <FormItem>{getFieldDecorator('password', {
                                     rules: [{ required: true, message: '请输入正确格式的密码!',pattern:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/ }],
                                 })(<div>
-                                    <Input className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
+                                    <Input onChange={(e)=>{this.setState({pwd:e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
                                 )}
                                 </FormItem>
 
@@ -129,7 +128,7 @@ class LoginBox extends React.Component {
                                 <Button type="primary" htmlType="submit" style={{width:'100%',height:40,marginTop:40}}>完成注册并登录</Button>
                             </FormItem>
                             <div className={style.toggletab}>
-                                <a className={style.reg} href="javascript:void (0)">
+                                <a onClick={this.props.showRegister} className={style.reg} href="javascript:void (0)">
                                     直接登录
                                 </a>
                                 <span className={style.noacc}>
@@ -147,26 +146,15 @@ class LoginBox extends React.Component {
     }
 }
 
-function showConfirm() {
-    confirm({
-        title: 'Do you want to delete these items?',
-        content: 'When clicked the OK button, this dialog will be closed after 1 second',
-        onOk() {
-            return new Promise((resolve, reject) => {
-                setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-            }).catch(() => console.log('Oops errors!'));
-        },
-        onCancel() {},
-    });
-}
-
 function mapStateToProps(state, props) {
     return {}
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        hideAuth:bindActionCreators(hideAuth,dispatch),
+        login: bindActionCreators(login, dispatch),
+        showRegister: bindActionCreators(showRegister, dispatch)
     }
 }
 

@@ -1,75 +1,94 @@
 import React from 'react';
-import style from  "./index.css"
-import { Input,Form,Tabs,Icon  } from 'antd'
-
+import style from "./index.css"
+import {Input, Form, Tabs, Icon} from 'antd'
+import {connect} from 'react-redux'
+import {hashHistory} from 'react-router';
+import {bindActionCreators} from 'redux'
+import {showLogin} from '../../actions/auth'
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
-const userData={
+const userData = {
     portrait: 'http://img1.tgbusdata.cn/v2/thumb/jpg/NkRCMiw2NDAsMTAwLDQsMywxLC0xLDAscms1MA==/u/wow.tgbus.com/UploadFiles_2396/201605/20160530094443812.jpg',
     userName: '水色丹青',
     phone: ['86', '13725565878'],
     MT4user: 6666666,
     floating: 44,
-    status:0,
+    status: 0,
     worth: 33,
     balance: 444,
-    dynamics:[
+    dynamics: [
         {
-            state:'complete',
-            content:'完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成'
+            state: 'complete',
+            content: '完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成完成'
         },
         {
-            state:'unComplete',
-            content:'未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成'
+            state: 'unComplete',
+            content: '未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成未完成'
         },
         {
-            state:'waiting',
-            content:'等待完成等待完成等待完成等待完等待完成等待完成等待完成等待完成等待完成等待完成等待完成等待完成成'
+            state: 'waiting',
+            content: '等待完成等待完成等待完成等待完等待完成等待完成等待完成等待完成等待完成等待完成等待完成等待完成成'
         },
         {
-            state:'news',
-            content:'新闻动态新闻动态新闻动态新闻动态'
+            state: 'news',
+            content: '新闻动态新闻动态新闻动态新闻动态'
         }
     ],
 }
 
-class userCenterHeadView extends React.Component{
-    constructor(props){
+class userCenterHeadView extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            isShow:false,
+            isShow: false,
 
         }
     }
+
     // getTime(e){
     //     let now=new Date(e);
     //     return   [now.getFullYear(),now.getMonth()+1,now.getDate()].join("-")+" "+[now.getHours(),now.getMinutes()].join(":");
     // }
-    showdata(e){
-        if(e.length==0){
+    showdata(e) {
+        if (e.length == 0) {
             return (
                 <img src={require('./images/none.png')} alt="" className={style.none}/>
             )
-        }else {
+        } else {
         }
 
     }
+
     change(vaildMsg, name) {
         // console.log(vaildMsg)
         // userData.change(vaildMsg,name)
     }
+
     submitFn() {
         // userData.submitFn()
     }
-    redact(){
+
+    redact() {
         this.setState({
-            isShow:!this.state.isShow
+            isShow: !this.state.isShow
         })
     }
-    render(){
-        let imgurl= "";
 
-        return(
+    render() {
+        if (!this.props.user.userName) {
+            this.props.showLogin({
+
+            }, (errorText) => {
+                if (errorText) {
+                } else {
+                    hashHistory.push('/')
+                }
+            })
+            return null
+        }
+        let imgurl = "";
+
+        return (
             <div className={style.user}>
                 <div className={style.userCenterHead}>
                     <div className={style.userCHl}>
@@ -82,7 +101,7 @@ class userCenterHeadView extends React.Component{
                                 <span hidden={this.state.isShow} onClick={this.submitFn.bind(this)}>保存信息</span>
                             </a>
                             <div className={style.avatar}>
-                                <img src={userData.portrait?userData.portrait:require('./images/none.png')} alt=""/>
+                                <img src={userData.portrait ? userData.portrait : require('./images/none.png')} alt=""/>
                                 <div className={style.shade} hidden={this.state.isShow}>
                                     <input type="file" className={style.file}/>
                                     点击上传
@@ -96,7 +115,7 @@ class userCenterHeadView extends React.Component{
                                     </div>
                                     <div className={style.userphone}>
                                         {
-                                            userData.phone.map((v)=>{
+                                            userData.phone.map((v) => {
                                                 return (
                                                     <span>{v}&nbsp;</span>
                                                 )
@@ -119,7 +138,13 @@ class userCenterHeadView extends React.Component{
                                     </span>
                                     <Form layout="inline">
                                         <FormItem>
-                                    <Input style={{width:300,lineHeight:40,height:40,paddingLeft:12,fontSize:16}} value={userData.userName}/>
+                                            <Input style={{
+                                                width: 300,
+                                                lineHeight: 40,
+                                                height: 40,
+                                                paddingLeft: 12,
+                                                fontSize: 16
+                                            }} value={userData.userName}/>
                                         </FormItem>
                                     </Form>
                                 </div>
@@ -158,11 +183,11 @@ class userCenterHeadView extends React.Component{
                         </span>
                         <div className={style.userCHrc}>
                             {
-                                userData.dynamics.length==0?(
+                                userData.dynamics.length == 0 ? (
                                     <img src={require('./images/none.png')} alt="" className={style.none}/>
-                                ):(userData.dynamics.map((v)=>{
+                                ) : (userData.dynamics.map((v) => {
                                     return (
-                                        <div className={style.item+" "+style.clearfloat}>
+                                        <div className={style.item + " " + style.clearfloat}>
                                             <div className={style.state}>
                                                 <img src={require(`./images/${v.state}.png`)} alt=""/>
                                             </div>
@@ -178,19 +203,19 @@ class userCenterHeadView extends React.Component{
                 </div>
                 <div className={style.cardcontainer}>
                     <Tabs type="card">
-                        <TabPane tab={<span><Icon type="download" /> &nbsp;账户入金</span>} key="1" style={{width:600}}>
+                        <TabPane tab={<span><Icon type="download"/> &nbsp;账户入金</span>} key="1" style={{width: 600}}>
                             <p>1</p>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="upload" /> &nbsp;账户出金</span>} key="2">
+                        <TabPane tab={<span><Icon type="upload"/> &nbsp;账户出金</span>} key="2">
                             <p>2</p>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="file-text" /> &nbsp;用户资料</span>} key="3">
+                        <TabPane tab={<span><Icon type="file-text"/> &nbsp;用户资料</span>} key="3">
                             <p>3</p>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="lock" /> &nbsp;更改密码</span>} key="4">
+                        <TabPane tab={<span><Icon type="lock"/> &nbsp;更改密码</span>} key="4">
                             <p>4</p>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="bar-chart" /> &nbsp;历史纪录</span>} key="5">
+                        <TabPane tab={<span><Icon type="bar-chart"/> &nbsp;历史纪录</span>} key="5">
                             <p>5</p>
                         </TabPane>
                     </Tabs>
@@ -200,4 +225,18 @@ class userCenterHeadView extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        user: state.user
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        showLogin: bindActionCreators(showLogin, dispatch)
+    }
+}
+
+userCenterHeadView = connect(mapStateToProps, mapDispatchToProps)(userCenterHeadView)
 export default userCenterHeadView;
