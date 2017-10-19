@@ -40,7 +40,7 @@ class SideBar extends Component {
                     </Link>
                     <Link to="/DealTerrace">
                         <div className={(() => {
-                            return this.checkedForPath('/DealTerrace')
+                            return this.checkedForPath('/MT4Download')
                         })()}>MT4软件下载
                         </div>
                     </Link>
