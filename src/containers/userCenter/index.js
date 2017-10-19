@@ -1,6 +1,6 @@
 import React from 'react';
 import style from  "./index.css"
-import { Input,Form,Tabs  } from 'antd'
+import { Input,Form,Tabs,Icon  } from 'antd'
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -178,20 +178,20 @@ class userCenterHeadView extends React.Component{
                 </div>
                 <div className={style.cardcontainer}>
                     <Tabs type="card">
-                        <TabPane tab="Tab Title 1" key="1">
-                            <p>Content of Tab Pane 1</p>
-                            <p>Content of Tab Pane 1</p>
-                            <p>Content of Tab Pane 1</p>
+                        <TabPane tab={<span><Icon type="download" /> &nbsp;账户入金</span>} key="1" style={{width:600}}>
+                            <p>1</p>
                         </TabPane>
-                        <TabPane tab="Tab Title 2" key="2">
-                            <p>Content of Tab Pane 2</p>
-                            <p>Content of Tab Pane 2</p>
-                            <p>Content of Tab Pane 2</p>
+                        <TabPane tab={<span><Icon type="upload" /> &nbsp;账户出金</span>} key="2">
+                            <p>2</p>
                         </TabPane>
-                        <TabPane tab="Tab Title 3" key="3">
-                            <p>Content of Tab Pane 3</p>
-                            <p>Content of Tab Pane 3</p>
-                            <p>Content of Tab Pane 3</p>
+                        <TabPane tab={<span><Icon type="file-text" /> &nbsp;用户资料</span>} key="3">
+                            <p>3</p>
+                        </TabPane>
+                        <TabPane tab={<span><Icon type="lock" /> &nbsp;更改密码</span>} key="4">
+                            <p>4</p>
+                        </TabPane>
+                        <TabPane tab={<span><Icon type="bar-chart" /> &nbsp;历史纪录</span>} key="5">
+                            <p>5</p>
                         </TabPane>
                     </Tabs>
                 </div>
