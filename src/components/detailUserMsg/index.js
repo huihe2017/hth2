@@ -167,14 +167,13 @@ class DetailUserMsg extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <div className={style.partreg}>
-
                     <div className={style.personal}>
                         <Title content={"/联络人信息"} color={"#5262ff"}/>
                         <div className={style.perimport}>
                             <div className={style.percontent}>
                                 <FormItem>
                                     <Row>
-                                        <Col span={17}>
+                                        <Col span={this.state.checkNick?25:17}>
                                             {getFieldDecorator('phone', {
                                                 rules: [{required: true,pattern: /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/}],
                                             })(
@@ -185,8 +184,8 @@ class DetailUserMsg extends React.Component {
                                                     <Input style={{height: 40, lineHeight: 40,}} onChange={(e) => {this.setState({code: e.target.value})}} disabled={this.state.checkNick}/></div>
                                             )}
                                         </Col>
-                                        <Col span={5}>
-                                            <Button style={{height: 40, marginTop: 40, width: 120, marginLeft: 20}}>发送验证码</Button>
+                                        <Col span={this.state.checkNick?0:7}>
+                                            <Button style={{height: 40, marginTop: 40, width: 130, marginLeft: 20,overflow:'hidden'}} disabled={this.state.checkNick}>发送验证码</Button>
                                         </Col>
                                     </Row>
                                 </FormItem>
@@ -400,14 +399,13 @@ class DetailUserMsg extends React.Component {
                     </div>
                     <div className={style.prfooter}>
                         <FormItem>
-                            <Button type="primary" htmlType="submit" style={{
+                            <Button type="primary" htmlType="submit" disabled={this.state.checkNick} style={{
                                 width: 160,
                                 height: 40,
                                 marginTop: 40,
                                 margin: '0 auto',
                                 fontSize: 18,
                                 display: 'block',
-                                color: '#fff'
                             }}>确认</Button>
                         </FormItem>
                     </div>
