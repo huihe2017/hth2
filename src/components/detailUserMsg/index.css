@@ -250,4 +250,7 @@ form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, f
     background-color: #5262ff!important;
     color: #fff!important;
 }
+.ant-upload-list-picture-card .ant-upload-list-item-error, .ant-upload-list-picture .ant-upload-list-item-error{
+    border-color: #3ca3fd!important;
+}
 
