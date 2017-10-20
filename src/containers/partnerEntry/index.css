@@ -1,7 +1,18 @@
+
 :local(.partnerEntry){
+    padding-bottom: 30px;
+    width: 100%;
+    background-color: rgb(245, 245, 246);
+    min-height: 556px;
+}
+:local(.wlop){
+
     width: 1200px;
-    min-height: 500px;
     margin: 0 auto;
+
+    height: 100%;
+    padding-bottom: 50px;
+    background-color: #fff;
 }
 :local(.parenimg){
     width: 1200px;
@@ -35,4 +46,7 @@
     font-size: 21px;
     outline: none;
     cursor: pointer;
+}
+:local(.conlist){
+    padding: 0 15px;
 }

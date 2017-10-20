@@ -109,16 +109,31 @@ class Header extends React.Component {
                                 </Link>
                         }
                     </div>
-
-                    {
-                        this.props.user.userName ?
-                            <div><span  style={{color:'red'}} >{this.props.user.userName}</span>      <span onClick={this.logout} style={{color:'red'}} >退出</span></div>
-                            :
-                            <div><span onClick={()=>{this.props.showLogin()}} style={{color:'red'}} >登录</span>      <span onClick={this.props.showRegister} style={{color:'red'}} >注册</span></div>
-                    }
                     <div onMouseOver={this.openSlider} onMouseLeave={this.closeSlider} className={style.sider}>
+                        全部导航
                         <SideBar show={this.state.open}/>
                     </div>
+                    {
+                        this.state.otherStyle ?
+                    <div className={style.auth}>
+                        {
+                            this.props.user.userName ?
+                                <div><span >{this.props.user.userName}</span>      <span onClick={this.logout} >退出</span></div>
+                                :
+                                <div><span onClick={()=>{this.props.showLogin()}}  >登录</span>      <span onClick={this.props.showRegister} >注册</span></div>
+                        }
+                    </div>:
+                            <div className={style.autht}>
+                                {
+                                    this.props.user.userName ?
+                                        <div><span >{this.props.user.userName}</span>      <span onClick={this.logout} >退出</span></div>
+                                        :
+                                        <div><span onClick={()=>{this.props.showLogin()}} >登录</span>      <span onClick={this.props.showRegister}  >注册</span></div>
+                                }
+                            </div>
+                    }
+
+
                 </div>
                 {this.props.auth.showLoginBox ? <LoginBox/> : ''}
                 {this.props.auth.showRegisterBox ? <RegisterBox/> : ''}

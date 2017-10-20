@@ -210,12 +210,7 @@ class ResetPwdBox extends React.Component {
                                         }],
                                     })(<div>
                                         <Input onChange={
-                                            (e) => {
-                                                this.setState({password: e.target.value})
-                                            }
-                                        }
-                                               className={style.inputp}
-                                               placeholder="密码6-24位字母、数字、字符"/></div>
+                                            (e) => {this.setState({password: e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符" type={'password'}/></div>
                                     )}
                                     </FormItem>
                                 </div>
@@ -245,7 +240,7 @@ class ResetPwdBox extends React.Component {
                                 </div>
                                 <FormItem>
                                     <Button type="primary" htmlType="submit"
-                                            style={{width: '100%', height: 40, marginTop: 20}}>确认修改密码</Button>
+                                            style={{width: '100%', height: 40, marginTop: 20,marginBottom:60}}>确认修改密码</Button>
                                 </FormItem>
 
                             </div>

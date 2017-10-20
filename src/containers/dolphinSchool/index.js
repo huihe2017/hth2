@@ -126,12 +126,15 @@ class DolphinSchool extends React.Component {
         return(
             <div className={style.aboutus}>
                 <Header/>
-                <div className={style.header}>
-                    <Title content="/外汇交易术语" color="#5262ff" big={true} bold={true}/>
+                <div className={style.wlop}>
+                    <div className={style.header}>
+                        <Title content="/外汇交易术语" color="#5262ff" big={true} bold={true}/>
+                    </div>
+                    <div className={style.content}>
+                        <ContentList data={data}/>
+                    </div>
                 </div>
-                <div className={style.content}>
-                    <ContentList data={data}/>
-                </div>
+
             </div>
         )
     }

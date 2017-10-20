@@ -250,7 +250,4 @@ form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, f
     background-color: #5262ff!important;
     color: #fff!important;
 }
-:local(.but){
-    color: #5262ff!important;
-    border-color: #5262ff!important;
-}
+

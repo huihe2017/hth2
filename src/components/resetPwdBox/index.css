@@ -1,3 +1,6 @@
+:local(.wrap){
+
+}
 :local(.part1){
     margin-bottom: 12px;
 }
@@ -76,7 +79,4 @@
 }
 :local(.noacc),:local(.reg){
     float: right;
-}
-:local(.forpass){
-    float: left;
 }

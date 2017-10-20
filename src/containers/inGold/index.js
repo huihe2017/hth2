@@ -211,8 +211,8 @@ class InGold extends React.Component {
                         注：支持以上银行储蓄卡或信用卡，如有疑问请联系客服电话：400-9317-188
                     </span>
                         <div className={style.but}>
-                            <FormItem >
-                                <Button type="primary" htmlType="submit">确认充值</Button>
+                            <FormItem>
+                                <Button type="primary" htmlType="submit"  style={{width:160,height:40,marginTop:40,margin:'0 auto',fontSize:18,display:'block',color:'#fff'}}>确认入金</Button>
                             </FormItem>
                         </div>
                     </div>

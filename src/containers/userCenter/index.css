@@ -1,6 +1,17 @@
-:local(.user){
+:local(.aboutus){
+    padding-bottom: 30px;
+    width: 100%;
+    background-color: rgb(245, 245, 246);
+    min-height: 556px;
+}
+:local(.wlop){
+
     width: 1200px;
     margin: 0 auto;
+
+    height: 100%;
+    padding-bottom: 50px;
+
 }
 :local(.userCenterHead){
     background-color: #fff;
@@ -22,6 +33,11 @@
     padding-bottom: 6px;
     border-bottom: 1px solid #dfdce4;
 
+}
+:local(.cardcontainer){
+    margin-top: 20px;
+    background-color: #fff;
+    padding-bottom: 40px;
 }
 :local(.userchvheader){
     width: 780px;

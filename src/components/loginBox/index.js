@@ -106,24 +106,25 @@ class LoginBox extends React.Component {
                                 <FormItem>{getFieldDecorator('password', {
                                     rules: [{ required: true, message: '请输入正确格式的密码!',pattern:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/ }],
                                 })(<div>
-                                    <Input onChange={(e)=>{this.setState({pwd:e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
+                                    <Input type={'password'} onChange={(e)=>{this.setState({pwd:e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
                                 )}
                                 </FormItem>
 
                             </div>
 
                             <FormItem>
-                                <Button type="primary" htmlType="submit" style={{width:'100%',height:40,marginTop:40}}>完成注册并登录</Button>
+                                <Button type="primary" htmlType="submit" style={{width:'100%',height:40,marginTop:40}}>马上登录</Button>
                             </FormItem>
                             <div className={style.toggletab}>
+                                <div onClick={()=>{this.props.showResetPwd()}} className={style.forpass}>忘记密码</div>
                                 <a onClick={this.props.showRegister} className={style.reg} href="javascript:void (0)">
-                                    直接登录
+                                    注册账号
                                 </a>
                                 <span className={style.noacc}>
-                                    已有账户、
+                                    没有账户、
                                 </span>
                             </div>
-                            <div onClick={()=>{this.props.showResetPwd()}} >忘记密码</div>
+
                         </div>
                     </div>
                     </Form>

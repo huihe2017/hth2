@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import Title from '../../components/title'
 import ContentList from '../../components/contentList'
 import { Button } from 'antd'
+import Header from '../../components/header'
 
 let data= [
     {
@@ -24,55 +25,59 @@ class DealTerrace extends React.Component {
     render() {
         return(
             <div className={style.aboutus}>
-                <div className={style.header}>
-                    <Title content="/交易平台" color="#5262ff" big={true} bold={true}/>
-                </div>
-                <div className={style.content}>
-                    <ContentList data={data}/>
-                    <div className={style.pc}>
-                        <div className={style.title}>
-                            <span>电脑版MT4下载：</span>
-                        </div>
-                        <div className={style.pcdown}>
-                            <img src={require('./images/pcDownload.png')} alt=""/>
-                            <div className={style.but}>
-                                <Button type="primary" ghost icon="windows" style={{width: '220', height: '60', fontSize: '22'}}>&nbsp;windows下载</Button>
-                            </div>
-
-
-                        </div>
+                <Header/>
+                <div className={style.wlop}>
+                    <div className={style.header}>
+                        <Title content="/交易平台" color="#5262ff" big={true} bold={true}/>
                     </div>
-                    <div className={style.mobile}>
-                        <div className={style.title}>
-                            <span>手机版MT4下载：</span>
+                    <div className={style.content}>
+                        <ContentList data={data}/>
+                        <div className={style.pc}>
+                            <div className={style.title}>
+                                <span>电脑版MT4下载：</span>
+                            </div>
+                            <div className={style.pcdown}>
+                                <img src={require('./images/pcDownload.png')} alt=""/>
+                                <div className={style.but}>
+                                    <Button type="primary" ghost icon="windows" style={{width: '220', height: '60', fontSize: '22'}}>&nbsp;windows下载</Button>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <span className={style.mobiletitle}>温馨提示：目前Android版本只支持浏览器扫描器下载，以此造成的不便，请谅解</span>
-                        <div className={style.mobiledown}>
-                            <div className={style.iosdown}>
+                        <div className={style.mobile}>
+                            <div className={style.title}>
+                                <span>手机版MT4下载：</span>
+                            </div>
+                            <span className={style.mobiletitle}>温馨提示：目前Android版本只支持浏览器扫描器下载，以此造成的不便，请谅解</span>
+                            <div className={style.mobiledown}>
+                                <div className={style.iosdown}>
                                 <span className={style.mtitlet}>
                                     扫一扫
                                 </span>
-                                <span className={style.mtitleb}>
+                                    <span className={style.mtitleb}>
                                     iOS版本下载
                                 </span>
-                                <div className={style.iosqcoad}>
-                                    <img src={require('./images/qcode.jpg')} alt=""/>
+                                    <div className={style.iosqcoad}>
+                                        <img src={require('./images/qcode.jpg')} alt=""/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className={style.andrioddown}>
+                                <div className={style.andrioddown}>
                                 <span className={style.mtitlet}>
                                     扫一扫
                                 </span>
-                                <span className={style.mtitleb}>
+                                    <span className={style.mtitleb}>
                                     Android版本下载
                                 </span>
-                                <div className={style.iosqcoad}>
-                                    <img src={require('./images/qcode.jpg')} alt=""/>
+                                    <div className={style.iosqcoad}>
+                                        <img src={require('./images/qcode.jpg')} alt=""/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         )
     }

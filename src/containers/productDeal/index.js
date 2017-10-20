@@ -4,6 +4,7 @@ import Title from '../../components/title'
 import ContentList from '../../components/contentList'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
+import Header from '../../components/header'
 
 let data= [
     {
@@ -41,13 +42,17 @@ class ProductDeal extends React.Component {
     render() {
         return(
             <div className={style.aboutus}>
-                <div className={style.header}>
-                    <Title content="/外汇" color="#5262ff" big={true} bold={true}/>
+                <Header/>
+                <div className={style.wlop}>
+                    <div className={style.header}>
+                        <Title content="/外汇" color="#5262ff" big={true} bold={true}/>
+                    </div>
+
+                    <div className={style.content}>
+                        <ContentList data={data}/>
+                    </div>
                 </div>
 
-                <div className={style.content}>
-                    <ContentList data={data}/>
-                </div>
             </div>
         )
     }

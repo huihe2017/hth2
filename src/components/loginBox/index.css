@@ -10,9 +10,6 @@
     padding: 0 15px;
     color: #aaa;
 }
-:local(.forpass){
-    color: #5262ff;
-}
 :local(.button){
     margin-top: 60px;
 }
@@ -76,4 +73,5 @@
 }
 :local(.forpass){
     float: left;
+    cursor: pointer;
 }

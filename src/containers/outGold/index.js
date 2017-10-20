@@ -135,8 +135,8 @@ class OutGold extends React.Component {
                     </div>
                 </div>
                 <div className={style.but}>
-                    <FormItem >
-                        <Button type="primary" htmlType="submit">Register</Button>
+                    <FormItem>
+                        <Button type="primary" htmlType="submit"  style={{width:160,height:40,marginTop:40,margin:'0 auto',fontSize:18,display:'block',color:'#fff'}}>确认出金</Button>
                     </FormItem>
                 </div>
                 </Form>

@@ -210,12 +210,7 @@ class RegisterBox extends React.Component {
                                         }],
                                     })(<div>
                                         <Input onChange={
-                                            (e) => {
-                                                this.setState({password: e.target.value})
-                                            }
-                                        }
-                                               className={style.inputp}
-                                               placeholder="密码6-24位字母、数字、字符"/></div>
+                                            (e) => {this.setState({password: e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符" type={'password'}/></div>
                                     )}
                                     </FormItem>
                                 </div>

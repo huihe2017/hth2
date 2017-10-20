@@ -334,7 +334,9 @@ class DetailUserMsg extends React.Component {
                         </div>
                     </div>
                     <div className={style.prfooter}>
-                        <Button type="primary" ghost htmlType="submit" className={style.but} style={{ display:'block',width: 200, height: 60, margin: '0 auto', marginTop: 120,fontSize: 20}}>提交申请</Button>
+                        <FormItem>
+                            <Button type="primary" htmlType="submit"  style={{width:160,height:40,marginTop:40,margin:'0 auto',fontSize:18,display:'block',color:'#fff'}}>确认</Button>
+                        </FormItem>
                     </div>
                 </div>
             </Form>

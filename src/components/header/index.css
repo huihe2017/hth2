@@ -1,27 +1,51 @@
 :local(.wrap) {
-    height: 44px;
+    height: 68px;
     z-index: 2;
+    padding-left: 36px;
+    border-bottom: 1px solid rgba(59,61,64,.5);
+    width: 100%;
+    font-size: 18px;
 }
-
+:local(.auth){
+    float: right;
+}
+:local(.autht){
+    float: right;
+}
+:local(.auth) span{
+    padding: 0 30px;
+    color: #656b6f;
+    line-height: 68px;
+    cursor: pointer;
+}
+:local(.autht) span{
+    padding: 0 30px;
+    color: #fff;
+    line-height: 68px;
+    cursor: pointer;
+}
 :local(.logo) {
-     float: left;
-    margin-left: 12px;
-    margin-top: 7px;
+    float: left;
+    margin-top: 12px;
 }
 :local(.logo) img{
-    height: 30px;
+    height: 44px;
 }
 :local(.sider) {
+    margin-left: 30px;
+    color: #fff;
+    line-height: 68px;
+    text-align: center;
+    padding-left: 25px;
     float: right;
-    width: 70px;
-    height: 44px;
+    width: 175px;
+    height: 68px;
     background: #5262ff;
     background-image: url("./menu.png");
     background-size: 20px 20px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 25px;
 }
-
 :local(.navlist){
     width: 160px;
     height: 40px;
@@ -32,7 +56,6 @@
     display: block;
     color: #fff;
     background-color: #656b6f;
-    font-size: 16px;
     text-align: center;
 }
 :local(.wrap.absolute) {
