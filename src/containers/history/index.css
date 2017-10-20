@@ -13,3 +13,7 @@
 :local(.red){
     color: #f59294;
 }
+:local(.img){
+    display: block;
+    margin: 0 auto;
+}
