@@ -2,7 +2,7 @@ import React from "react";
 import style from "./index.css";
 import Title from "../../components/title/index";
 import { Input,Select,Form,AutoComplete,Button } from 'antd';
-import UploadImg from './uploadImg'
+import UploadImg from '../../components/uploadImg'
 // import Personmsg from "./personalMsg/index";
 // import Bannkmsg from "./bankMsg/index";
 // import Companymsg from "./companyMsg/index";

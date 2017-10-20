@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./index.css"
-import Title from '../../components/title'
-import ContentList from '../../components/contentList'
+import Title from '../title/index'
+import ContentList from '../contentList/index'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 

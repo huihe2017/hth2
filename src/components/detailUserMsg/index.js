@@ -5,7 +5,7 @@ import ContentList from '../../components/contentList'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import { Input,Select,Form,AutoComplete,Button,Row,Col } from 'antd';
-import UploadImg from '../partnerReg/uploadImg'
+import UploadImg from '../uploadImg'
 
 const FormItem = Form.Item;
 const Option = Select.Option;

@@ -5,11 +5,11 @@ import {connect} from 'react-redux'
 import {hashHistory} from 'react-router';
 import {bindActionCreators} from 'redux'
 import {showLogin} from '../../actions/auth'
-import InGold from '../inGold'
-import OutGold from '../outGold'
-import DetailUserMsg from '../detailUserMsg'
-import History from '../history'
-import ForgetPwd from '../forgetPwd'
+import InGold from '../../components/inGold'
+import OutGold from '../../components/outGold'
+import DetailUserMsg from '../../components/detailUserMsg'
+import History from '../../components/history'
+import ForgetPwd from '../../components/forgetPwd'
 import Header from '../../components/header'
 
 const FormItem = Form.Item;

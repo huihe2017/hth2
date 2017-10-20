@@ -19,7 +19,11 @@ class UploadImg extends React.Component {
         });
     }
 
-    handleChange = ({ fileList }) => this.setState({ fileList })
+    //handleChange = ({ fileList }) => this.setState({ fileList })
+    handleChange = (gg) => {
+        this.setState({ fileList:gg },()=>{console.log("tttttt",this.state.fileList)})
+
+    }
 
     render() {
         const { previewVisible, previewImage, fileList } = this.state;
@@ -33,12 +37,13 @@ class UploadImg extends React.Component {
         return (
             <div className="clearfix">
                 <Upload
-                    action="//jsonplaceholder.typicode.com/posts/"
+                    action="http://47.91.236.245:4030/user/uploads"
                     style={{width:'220',height:'150',position: 'relative',overflow:'hidden'}}
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={this.handlePreview}
                     onChange={this.handleChange}
+                    withCredentials={true}
                 >
                     {fileList.length >= 1 ? null : uploadButton}
                 </Upload>
