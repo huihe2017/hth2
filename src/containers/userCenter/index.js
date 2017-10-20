@@ -5,6 +5,12 @@ import {connect} from 'react-redux'
 import {hashHistory} from 'react-router';
 import {bindActionCreators} from 'redux'
 import {showLogin} from '../../actions/auth'
+import InGold from '../inGold'
+import OutGold from '../outGold'
+import DetailUserMsg from '../detailUserMsg'
+import History from '../history'
+import ForgetPwd from '../forgetPwd'
+
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
 const userData = {
@@ -203,20 +209,20 @@ class userCenterHeadView extends React.Component {
                 </div>
                 <div className={style.cardcontainer}>
                     <Tabs type="card">
-                        <TabPane tab={<span><Icon type="download"/> &nbsp;账户入金</span>} key="1" style={{width: 600}}>
-                            <p>1</p>
+                        <TabPane tab={<span style={{display:'block',width:240}}><Icon type="download"/> &nbsp;账户入金</span>} key="1">
+                            <InGold/>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="upload"/> &nbsp;账户出金</span>} key="2">
-                            <p>2</p>
+                        <TabPane tab={<span style={{display:'block',width:240}}><Icon type="upload"/> &nbsp;账户出金</span>} key="2">
+                            <OutGold/>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="file-text"/> &nbsp;用户资料</span>} key="3">
-                            <p>3</p>
+                        <TabPane tab={<span style={{display:'block',width:240}}><Icon type="file-text"/> &nbsp;用户资料</span>} key="3">
+                            <DetailUserMsg/>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="lock"/> &nbsp;更改密码</span>} key="4">
-                            <p>4</p>
+                        <TabPane tab={<span style={{display:'block',width:240}}><Icon type="lock"/> &nbsp;更改密码</span>} key="4">
+                            <ForgetPwd/>
                         </TabPane>
-                        <TabPane tab={<span><Icon type="bar-chart"/> &nbsp;历史纪录</span>} key="5">
-                            <p>5</p>
+                        <TabPane tab={<span style={{display:'block',width:240}}><Icon type="bar-chart"/> &nbsp;历史纪录</span>} key="5">
+                            <History/>
                         </TabPane>
                     </Tabs>
                 </div>

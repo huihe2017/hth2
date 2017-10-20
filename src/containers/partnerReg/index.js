@@ -1,8 +1,7 @@
 import React from "react";
 import style from "./index.css";
-import Title from "./title/index";
+import Title from "../../components/title/index";
 import { Input,Select,Form,AutoComplete,Button } from 'antd';
-import TextImport from './input'
 import UploadImg from './uploadImg'
 // import Personmsg from "./personalMsg/index";
 // import Bannkmsg from "./bankMsg/index";

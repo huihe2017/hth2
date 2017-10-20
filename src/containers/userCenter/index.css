@@ -225,7 +225,6 @@
     background-color: transparent!important;
     padding: 0!important;
     border: 0!important;
-    width: 240px;
     text-align: center;
 }
 .ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab-active {
