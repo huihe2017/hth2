@@ -20,9 +20,11 @@ class UploadImg extends React.Component {
     }
 
     //handleChange = ({ fileList }) => this.setState({ fileList })
-    handleChange = (gg) => {
-        this.setState({ fileList:gg },()=>{console.log("tttttt",this.state.fileList)})
-
+    handleChange = ({fileList}) => {
+        this.setState({ fileList:fileList },()=>{
+            //console.log("gfgg",this.state.fileList[0].response.data)
+            this.props.onChange(this.state.fileList[0]&&this.state.fileList[0].response&&this.state.fileList[0].response.data)
+        })
     }
 
     render() {
