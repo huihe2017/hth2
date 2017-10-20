@@ -5,6 +5,7 @@ import { Modal,Input,Select,Form,Button } from 'antd';
 import {bindActionCreators} from 'redux'
 import {hideAuth,showRegister,showResetPwd} from '../../actions/auth'
 import {login,resetPwd} from '../../actions/user'
+import Toast from '../../components/toast'
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
@@ -34,6 +35,11 @@ class LoginBox extends React.Component {
         this.props.hideAuth()
     }
     handleSubmit = (e) => {
+        // Toast({
+        //     type: "success",
+        //     msg: '账号或密码错误',
+        //     duration: 2000
+        // })
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {

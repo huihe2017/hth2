@@ -60,8 +60,8 @@ class Countdown extends React.Component {
                     <Input onChange={this.props.onChange} className={style.inputyz} placeholder="短信验证码"/>
 
                 </Col>
-                <Col span={8}>
-                    <Button onClick={this.handle} className={this.props.className} style={{height: 40}}>{this.state.extraText}</Button>
+                <Col span={9}>
+                    <Button onClick={this.handle} className={this.props.className} style={{height: 40,width:100,marginLeft:15}}>{this.state.extraText}</Button>
                 </Col>
             </Row>
         )
