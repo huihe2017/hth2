@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9eaf612a-ca36-4e75-a6b7-2f658dbec1a9" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/detailUserMsg/index.css" afterPath="$PROJECT_DIR$/src/components/detailUserMsg/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/detailUserMsg/index.js" afterPath="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/forgetPwd/index.css" afterPath="$PROJECT_DIR$/src/components/forgetPwd/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/forgetPwd/index.js" afterPath="$PROJECT_DIR$/src/components/forgetPwd/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/history/images/nodata.png" afterPath="$PROJECT_DIR$/src/components/history/images/nodata.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/history/index.css" afterPath="$PROJECT_DIR$/src/components/history/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/history/index.js" afterPath="$PROJECT_DIR$/src/components/history/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/0.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/1.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/10.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/10.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/11.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/11.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/12.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/12.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/13.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/13.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/14.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/14.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/15.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/15.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/16.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/16.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/2.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/3.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/4.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/5.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/5.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/6.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/6.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/7.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/7.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/8.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/8.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/images/9.png" afterPath="$PROJECT_DIR$/src/components/inGold/images/9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/index.css" afterPath="$PROJECT_DIR$/src/components/inGold/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/inGold/index.js" afterPath="$PROJECT_DIR$/src/components/inGold/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/outGold/index.css" afterPath="$PROJECT_DIR$/src/components/outGold/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/outGold/index.js" afterPath="$PROJECT_DIR$/src/components/outGold/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/partnerReg/uploadImg/index.css" afterPath="$PROJECT_DIR$/src/components/uploadImg/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/partnerReg/uploadImg/index.js" afterPath="$PROJECT_DIR$/src/components/uploadImg/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/partnerReg/index.js" afterPath="$PROJECT_DIR$/src/containers/partnerReg/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/userCenter/index.js" afterPath="$PROJECT_DIR$/src/containers/userCenter/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/foreignExchange.js" afterPath="$PROJECT_DIR$/src/actions/foreignExchange.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/detailUserMsg/index.js" afterPath="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/uploadImg/index.js" afterPath="$PROJECT_DIR$/src/components/uploadImg/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,38 +19,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nodata.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/history/images/nodata.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/detailUserMsg/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="76" column="66" lean-forward="true" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foreignExchange.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/foreignExchange.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/history/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/uploadImg/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="171">
+              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/history/index.css">
+      <file leaf-file-name="foreignExchange.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reducers/foreignExchange.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/containers/userCenter/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+            <state relative-caret-position="741">
+              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -89,7 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentPassword</find>
       <find>outGoldValue</find>
       <find>forss</find>
       <find>submitFn</find>
@@ -119,6 +96,7 @@
       <find>getPicImg</find>
       <find>register</find>
       <find>上传身份证照片</find>
+      <find>UploadImg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/containers/speedAccount/index.js" />
         <option value="$PROJECT_DIR$/src/components/speedID/index.js" />
         <option value="$PROJECT_DIR$/src/containers/getAccount/index.js" />
         <option value="$PROJECT_DIR$/src/components/phoneConfirm/index.js" />
@@ -144,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/containers/history/index.js" />
         <option value="$PROJECT_DIR$/src/common.css" />
         <option value="$PROJECT_DIR$/src/reducers/foreignExchange.js" />
-        <option value="$PROJECT_DIR$/src/actions/foreignExchange.js" />
         <option value="$PROJECT_DIR$/src/common/axiosConf.js" />
         <option value="$PROJECT_DIR$/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/src/containers/auth/index.js" />
@@ -176,8 +152,10 @@
         <option value="$PROJECT_DIR$/src/containers/aboutUs/index.js" />
         <option value="$PROJECT_DIR$/src/containers/dolphinSchool/index.js" />
         <option value="$PROJECT_DIR$/src/containers/partnerReg/uploadImg/index.js" />
-        <option value="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
         <option value="$PROJECT_DIR$/src/containers/userCenter/index.js" />
+        <option value="$PROJECT_DIR$/src/actions/foreignExchange.js" />
+        <option value="$PROJECT_DIR$/src/components/uploadImg/index.js" />
+        <option value="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
       </list>
     </option>
   </component>
@@ -244,6 +222,12 @@
               <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
               <item name="hth2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hth2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -251,7 +235,7 @@
               <item name="hth2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="inGold" type="462c0819:PsiDirectoryNode" />
+              <item name="uploadImg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
@@ -264,7 +248,13 @@
               <item name="hth2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="userCenter" type="462c0819:PsiDirectoryNode" />
+              <item name="partnerReg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hth2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -318,12 +308,12 @@
       <workItem from="1508316333251" duration="7982000" />
       <workItem from="1508377693746" duration="3465000" />
       <workItem from="1508381784546" duration="3256000" />
-      <workItem from="1508392899342" duration="34131000" />
+      <workItem from="1508392899342" duration="40254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147431000" />
+    <option name="totallyTimeSpent" value="153554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="404" y="12" width="1366" height="1006" extended-state="0" />
@@ -359,7 +349,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/bankCardMsg/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/phoneConfirm/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/speedID/index.css" />
     <entry file="file://$PROJECT_DIR$/src/components/sideBar/index.js">
@@ -414,14 +403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/foreignExchange.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -594,28 +575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/uploadImg/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/uploadImg/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/detailUserMsg/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -702,11 +665,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/history/images/nodata.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/history/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -725,9 +683,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/userCenter/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state relative-caret-position="1501">
+          <caret line="91" column="17" lean-forward="true" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/history/images/nodata.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/foreignExchange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/foreignExchange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/uploadImg/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/detailUserMsg/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="76" column="66" lean-forward="true" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
