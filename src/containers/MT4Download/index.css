@@ -1,5 +1,5 @@
 :local(.aboutus){
-    padding-bottom: 30px;
+
     width: 100%;
     background-color: rgb(245, 245, 246);
     min-height: 556px;
@@ -8,7 +8,7 @@
 
     width: 1200px;
     margin: 0 auto;
-
+    margin-bottom: 30px;
     height: 100%;
     padding: 0 30px;
     padding-top: 48px;

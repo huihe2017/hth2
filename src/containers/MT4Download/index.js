@@ -6,6 +6,7 @@ import Title from '../../components/title'
 import ContentList from '../../components/contentList'
 import { Button } from 'antd'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 let data= [
     {
@@ -77,7 +78,7 @@ class DealTerrace extends React.Component {
                         </div>
                     </div>
                 </div>
-
+                <Footer/>
             </div>
         )
     }

@@ -1,6 +1,5 @@
 
 :local(.aboutus){
-    padding-bottom: 30px;
     width: 100%;
     background-color: rgb(245, 245, 246);
     min-height: 556px;
@@ -15,6 +14,7 @@
     padding-top: 48px;
     padding-bottom: 50px;
     background-color: #fff;
+    margin-bottom: 30px;
 }
 :local(.header){
     margin-bottom: 80px;

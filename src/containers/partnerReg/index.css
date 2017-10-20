@@ -1,12 +1,20 @@
 
-:local(.partreg) {
-    font-size: 14px;
+
+:local(.wlop){
+    width: 100%;
+    background-color: rgb(245, 245, 246);
+    min-height: 556px;
+}
+:local(.partreg){
+
     width: 1200px;
     margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    background: #fff;
-
+    margin-bottom: 30px;
+    height: 100%;
+    padding: 0 30px;
+    padding-top: 48px;
+    padding-bottom: 50px;
+    background-color: #fff;
 }
 :local(.avatar){
     width: 160px;

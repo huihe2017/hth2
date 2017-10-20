@@ -5,6 +5,7 @@ import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import ContentList from '../../components/contentList'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 let data= [
     {
@@ -57,8 +58,7 @@ class PartnerEntry extends React.Component {
                     <div className={style.conlist}>
                         <ContentList data={data}/></div>
                     </div>
-
-
+                <Footer/>
             </div>
         )
     }

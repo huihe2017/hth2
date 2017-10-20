@@ -2,6 +2,7 @@ import React from 'react'
 import style from './index.css'
 import {Button} from 'antd';
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import SideBar from '../../components/sideBar'
 import {hashHistory} from 'react-router'
 
@@ -130,6 +131,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         )
     }

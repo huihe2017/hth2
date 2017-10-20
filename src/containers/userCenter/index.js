@@ -11,6 +11,7 @@ import DetailUserMsg from '../../components/detailUserMsg'
 import History from '../../components/history'
 import ForgetPwd from '../../components/forgetPwd'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -230,7 +231,7 @@ class userCenterHeadView extends React.Component {
                         </Tabs>
                     </div>
                 </div>
-
+                <Footer/>
             </div>
 
         )
