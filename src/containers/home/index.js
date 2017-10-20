@@ -15,17 +15,15 @@ class Home extends React.Component {
             <div className={style.wrap}>
                 <Header/>
                 <SideBar/>
-                <header className={style.header}>
+                <div className={style.header}>
                     <div className={style.button}>
                         <Button type="primary" style={{
                             width: '200',
                             height: '60',
-                            position: 'absolute',
-                            bottom: '120',
                             fontSize: '24px'
                         }}>极速开户</Button>
                     </div>
-                </header>
+                </div>
                 <div className="section">
                     <div className={style.superiority}>
 
