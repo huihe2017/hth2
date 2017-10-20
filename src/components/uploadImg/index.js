@@ -28,6 +28,7 @@ class UploadImg extends React.Component {
     }
 
     render() {
+        console.log(this.props.dis)
         const { previewVisible, previewImage, fileList } = this.state;
         const uploadButton = (
             <div className={style.uploadTip}>
@@ -39,6 +40,7 @@ class UploadImg extends React.Component {
         return (
             <div className="clearfix">
                 <Upload
+                    disabled={this.props.dis}
                     action="http://47.91.236.245:4030/user/uploads"
                     style={{width:'220',height:'150',position: 'relative',overflow:'hidden'}}
                     listType="picture-card"
