@@ -68,7 +68,8 @@ export function register(data, callback) {
         })
             .then(function (response) {
                 if (response.data.code === 0) {
-                    dispatch({type: 'REGISTER'})
+                    //登录并注册
+                    dispatch({type: 'LOGIN', data: response.data.data})
                     callback()
                 } else {
                     callback(response.data.msg)
@@ -82,12 +83,10 @@ export function register(data, callback) {
 
 export function getBaseUserMsg(data, callback) {
     return dispatch => {
-        axios.get('http://47.91.236.245:4030/user/customer/trade-info', {
-
-        })
+        axios.get('http://47.91.236.245:4030/user/customer/trade-info', {})
             .then(function (response) {
                 if (response.data.code === 0) {
-                    dispatch({type: 'GET_BASEUSERMSG',data:response.data.data[0]})
+                    dispatch({type: 'GET_BASEUSERMSG', data: response.data.data[0]})
                     callback()
                 } else {
                     callback(response.data.msg)
@@ -101,12 +100,33 @@ export function getBaseUserMsg(data, callback) {
 
 export function getDetailMsg(data, callback) {
     return dispatch => {
-        axios.get('http://47.91.236.245:4030/user/customer/bank-card', {
+        axios.get('http://47.91.236.245:4030/user/customer/bank-card', {})
+            .then(function (response) {
+                if (response.data.code === 0) {
+                    dispatch({type: 'GET_DETAILMSG', data: response.data.data})
+                } else {
+                    callback(response.data.msg)
+                }
+            })
+            .catch(function (error) {
+                alert(error);
+            });
+    }
+}
 
+
+export function resetPwd(data, callback) {
+    return dispatch => {
+        axios.put('http://47.91.236.245:4030/user/customer/reset-password', {
+            phone: data.phone,
+            password: data.pwd,
+            sms_captcha: data.code
         })
             .then(function (response) {
                 if (response.data.code === 0) {
-                    dispatch({type: 'GET_DETAILMSG', data:response.data.data})
+                    //登录并注册
+                    dispatch({type: 'RESET_PWD', data: response.data.data})
+                    callback()
                 } else {
                     callback(response.data.msg)
                 }

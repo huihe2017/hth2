@@ -5,7 +5,7 @@ import {Modal, Input, Select, Form, AutoComplete, Button, Row, Col} from 'antd';
 import {bindActionCreators} from 'redux'
 import {hashHistory} from 'react-router'
 import {hideAuth, showLogin} from '../../actions/auth'
-import {register} from '../../actions/user'
+import {resetPwd} from '../../actions/user'
 import Countdown from '../../components/countdown'
 
 const confirm = Modal.info;
@@ -17,7 +17,7 @@ function handleChange(value) {
     console.log(`selected ${value}`);
 }
 
-class RegisterBox extends React.Component {
+class ResetPwdBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +38,7 @@ class RegisterBox extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                this.props.register({
+                this.props.resetPwd({
                     phone: this.state.areaCode + " " + this.state.phone,
                     pwd: this.state.password,
                     code: this.state.code
@@ -119,7 +119,7 @@ class RegisterBox extends React.Component {
                     <Form onSubmit={this.handleSubmit}>
                         <div className={style.content}>
                         <span className={style.llctitle}>
-                            注册海豚汇账号
+                            忘记密码
                         </span>
                             <div className={style.perselphone}>
                                 <div className={style.selphone}>
@@ -186,7 +186,7 @@ class RegisterBox extends React.Component {
                                                 }}
                                                 phone={this.state.phone}
                                                 picCode={this.state.authCode}
-                                                business='REGISTER'
+                                                business='FIND_PASSWORD'
                                                 failCallback={() => {
                                                     this.setState({picImg: this.getPicImg()})
                                                 }}
@@ -245,17 +245,9 @@ class RegisterBox extends React.Component {
                                 </div>
                                 <FormItem>
                                     <Button type="primary" htmlType="submit"
-                                            style={{width: '100%', height: 40, marginTop: 20}}>完成注册并登录</Button>
+                                            style={{width: '100%', height: 40, marginTop: 20}}>确认修改密码</Button>
                                 </FormItem>
 
-                                <div className={style.toggletab}>
-                                    <a onClick={() => {
-                                        this.props.showLogin()
-                                    }} className={style.reg} href="javascript:void (0)">立即登录</a>
-                                    <span className={style.noacc}>
-                                    已有账户、
-                                </span>
-                                </div>
                             </div>
                         </div>
                     </Form>
@@ -273,12 +265,12 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch) {
     return {
         hideAuth: bindActionCreators(hideAuth, dispatch),
-        register: bindActionCreators(register, dispatch),
+        resetPwd: bindActionCreators(resetPwd, dispatch),
         showLogin: bindActionCreators(showLogin, dispatch)
     }
 }
 
-RegisterBox = connect(mapStateToProps, mapDispatchToProps)(RegisterBox)
-const WrappedRegisterBox = Form.create()(RegisterBox)
+ResetPwdBox = connect(mapStateToProps, mapDispatchToProps)(ResetPwdBox)
+const ResetPwdBoxWrap = Form.create()(ResetPwdBox)
 
-export default WrappedRegisterBox;
+export default ResetPwdBoxWrap;

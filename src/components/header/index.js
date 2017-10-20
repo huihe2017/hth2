@@ -8,6 +8,7 @@ import {showLogin, showRegister, hideAuth} from '../../actions/auth'
 import {logout} from '../../actions/user'
 import LoginBox from '../../components/loginBox'
 import RegisterBox from '../../components/registerBox'
+import ResetPwdBox from '../../components/resetPwdBox'
 
 
 class Header extends React.Component {
@@ -121,6 +122,7 @@ class Header extends React.Component {
                 </div>
                 {this.props.auth.showLoginBox ? <LoginBox/> : ''}
                 {this.props.auth.showRegisterBox ? <RegisterBox/> : ''}
+                {this.props.auth.showResetPwdBox ? <ResetPwdBox/> : ''}
             </div>
         )
     }

@@ -3,24 +3,12 @@ import style from "./index.css"
 import {connect} from 'react-redux'
 import { Modal,Input,Select,Form,Button } from 'antd';
 import {bindActionCreators} from 'redux'
-import {hideAuth,showRegister} from '../../actions/auth'
-import {login} from '../../actions/user'
+import {hideAuth,showRegister,showResetPwd} from '../../actions/auth'
+import {login,resetPwd} from '../../actions/user'
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
 const Option = Select.Option;
-const qh=[{
-    value:["中国大陆","+86"],
-    key:86
-}, {
-    value:["中国香港","+886"],
-    key:886
-}, {
-    value:["中国台湾","+853"],
-    key:853
-
-}];
-
 
 class LoginBox extends React.Component {
     constructor(props) {
@@ -135,6 +123,7 @@ class LoginBox extends React.Component {
                                     已有账户、
                                 </span>
                             </div>
+                            <div onClick={()=>{this.props.showResetPwd()}} >忘记密码</div>
                         </div>
                     </div>
                     </Form>
@@ -154,6 +143,8 @@ function mapDispatchToProps(dispatch) {
     return {
         hideAuth:bindActionCreators(hideAuth,dispatch),
         login: bindActionCreators(login, dispatch),
+        resetPwd: bindActionCreators(resetPwd, dispatch),
+        showResetPwd: bindActionCreators(showResetPwd, dispatch),
         showRegister: bindActionCreators(showRegister, dispatch)
     }
 }

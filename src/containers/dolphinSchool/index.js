@@ -4,6 +4,7 @@ import Title from '../../components/title'
 import ContentList from '../../components/contentList'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
+import Header from '../../components/header'
 
 let data= [
     {
@@ -124,6 +125,7 @@ class DolphinSchool extends React.Component {
     render() {
         return(
             <div className={style.aboutus}>
+                <Header/>
                 <div className={style.header}>
                     <Title content="/外汇交易术语" color="#5262ff" big={true} bold={true}/>
                 </div>

@@ -19,3 +19,10 @@ export function hideAuth(data, callback) {
         callback&&callback()
     }
 }
+
+export function showResetPwd(data, callback) {
+    return dispatch => {
+        dispatch({type: 'SHOW_RESETPWD'})
+        callback&&callback()
+    }
+}
