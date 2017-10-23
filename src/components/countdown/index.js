@@ -3,6 +3,8 @@ import style from "./index.css"
 import {connect} from 'react-redux'
 import axios from '../../common/axiosConf'
 import {Input, Button, Row, Col} from 'antd';
+import Toast from 'antd-mobile/lib/toast';
+import 'antd-mobile/lib/toast/style/css';
 
 class Countdown extends React.Component {
     constructor(props) {
@@ -42,6 +44,7 @@ class Countdown extends React.Component {
                     }, 1000)
                 } else {
                     // Toast.fail(response.data.msg, 3, null, false)
+                    Toast.info(response.data.msg, 3, null, false)
                     _this.props.failCallback()
                 }
             })
@@ -61,7 +64,8 @@ class Countdown extends React.Component {
 
                 </Col>
                 <Col span={9}>
-                    <Button onClick={this.handle} className={this.props.className} style={{height: 40,width:100,marginLeft:15}}>{this.state.extraText}</Button>
+                    <Button onClick={this.handle} className={this.props.className}
+                            style={{height: 40, width: 100, marginLeft: 15}}>{this.state.extraText}</Button>
                 </Col>
             </Row>
         )

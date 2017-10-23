@@ -3,7 +3,7 @@ let initialState = {
     bankNo: '145*********352',
     accountBalance: 2354,
     exchangeRate: 0.346435,
-    getAccountStep:0,
+    getAccountStep: 0,
     inGoldBanks: [
         {
             value: 1,
@@ -12,14 +12,15 @@ let initialState = {
         {
             value: 2,
             label: '工商银行'
-        },{
+        }, {
             value: 3,
             label: '建设银行'
-        },{
+        }, {
             value: 4,
             label: '农业银行'
         }
-    ]
+    ],
+    outGoldBanks: []
 }
 
 export default function foreignExchange(state = initialState, action = {}) {
@@ -31,7 +32,8 @@ export default function foreignExchange(state = initialState, action = {}) {
                 getAccountStep: action.step
             })
 
-        case 'inGold':
+        case 'GET_BANKLIST':
+            state.outGoldBanks = action.data
             return Object.assign({}, state, {
                 show: false
             })

@@ -7,6 +7,9 @@ import {hashHistory} from 'react-router'
 import {hideAuth, showLogin} from '../../actions/auth'
 import {register} from '../../actions/user'
 import Countdown from '../../components/countdown'
+import Toast from 'antd-mobile/lib/toast';
+import 'antd-mobile/lib/toast/style/css';
+
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
@@ -38,14 +41,16 @@ class RegisterBox extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                Toast.loading('', 0, null, false)
                 this.props.register({
                     phone: this.state.areaCode + " " + this.state.phone,
                     pwd: this.state.password,
                     code: this.state.code
                 }, (errorText) => {
+                    Toast.hide()
                     this.setState({picImg: this.getPicImg()})
                     if (errorText) {
-                        alert(errorText)
+                        Toast.info(errorText, 3, null, false)
                     } else {
                         this.props.hideAuth()
 
@@ -210,7 +215,10 @@ class RegisterBox extends React.Component {
                                         }],
                                     })(<div>
                                         <Input onChange={
-                                            (e) => {this.setState({password: e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符" type={'password'}/></div>
+                                            (e) => {
+                                                this.setState({password: e.target.value})
+                                            }} className={style.inputp} placeholder="密码6-24位字母、数字、字符"
+                                               type={'password'}/></div>
                                     )}
                                     </FormItem>
                                 </div>

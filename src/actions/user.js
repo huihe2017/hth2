@@ -34,7 +34,7 @@ export function logout(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+                dispatch({type: 'LOGOUT'})
             });
     }
 }
@@ -134,5 +134,11 @@ export function resetPwd(data, callback) {
             .catch(function (error) {
                 alert(error);
             });
+    }
+}
+
+export function setStatus(data, callback) {
+    return dispatch => {
+        dispatch({type: 'SET_STATUS', data: data})
     }
 }

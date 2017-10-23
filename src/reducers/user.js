@@ -31,11 +31,11 @@ export default function sign(state = initialState, action = {}) {
             localStorage.setItem('token', true)
             localStorage.setItem('userName', phone)
             localStorage.setItem('MT4', mt4_live_id)
-            localStorage.setItem('status', status)
+            localStorage.setItem('status', (status==="11"?"2":status))
             localStorage.setItem('address', address)
             localStorage.setItem('email', email)
             state.token = true
-            state.status = status
+            state.status = (status==="11"?"2":status)
             // state.MT4 = mt4_live_id
             return Object.assign({}, state, {})
 
@@ -71,7 +71,11 @@ export default function sign(state = initialState, action = {}) {
             state.realName = real_name
             state.id = id_card
             state.bankName = bank_name
+            return Object.assign({}, state, {})
 
+        case 'SET_STATUS':
+            state.status = "2"
+            localStorage.setItem("status","2")
             return Object.assign({}, state, {})
 
 

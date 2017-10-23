@@ -5,7 +5,8 @@ import { Modal,Input,Select,Form,Button } from 'antd';
 import {bindActionCreators} from 'redux'
 import {hideAuth,showRegister,showResetPwd} from '../../actions/auth'
 import {login,resetPwd} from '../../actions/user'
-import Toast from '../../components/toast'
+import Toast from 'antd-mobile/lib/toast';
+import 'antd-mobile/lib/toast/style/css';
 
 const confirm = Modal.info;
 const FormItem = Form.Item;
@@ -43,14 +44,16 @@ class LoginBox extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                Toast.loading('', 0, null, false)
                 this.props.login({
                     phone: this.state.areaCode + " " + this.state.phone,
                     pwd: this.state.pwd,
                     picCode: this.state.picCode
                 }, (errorText) => {
+                    Toast.hide()
                     this.setState({picImg: this.getPicImg()})
                     if (errorText) {
-                        //this.props.hideAuth()
+                        Toast.info(errorText, 3, null, false)
                     } else {
                         this.props.hideAuth()
                     }
