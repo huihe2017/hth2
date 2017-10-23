@@ -5,6 +5,8 @@ import ContentList from '../contentList/index'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import { Form,Input,Button } from 'antd'
+import { bindActionCreators } from 'redux'
+import {modifyPwd} from '../../actions/user'
 
 const FormItem = Form.Item;
 function handleChange(value) {
@@ -26,7 +28,9 @@ class ForgetPwd extends React.Component {
         console.log(hashHistory)
         super(props);
         this.state = {
-
+            initPwd: '',
+            pwd: '',
+            confirmPwd: ''
         }
     }
 
@@ -34,7 +38,14 @@ class ForgetPwd extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                this.props.modifyPwd(
+                    this.state
+                    , (errorText) => {
+                        if (errorText) {
+                        } else {
+                            hashHistory.push('/')
+                        }
+                    })
             }
         });
     }
@@ -71,7 +82,7 @@ class ForgetPwd extends React.Component {
                                 <FormItem {...formItemLayout} colon={false} label={<span style={{marginRight:30}}>初始密码</span>} >{getFieldDecorator('firstPassword', {
                                     rules: [{ required: true, message: '请输入正确格式的密码!',pattern:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/ }],
                                 })(<div>
-                                    <Input type={'password'} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
+                                    <Input onChange={(e)=>{this.setState({initPwd:e.target.value})}} type={'password'} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
                                 )}
                                 </FormItem>
                             </div>
@@ -80,7 +91,7 @@ class ForgetPwd extends React.Component {
                                 <FormItem {...formItemLayout} colon={false} label={<span style={{marginRight:30}}>设置密码</span>} >{getFieldDecorator('password', {
                                     rules: [{ required: true, message: '请输入正确格式的密码!',pattern:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/ }],
                                 })(<div className={style.inp}>
-                                    <Input type={'password'} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
+                                    <Input onChange={(e)=>{this.setState({pwd:e.target.value})}}  type={'password'} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>
                                 )}
                                 </FormItem>
                             </div>
@@ -93,7 +104,7 @@ class ForgetPwd extends React.Component {
                                         }],
                                     })(
                                         <div>
-                                            <Input type="password" className={style.inputp} onBlur={this.handleConfirmBlur} placeholder="请再次输入密码"/>
+                                            <Input onChange={(e)=>{this.setState({confirmPwd:e.target.value})}}  type="password" className={style.inputp} onBlur={this.handleConfirmBlur} placeholder="请再次输入密码"/>
                                         </div>
 
                                     )}
@@ -118,7 +129,9 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return {
+        modifyPwd:bindActionCreators(modifyPwd,dispatch)
+    }
 }
 
 ForgetPwd = connect(mapStateToProps, mapDispatchToProps)(ForgetPwd)

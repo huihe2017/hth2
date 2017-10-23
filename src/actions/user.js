@@ -68,7 +68,7 @@ export function register(data, callback) {
         })
             .then(function (response) {
                 if (response.data.code === 0) {
-                    //登录并注册
+                    //注册并登录
                     dispatch({type: 'LOGIN', data: response.data.data})
                     callback()
                 } else {
@@ -124,8 +124,8 @@ export function resetPwd(data, callback) {
         })
             .then(function (response) {
                 if (response.data.code === 0) {
-                    //登录并注册
-                    dispatch({type: 'RESET_PWD', data: response.data.data})
+                    //重置密码并登录
+                    dispatch({type: 'LOGIN', data: response.data.data})
                     callback()
                 } else {
                     callback(response.data.msg)
