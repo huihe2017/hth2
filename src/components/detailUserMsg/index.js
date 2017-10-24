@@ -89,7 +89,7 @@ class DetailUserMsg extends React.Component {
                 })
             }
         });
-    }
+    };
     handleChange(value) {
         console.log(`selected ${value}`);
     }
