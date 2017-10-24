@@ -252,3 +252,6 @@ form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, f
     color: #5262ff!important;
     border-color: #5262ff!important;
 }
+.has-error .ant-form-explain, .has-error .ant-form-split {
+    color: #f59294!important;
+}

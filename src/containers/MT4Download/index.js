@@ -40,7 +40,7 @@ class DealTerrace extends React.Component {
                             <div className={style.pcdown}>
                                 <img src={require('./images/pcDownload.png')} alt=""/>
                                 <div className={style.but}>
-                                    <Button type="primary" ghost icon="windows" style={{width: '220', height: '60', fontSize: '22'}}>&nbsp;windows下载</Button>
+                                    <Button type="primary" ghost icon="windows" className={style.butt} style={{width: '220', height: '60', fontSize: '22'}}>&nbsp;windows下载</Button>
                                 </div>
 
 

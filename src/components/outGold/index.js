@@ -70,10 +70,9 @@ class OutGold extends React.Component {
                                 )}
 
                             </FormItem>
-
                         </div>
                         <div className={style.withdraw}>
-                            <Button type="primary" ghost>全部出金</Button>
+                            <Button type="primary" ghost  className={style.butt} >提交申请</Button>
                         </div>
                         <div className={style.ttip}>
                             <ul className={style.tltip}>
@@ -83,6 +82,7 @@ class OutGold extends React.Component {
                                         {data.rmb}
                                     </span>
                                 </li>
+
                                 <li>
                                     当前汇率：美元兑人民币
                                     <span>

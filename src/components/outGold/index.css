@@ -10,6 +10,7 @@
 :local(.red){
     color: #f59294;
 }
+
 :local(.icon){
     position: absolute;
     top: 8px;
@@ -115,4 +116,13 @@
     border: none;
     border-radius: 5px;
     outline: none;
+}
+:local(.butt):hover{
+    background-color: #5262ff!important;
+    color: #fff!important;
+}
+:local(.butt){
+    color: #5262ff!important;
+    border-color: #5262ff!important;
+    font-size: 14px!important;
 }

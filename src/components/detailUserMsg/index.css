@@ -74,7 +74,7 @@
 }
 :local(.percontent){
     height: 80px;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 :local(.personal){
     width: 1010px;

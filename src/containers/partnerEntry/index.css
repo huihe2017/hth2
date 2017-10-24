@@ -50,3 +50,11 @@
 :local(.conlist){
     padding: 0 15px;
 }
+:local(.butt:hover){
+    background-color: #5262ff!important;
+    color: #fff!important;
+}
+:local(.butt){
+    color: #5262ff!important;
+    border-color: #5262ff!important;
+}

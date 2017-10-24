@@ -129,6 +129,7 @@ class InGold extends React.Component {
     }
 
 
+
     getCode(e){
         this.setState({
             choceBank: e,
@@ -140,15 +141,14 @@ class InGold extends React.Component {
     }
 
     mapItem(v,i){
-        if(this.props.choceBank!==""){
-            return (<li className={i==data.choceBank?style.active:""}
+        if(this.state.choceBank!==""){
+            return (<li className={i==this.state.choceBank?style.active:""}
                 onClick={this.getCode.bind(this,i)}
              title={v.name}>
                 <img src={require(`${v.logo}`)}/>
             </li>)
         }else{
-            return (<li
-                //onClick={this.getCode.bind(this,i)}
+            return (<li onClick={this.getCode.bind(this,i)}
              title={v.name}>
                 <img src={require(`${v.logo}`)}/>
             </li>)

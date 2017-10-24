@@ -75,11 +75,20 @@
 :local(.iosqcoad){
     width: 200px;
     height: 200px;
+    margin-top: 40px;
     border: 1px solid #5262ff;
     border-radius: 5px;
-    padding: 3px;
+    padding: 9px;
 }
 :local(.iosqcoad)>img{
-    width: 192px;
-    height: 192px;
+    width: 180px;
+    height: 180px;
+}
+:local(.butt):hover{
+    background-color: #5262ff!important;
+    color: #fff!important;
+}
+:local(.butt){
+    color: #5262ff!important;
+    border-color: #5262ff!important;
 }

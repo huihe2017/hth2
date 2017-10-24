@@ -7,7 +7,7 @@ class UploadImg extends React.Component {
     state = {
         previewVisible: false,
         previewImage: '',
-        fileList: [],
+        fileList: this.props.file,
     };
 
     handleCancel = () => this.setState({ previewVisible: false })

@@ -57,15 +57,15 @@ class Countdown extends React.Component {
 
     render() {
         return (
-            <Row gutter={8}>
-                <Col span={15}>
+            <Row >
+                <Col span={18}>
 
                     <Input onChange={this.props.onChange} className={style.inputyz} placeholder="短信验证码"/>
 
                 </Col>
-                <Col span={9}>
+                <Col span={6}>
                     <Button onClick={this.handle} className={this.props.className}
-                            style={{height: 40, width: 100, marginLeft: 15}}>{this.state.extraText}</Button>
+                            style={{height: 40, width: 110, marginLeft: 20}}>{this.state.extraText}</Button>
                 </Col>
             </Row>
         )

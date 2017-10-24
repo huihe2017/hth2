@@ -81,6 +81,9 @@
 :local(.banklist){
     overflow: hidden;
 }
+:local(.banklist)>:local(.active){
+    border: 1px solid #5262ff;
+}
 :local(.banklist)>li{
     width: 216px;
     height: 60px;
@@ -92,9 +95,7 @@
     margin-right: 20px;
     margin-top: 20px;
 }
-:local(.banklist)>.active{
-    border: 1px solid #5262ff;
-}
+
 :local(.banklist)>li:nth-child(5){
     margin-right: 0;
 }

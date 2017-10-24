@@ -227,9 +227,7 @@
     color: #aaaaaa;
 }
 
-.ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab-active{
-    border-color: transparent!important;
-}
+
 
 .ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-nav-wrap{
     background-color: #dfdce4;
@@ -237,14 +235,19 @@
 .ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab{
     border-radius: 0!important;
     margin-right: 0!important;
-    background-color: transparent!important;
+    background-color: #efedf1!important;
     padding: 0!important;
     border: 0!important;
     text-align: center;
 }
+.ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab:hover{
+    color: #3ca3fd;
+}
 .ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab-active {
     background: #fff!important;
+    border-color: transparent!important;
     border-bottom: 1px solid #5262ff!important;
+
 }
 .ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-nav-container{
     height: 60px!important;

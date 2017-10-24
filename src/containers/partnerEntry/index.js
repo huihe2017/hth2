@@ -46,12 +46,13 @@ class PartnerEntry extends React.Component {
                     <div className={style.parencon}>
                         <div className={style.lbut}>
                             <Link to="/partnerLogin">
-                                <Button type="primary" ghost>已有账户，立即登录</Button>
+                                <Button type="primary" ghost className={style.butt}>已有账户，立即登录</Button>
                             </Link>
                         </div>
+
                         <div className={style.rbut}>
                             <Link to="/partnerReg">
-                                <Button type="primary" ghost>注册成为合伙人</Button>
+                                <Button type="primary" ghost className={style.butt}>注册成为合伙人</Button>
                             </Link>
                         </div>
                     </div>
