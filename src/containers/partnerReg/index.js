@@ -119,9 +119,7 @@ class PartnerReg extends React.Component {
         const { autoCompleteResult } = this.state;
 
 
-        const errorssb = getFieldError('selectsheng');
-        const errorsss = getFieldError('selectsheng');
-        const errorssc = getFieldError('selectCity');
+
 
 
         const formItemLayout = {
@@ -308,29 +306,57 @@ class PartnerReg extends React.Component {
                                 </div>
                                 <div className={style.percontent}>
                                     <div className={style.selphone}>
-                                        <FormItem hasFeedback>
-                                            {(errorssb) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}                          {getFieldDecorator('selectsheng', {
-                                                rules: [
-                                                    { type: 'array',required: true, message: 'Please select your country!' },
-                                                ],
-                                            })(<div className={style.selbank}> <div className={style.kaihuhan}><Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
-                                                {
-                                                    sheng.map((v,i)=>{
-                                                        console.log(v.value);
-                                                        return (<Option value={v.value}>{v.value}</Option>)
+                                        <div className={style.selbank}>
+                                            {(getFieldError('selectsheng'))||(getFieldError('selectCity'))||(getFieldError('setKaihuhang')) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}
+                                            <div className={style.kaihuhan}>
+                                                <FormItem hasFeedback>
 
-                                                    })
-                                                }
-                                            </Select></div><div className={style.kaihuhang}><Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
-                                                {
-                                                    city.map((v,i)=>{
-                                                        console.log(v.value);
-                                                        return (<Option value={v.value}>{v.value}</Option>)
+                                                    {getFieldDecorator('selectsheng', {
+                                                        rules: [
+                                                            { required: true, message: 'Please select your country!' },
+                                                        ],
+                                                    })(
+                                                        <Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
+                                                            {
+                                                                sheng.map((v,i)=>{
+                                                                    console.log(v.value);
+                                                                    return (<Option value={v.value}>{v.value}</Option>)
+                                                                })
+                                                            }
+                                                        </Select>)}
 
-                                                    })
-                                                }
-                                            </Select></div><div className={style.kaihuhang}><Input className={style.input} size="large" placeholder="开户行"/></div></div>)}
-                                        </FormItem>
+                                                </FormItem>
+                                            </div>
+                                            <div className={style.kaihuhang}>
+                                                <FormItem hasFeedback>
+                                                    {getFieldDecorator('selectCity', {
+                                                        rules: [
+                                                            { required: true, message: 'Please select your country!' },
+                                                        ],
+                                                    })(
+                                                        <Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={handleChange}>
+                                                            {
+                                                                city.map((v,i)=>{
+                                                                    console.log(v.value);
+                                                                    return (<Option value={v.value}>{v.value}</Option>)
+
+                                                                })
+                                                            }
+                                                        </Select>)}
+
+                                                </FormItem>
+                                            </div>
+                                            <div className={style.kaihuhang}>
+                                                <FormItem hasFeedback>
+                                                    {getFieldDecorator('setKaihuhang', {
+                                                        rules: [
+                                                            { required: true, message: 'Please select your country!' },
+                                                        ],
+                                                    })(
+                                                        <Input className={style.input} size="large" placeholder="开户行"/>)}
+                                                </FormItem>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

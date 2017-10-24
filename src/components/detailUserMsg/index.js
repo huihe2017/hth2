@@ -74,6 +74,7 @@ class DetailUserMsg extends React.Component {
         }
     }
 
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -89,10 +90,10 @@ class DetailUserMsg extends React.Component {
             }
         });
     }
-    handleChange = (value) => {
-        this.setState({bankCode: value})
-
+    handleChange(value) {
+        console.log(`selected ${value}`);
     }
+
     handleConfirmBlur = (e) => {
         const value = e.target.value;
         this.setState({confirmDirty: this.state.confirmDirty || !!value});
@@ -105,23 +106,9 @@ class DetailUserMsg extends React.Component {
             callback();
         }
     }
-    checkConfirm = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], {force: true});
-        }
-        callback();
-    }
 
-    handleWebsiteChange = (value) => {
-        let autoCompleteResult;
-        if (!value) {
-            autoCompleteResult = [];
-        } else {
-            autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-        }
-        this.setState({autoCompleteResult});
-    }
+
+
 
     componentDidMount() {
         this.props.getBankList()
@@ -183,26 +170,37 @@ class DetailUserMsg extends React.Component {
                     <div className={style.personal}>
                         <Title content={"/联络人信息"} color={"#5262ff"}/>
                         <div className={style.perimport}>
-                            <div className={style.percontent}>
+                            <div className={style.percontent} hidden={this.state.checkNick?'hidden':''}>
                                 <FormItem>
-                                    <Countdown
-                                        beforeClick={() => {
-                                            return true
-                                        }}
-                                        phone={this.props.user.userName}
-                                        business='VERIFICATION'
-                                        failCallback={() => {
-                                        }}
-                                        onChange={(e) => {
-                                            this.setState({code: e.target.value})
-                                        }}
-                                    />
+                                    {(getFieldError('yanzhegnma')) ? <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
+                                        <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
+                                    {getFieldDecorator('yanzhegnma', {
+                                        rules: [{
+                                            required: true, pattern:  /^[0-9]*$/
+                                        }]
+                                    })(
+
+
+                                        <Countdown
+                                            beforeClick={() => {
+                                                return true
+                                            }}
+                                            phone={this.props.user.userName}
+                                            business='VERIFICATION'
+                                            failCallback={() => {
+                                            }}
+                                            onChange={(e) => {
+                                                this.setState({code: e.target.value})
+                                            }}
+                                        />
+                                    )}
+
+
                                 </FormItem>
                             </div>
                             <div className={style.percontent}>
                                 <FormItem>
-                                    {(getFieldError('email')) ? <div onChange={()=>{}} className={style.errors}>请输入正确格式邮箱【选填】</div> :
-                                        <div className={style.right}>请输入正确格式邮箱【选填】</div>}
+                                    {(getFieldError('email')) ? <div onChange={()=>{}} className={style.errors}>请输入正确格式邮箱【选填】</div> : <div className={style.right}>请输入正确格式邮箱【选填】</div>}
                                     {getFieldDecorator('email', {
                                         rules: [{
                                             required: this.state.checkNick,
@@ -313,8 +311,7 @@ class DetailUserMsg extends React.Component {
                                     //{...formItemLayout}
                                     hasFeedback
                                 >
-                                    {(getFieldError('setNumber')) ? <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
-                                        <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
+                                    {(getFieldError('setNumber')) ? <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> : <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
                                     {getFieldDecorator('setNumber', {
                                         rules: [{required: true, whitespace: true}],
                                     })(
@@ -332,72 +329,77 @@ class DetailUserMsg extends React.Component {
 
                                     hasFeedback
                                 >
-                                    {(getFieldError('selectBank')) ? <div className={style.errors}>请选择银行，并与上传银行卡照片信息一致【必填】</div> :
-                                        <div className={style.right}>请选择银行，并与上传银行卡照片信息一致【必填】</div>}
+                                    {(getFieldError('selectBank')) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}
                                     {getFieldDecorator('selectBank', {
                                         rules: [
-                                            // {required: true, message: 'Please select your country!'},
+                                            { required: true, message: 'Please select your country!' }
                                         ],
-                                    })(<Select disabled={this.state.checkNick} placeholder="请选择银行" size={'large'} style={{width: '100%', height: 40, lineHeight: 40}} value={this.state.bankCode} onChange={this.handleChange}>{this.getBankList(this.props.foreignExchange.outGoldBanks)
-                                                    // bank.map((v, i) => {
-                                                    //     console.log(v.value);
-                                                    //     return (<Option value={v.value}>{v.value}</Option>)
-                                                    // })
-                                                }
-                                            </Select>
+                                    })(
+
+                                        <Select placeholder="请选择银行" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
+                                            {bank.map((v,i)=>{
+                                                console.log(v.value);
+                                                return (<Option value={v.value}>{v.value}</Option>)
+                                            })
+                                            }
+                                        </Select>
                                     )}
                                 </FormItem>
 
                             </div>
-                            <div style={{display: 'none'}} className={style.percontent}>
+                            <div  className={style.percontent}>
                                 <div className={style.selphone}>
-                                    <FormItem hasFeedback>
-                                        {(getFieldError('selectsheng')) ?
-                                            <div className={style.errors}>选择开户行，并与上传银行卡信息一致【必填】</div> :
-                                            <div className={style.right}>选择开户行，并与上传银行卡信息一致【必填】</div>}
-                                        {getFieldDecorator('selectsheng', {
-                                            rules: [
-                                                // {required: true, message: 'Please select your country!'},
-                                            ],
-                                        })(<div className={style.selbank}>
-                                            <div className={style.kaihuhan}><Select placeholder="请选择省份" size={'large'}
-                                                                                    disabled={this.state.checkNick}
-                                                                                    style={{
-                                                                                        width: '100%',
-                                                                                        height: 40,
-                                                                                        lineHeight: 40
-                                                                                    }}>
-                                                {
-                                                    sheng.map((v, i) => {
-                                                        return (<Option value={v.value}>{v.value}</Option>)
+                                    <div className={style.selbank}>
+                                        {(getFieldError('selectsheng'))||(getFieldError('selectCity'))||(getFieldError('setKaihuhang')) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}
+                                        <div className={style.kaihuhan}>
+                                            <FormItem hasFeedback>
 
-                                                    })
-                                                }
-                                            </Select></div>
-                                            <div className={style.kaihuhang}><Select disabled={this.state.checkNick}
-                                                                                     placeholder="请选择城市" size={'large'}
-                                                                                     style={{
-                                                                                         width: '100%',
-                                                                                         height: 40,
-                                                                                         lineHeight: 40
-                                                                                     }}>
-                                                {
-                                                    city.map((v, i) => {
+                                                {getFieldDecorator('selectsheng', {
+                                                    rules: [
+                                                        { required: true, message: 'Please select your country!' },
+                                                    ],
+                                                })(
+                                                    <Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
+                                                        {
+                                                            sheng.map((v,i)=>{
+                                                                console.log(v.value);
+                                                                return (<Option value={v.value}>{v.value}</Option>)
+                                                            })
+                                                        }
+                                                    </Select>)}
 
-                                                        return (<Option value={v.value}>{v.value}</Option>)
+                                            </FormItem>
+                                        </div>
+                                        <div className={style.kaihuhang}>
+                                            <FormItem hasFeedback>
+                                                {getFieldDecorator('selectCity', {
+                                                    rules: [
+                                                        { required: true, message: 'Please select your country!' },
+                                                    ],
+                                                })(
+                                                    <Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
+                                                        {
+                                                            city.map((v,i)=>{
+                                                                console.log(v.value);
+                                                                return (<Option value={v.value}>{v.value}</Option>)
 
-                                                    })
-                                                }
-                                            </Select></div>
-                                            <div className={style.kaihuhang}>
-                                                <Input className={style.input} disabled={this.state.checkNick}
-                                                       placeholder="开户行" onChange={(e) => {
-                                                    this.setState({branch: e.target.value})
-                                                }}
-                                                />
-                                            </div>
-                                        </div>)}
-                                    </FormItem>
+                                                            })
+                                                        }
+                                                    </Select>)}
+
+                                            </FormItem>
+                                        </div>
+                                        <div className={style.kaihuhang}>
+                                            <FormItem hasFeedback>
+                                                {getFieldDecorator('setKaihuhang', {
+                                                    rules: [
+                                                        { required: true, message: 'Please select your country!' },
+                                                    ],
+                                                })(
+                                                    <Input className={style.input} size="large" placeholder="开户行"/>)}
+                                            </FormItem>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

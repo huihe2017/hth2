@@ -80,8 +80,10 @@
     width: 1010px;
     margin: 0 auto;
     clear: both;
-    height: 424px;
+
     margin-top: 48px;
+    overflow: hidden;
+
 }
 :local(.bankmsg){
     width: 1010px;
