@@ -123,7 +123,7 @@ class DetailUserMsg extends React.Component {
     componentDidMount() {
         this.props.getBankList()
         this.props.form.setFieldsValue({
-            ['idCard']: `Hi`,
+            email: `Hi`,
         });
     }
 
@@ -207,13 +207,14 @@ class DetailUserMsg extends React.Component {
                                     {getFieldDecorator('email', {
                                         rules: [{
                                             required: this.state.checkNick,
+                                            initialValue:'36363@ww.com',
                                             pattern: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
                                         }],
                                     })(
                                         <div>
-                                            {(errors) ? <div className={style.errors}>请输入正确格式邮箱【选填】</div> :
+                                            {(getFieldError('email')) ? <div onChange={()=>{}} className={style.errors}>请输入正确格式邮箱【选填】</div> :
                                                 <div className={style.right}>请输入正确格式邮箱【选填】</div>}
-                                            <Input className={style.input} disabled={this.state.checkNick}
+                                            <Input className={style.input}  disabled={this.state.checkNick}
                                                    placeholder="邮箱" onChange={(e) => {
                                                 this.setState({email: e.target.value})
                                             }}/>
@@ -228,6 +229,7 @@ class DetailUserMsg extends React.Component {
                                         rules: [{
                                             required: true,
                                             whitespace: true,
+                                            initialValue:'36363@ww.com',
                                             pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
                                         }],
                                     })(<div>

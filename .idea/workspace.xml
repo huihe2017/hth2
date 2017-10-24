@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9eaf612a-ca36-4e75-a6b7-2f658dbec1a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/user.js" afterPath="$PROJECT_DIR$/src/actions/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/countdown/index.js" afterPath="$PROJECT_DIR$/src/components/countdown/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/detailUserMsg/index.js" afterPath="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/forgetPwd/index.js" afterPath="$PROJECT_DIR$/src/components/forgetPwd/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/loginBox/index.js" afterPath="$PROJECT_DIR$/src/components/loginBox/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/registerBox/index.js" afterPath="$PROJECT_DIR$/src/components/registerBox/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/resetPwdBox/index.js" afterPath="$PROJECT_DIR$/src/components/resetPwdBox/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/foreignExchange.js" afterPath="$PROJECT_DIR$/src/reducers/foreignExchange.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/user.js" afterPath="$PROJECT_DIR$/src/reducers/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/userCenter/index.js" afterPath="$PROJECT_DIR$/src/containers/userCenter/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,13 +17,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/detailUserMsg/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="154" column="31" lean-forward="true" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+            <state relative-caret-position="228">
+              <caret line="162" column="36" lean-forward="true" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/userCenter/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="142" column="83" lean-forward="true" selection-start-line="142" selection-start-column="83" selection-end-line="142" selection-end-column="83" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <marker date="1508809345416" expanded="true" signature="2081:2083" ph="{&quot;state&quot;: 'news'...}" />
               </folding>
             </state>
           </provider>
@@ -114,8 +117,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/countdown/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+            <state relative-caret-position="342">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -127,12 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>picCode</find>
-      <find>hashHistory</find>
-      <find>inputyz</find>
-      <find>errorse</find>
-      <find>getFieldError</find>
-      <find>pas11sword</find>
       <find>RegisterBox</find>
       <find>getPicImg</find>
       <find>register</find>
@@ -155,8 +152,14 @@
       <find>selectBank</find>
       <find>alert</find>
       <find>errorsss</find>
-      <find>getFieldDecorator</find>
       <find>status</find>
+      <find>getFieldDecorator</find>
+      <find>getBaseUserMsg</find>
+      <find>errors</find>
+      <find>setNumber</find>
+      <find>保存</find>
+      <find>user</find>
+      <find>email</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/actions/foreignExchange.js" />
         <option value="$PROJECT_DIR$/src/components/uploadImg/index.js" />
         <option value="$PROJECT_DIR$/src/components/toast/index.css" />
-        <option value="$PROJECT_DIR$/src/containers/userCenter/index.js" />
         <option value="$PROJECT_DIR$/src/components/toast/Model.js" />
         <option value="$PROJECT_DIR$/src/components/registerBox/index.js" />
         <option value="$PROJECT_DIR$/src/components/countdown/index.js" />
@@ -216,6 +218,7 @@
         <option value="$PROJECT_DIR$/src/actions/user.js" />
         <option value="$PROJECT_DIR$/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/src/components/detailUserMsg/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/userCenter/index.js" />
       </list>
     </option>
   </component>
@@ -238,8 +241,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="417" />
-    <option name="y" value="26" />
+    <option name="x" value="430" />
+    <option name="y" value="48" />
     <option name="width" value="1366" />
     <option name="height" value="1006" />
   </component>
@@ -277,13 +280,13 @@
               <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
               <item name="hth2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hth2" type="b2602c69:ProjectViewProjectNode" />
               <item name="hth2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -337,15 +340,15 @@
       <workItem from="1508316333251" duration="7982000" />
       <workItem from="1508377693746" duration="3465000" />
       <workItem from="1508381784546" duration="3256000" />
-      <workItem from="1508392899342" duration="72794000" />
+      <workItem from="1508392899342" duration="82367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186094000" />
+    <option name="totallyTimeSpent" value="195667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="417" y="26" width="1366" height="1006" extended-state="0" />
+    <frame x="430" y="48" width="1366" height="1006" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20858434" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -662,84 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/userCenter/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="101" column="12" lean-forward="false" selection-start-line="101" selection-start-column="12" selection-end-line="108" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1508725008303" expanded="true" signature="683:2063" ph="{&quot;portrait&quot;: 'http://img1.tgbusdata.cn/v2/thumb/jpg/NkRCMiw2NDAsMTAwLDQsMywxLC0xLDAscms1MA==/u/wow.tgbus.com/UploadFiles_2396/201605/20160530094443812.jpg'...}" />
-            <marker date="1508725008303" expanded="true" signature="1001:2060" ph="[...]" />
-            <marker date="1508725008303" expanded="true" signature="2052:2054" ph="{&quot;state&quot;: 'news'...}" />
-            <marker date="1508725008303" expanded="true" signature="2114:11065" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2139:2229" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2184:2223" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2235:2420" ph="//..." />
-            <marker date="1508725008303" expanded="true" signature="2437:2624" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2466:2600" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2606:2617" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2653:2735" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2663:2729" ph="//..." />
-            <marker date="1508725008303" expanded="true" signature="2752:2790" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2805:2886" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2829:2879" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2901:11063" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2942:3178" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="2977:2993" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="3010:3143" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="3043:3062" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="3068:3129" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="3234:11046" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3308:11001" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3357:9725" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3420:8421" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3476:3574" ph="&lt;span/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3603:7025" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="3673:3997" ph="&lt;a/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4030:4489" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4222:4450" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4523:6990" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4590:5410" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4690:4833" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="4874:5367" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="5028:5273" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="5447:5942" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="5547:5735" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="5776:5899" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="5979:6951" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="6072:6213" ph="&lt;span/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="6254:6908" ph="&lt;Form/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="6321:6860" ph="&lt;FormItem/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="6380:6804" ph="&lt;Input/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="6394:6775" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="7054:8390" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7124:7517" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7193:7326" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7363:7478" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7550:7935" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7616:7746" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7783:7896" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="7968:8355" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8036:8167" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8204:8316" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8446:9698" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8501:8602" ph="&lt;span/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8631:9667" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="8950:9596" ph="{...}" />
-            <marker date="1508725008303" expanded="true" signature="9045:9516" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="9147:9338" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="9387:9465" ph="&lt;span/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="9746:10978" ph="&lt;div/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="9808:10951" ph="&lt;Tabs/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="9855:10043" ph="&lt;TabPane/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="10072:10259" ph="&lt;TabPane/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="10288:10484" ph="&lt;TabPane/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="10513:10700" ph="&lt;TabPane/&gt;" />
-            <marker date="1508725008303" expanded="true" signature="10729:10919" ph="&lt;TabPane/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/resetPwdBox/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -755,7 +680,7 @@
         <state relative-caret-position="329">
           <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,16 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="187" column="44" lean-forward="false" selection-start-line="187" selection-start-column="44" selection-end-line="200" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/countdown/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -836,12 +751,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/countdown/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/detailUserMsg/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="154" column="31" lean-forward="true" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+        <state relative-caret-position="228">
+          <caret line="162" column="36" lean-forward="true" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/userCenter/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="142" column="83" lean-forward="true" selection-start-line="142" selection-start-column="83" selection-end-line="142" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1508809345416" expanded="true" signature="2081:2083" ph="{&quot;state&quot;: 'news'...}" />
           </folding>
         </state>
       </provider>

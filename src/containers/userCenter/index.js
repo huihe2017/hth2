@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {hashHistory} from 'react-router';
 import {bindActionCreators} from 'redux'
 import {showLogin} from '../../actions/auth'
+import {getBaseUserMsg} from '../../actions/user'
 import InGold from '../../components/inGold'
 import OutGold from '../../components/outGold'
 import DetailUserMsg from '../../components/detailUserMsg'
@@ -17,13 +18,13 @@ const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
 const userData = {
     portrait: 'http://img1.tgbusdata.cn/v2/thumb/jpg/NkRCMiw2NDAsMTAwLDQsMywxLC0xLDAscms1MA==/u/wow.tgbus.com/UploadFiles_2396/201605/20160530094443812.jpg',
-    userName: '水色丹青',
-    phone: ['86', '13725565878'],
+    userName: '',
+    phone: ['', 33],
     MT4user: 6666666,
-    floating: 44,
+    floating: 0,
     status: 0,
-    worth: 33,
-    balance: 444,
+    worth: 0,
+    balance: 0,
     dynamics: [
         // {
         //     state: 'complete',
@@ -63,8 +64,8 @@ class userCenterHeadView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShow: false,
-
+            isShow: true,
+            tabsActiveKey:"1"
         }
     }
 
@@ -139,22 +140,16 @@ class userCenterHeadView extends React.Component {
                                             {userData.userName}
                                         </div>
                                         <div className={style.userphone}>
-                                            {
-                                                userData.phone.map((v) => {
-                                                    return (
-                                                        <span>{v}&nbsp;</span>
-                                                    )
-                                                })
-                                            }
+                                            <span>{this.props.user.userName}</span>
                                         </div>
                                     </div>
                                     <div className={style.userhcc} hidden={!this.state.isShow}>
                                         <div>
                                             出金绑定银行卡：
-                                            <a href="javascript:void (0);">去绑定</a>
+                                            <a  onClick={(e)=>{this.setState({tabsActiveKey:"3"})}} href="javascript:void (0);">去绑定</a>
                                         </div>
                                         <div>
-                                            MT4平台账号：{userData.MT4user}
+                                            MT4平台账号：{this.props.user.MT4}
                                         </div>
                                     </div>
                                     <div className={style.userr} hidden={this.state.isShow}>
@@ -227,8 +222,8 @@ class userCenterHeadView extends React.Component {
                         </div>
                     </div>
                     <div className={style.cardcontainer}>
-                        <Tabs type="card">
-                            <TabPane tab={<span style={{display:'block',width:240}}><Icon type="download"/> &nbsp;账户入金</span>} key="1">
+                        <Tabs activeKey={this.state.tabsActiveKey} onChange={(e)=>{this.setState({tabsActiveKey:e})}} type="card">
+                            <TabPane  tab={<span style={{display:'block',width:240}}><Icon type="download"/> &nbsp;账户入金</span>} key="1">
                                 <InGold/>
                             </TabPane>
                             <TabPane tab={<span style={{display:'block',width:240}}><Icon type="upload"/> &nbsp;账户出金</span>} key="2">
@@ -261,7 +256,9 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        showLogin: bindActionCreators(showLogin, dispatch)
+        showLogin: bindActionCreators(showLogin, dispatch),
+        getBaseUserMsg: bindActionCreators(getBaseUserMsg, dispatch)
+
     }
 }
 
