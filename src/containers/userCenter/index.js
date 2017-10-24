@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {hashHistory} from 'react-router';
 import {bindActionCreators} from 'redux'
 import {showLogin} from '../../actions/auth'
-import {getBaseUserMsg} from '../../actions/user'
+import {getDetailMsg} from '../../actions/user'
 import InGold from '../../components/inGold'
 import OutGold from '../../components/outGold'
 import DetailUserMsg from '../../components/detailUserMsg'
@@ -13,6 +13,8 @@ import History from '../../components/history'
 import ForgetPwd from '../../components/forgetPwd'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import Toast from 'antd-mobile/lib/toast';
+import 'antd-mobile/lib/toast/style/css';
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -65,7 +67,7 @@ class userCenterHeadView extends React.Component {
         super(props);
         this.state = {
             isShow: true,
-            tabsActiveKey:"1"
+            tabsActiveKey: "1"
         }
     }
 
@@ -98,11 +100,18 @@ class userCenterHeadView extends React.Component {
         })
     }
 
+    componentDidMount() {
+        this.props.getDetailMsg({}, (errorText) => {
+            if (errorText) {
+                Toast.fail(errorText, 3, null, false)
+            } else {
+            }
+        })
+    }
+
     render() {
         if (!this.props.user.userName) {
-            this.props.showLogin({
-
-            }, (errorText) => {
+            this.props.showLogin({}, (errorText) => {
                 if (errorText) {
                 } else {
                     hashHistory.push('/')
@@ -122,12 +131,14 @@ class userCenterHeadView extends React.Component {
                             基本资料
                         </span>
                             <div className={style.userchvheader}>
-                                <a href="javascript:void (0);" onClick={this.redact.bind(this)} className={style.redact}>
+                                <a href="javascript:void (0);" onClick={this.redact.bind(this)}
+                                   className={style.redact}>
                                     <span hidden={!this.state.isShow}>编辑信息</span>
                                     <span hidden={this.state.isShow} onClick={this.submitFn.bind(this)}>保存信息</span>
                                 </a>
                                 <div className={style.avatar}>
-                                    <img src={userData.portrait ? userData.portrait : require('./images/none.png')} alt=""/>
+                                    <img src={userData.portrait ? userData.portrait : require('./images/none.png')}
+                                         alt=""/>
                                     <div className={style.shade} hidden={this.state.isShow}>
                                         <input type="file" className={style.file}/>
                                         点击上传
@@ -146,7 +157,17 @@ class userCenterHeadView extends React.Component {
                                     <div className={style.userhcc} hidden={!this.state.isShow}>
                                         <div>
                                             出金绑定银行卡：
-                                            <a  onClick={(e)=>{this.setState({tabsActiveKey:"3"})}} href="javascript:void (0);">去绑定</a>
+                                            {
+                                                (this.props.user.status==='2'?false:true) ?
+                                                    <a onClick={(e) => {
+                                                        this.setState({tabsActiveKey: "3"})
+                                                    }}
+                                                       href="javascript:void (0);">
+                                                        去绑定
+                                                    </a>
+                                                    :
+                                                    <span>{this.props.user.bankNo}</span>
+                                            }
                                         </div>
                                         <div>
                                             MT4平台账号：{this.props.user.MT4}
@@ -222,20 +243,28 @@ class userCenterHeadView extends React.Component {
                         </div>
                     </div>
                     <div className={style.cardcontainer}>
-                        <Tabs activeKey={this.state.tabsActiveKey} onChange={(e)=>{this.setState({tabsActiveKey:e})}} type="card">
-                            <TabPane  tab={<span style={{display:'block',width:240}}><Icon type="download"/> &nbsp;账户入金</span>} key="1">
+                        <Tabs activeKey={this.state.tabsActiveKey} onChange={(e) => {
+                            this.setState({tabsActiveKey: e})
+                        }} type="card">
+                            <TabPane tab={<span style={{display: 'block', width: 240}}><Icon type="download"/> &nbsp;
+                                账户入金</span>} key="1">
                                 <InGold/>
                             </TabPane>
-                            <TabPane tab={<span style={{display:'block',width:240}}><Icon type="upload"/> &nbsp;账户出金</span>} key="2">
+                            <TabPane tab={<span style={{display: 'block', width: 240}}><Icon type="upload"/> &nbsp;账户出金</span>}
+                                     key="2">
                                 <OutGold/>
                             </TabPane>
-                            <TabPane tab={<span style={{display:'block',width:240}}><Icon type="file-text"/> &nbsp;用户资料</span>} key="3">
+                            <TabPane tab={<span style={{display: 'block', width: 240}}><Icon type="file-text"/> &nbsp;
+                                用户资料</span>} key="3">
                                 <DetailUserMsg/>
                             </TabPane>
-                            <TabPane tab={<span style={{display:'block',width:240}}><Icon type="lock"/> &nbsp;更改密码</span>} key="4">
+                            <TabPane
+                                tab={<span style={{display: 'block', width: 240}}><Icon type="lock"/> &nbsp;更改密码</span>}
+                                key="4">
                                 <ForgetPwd/>
                             </TabPane>
-                            <TabPane tab={<span style={{display:'block',width:240}}><Icon type="bar-chart"/> &nbsp;历史纪录</span>} key="5">
+                            <TabPane tab={<span style={{display: 'block', width: 240}}><Icon type="bar-chart"/> &nbsp;
+                                历史纪录</span>} key="5">
                                 <History/>
                             </TabPane>
                         </Tabs>
@@ -250,14 +279,15 @@ class userCenterHeadView extends React.Component {
 
 function mapStateToProps(state, props) {
     return {
-        user: state.user
+        user: state.user,
+        foreignExchange: state.foreignExchange
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         showLogin: bindActionCreators(showLogin, dispatch),
-        getBaseUserMsg: bindActionCreators(getBaseUserMsg, dispatch)
+        getDetailMsg: bindActionCreators(getDetailMsg, dispatch)
 
     }
 }

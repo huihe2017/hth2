@@ -17,7 +17,18 @@ export function login(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+                axios.post('http://47.91.236.245:4030/user/customer/log-out', {})
+                    .then(function (response) {
+                        if (response.data.code === 0) {
+                            dispatch({type: 'LOGOUT'})
+                            callback()
+                        } else {
+                            callback(response.data.msg)
+                        }
+                    })
+                    .catch(function (error) {
+                        dispatch({type: 'LOGOUT'})
+                    });
             });
     }
 }

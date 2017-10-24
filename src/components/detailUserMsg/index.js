@@ -63,11 +63,10 @@ class DetailUserMsg extends React.Component {
     constructor(props) {
         console.log(hashHistory)
         super(props);
-        alert(this.props.user.status)
         this.state = {
             confirmDirty: false,
             autoCompleteResult: [],
-            checkNick: this.props.user.status==='11'?true:false,
+            checkNick: this.props.user.status==="2"?true:false,
         }
     }
 
