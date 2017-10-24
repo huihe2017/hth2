@@ -25,7 +25,7 @@ export function getAccounded(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }
@@ -44,7 +44,6 @@ export function getBankList(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
             });
     }
 }

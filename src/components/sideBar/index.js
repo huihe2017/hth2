@@ -15,7 +15,7 @@ class SideBar extends Component {
     }
 
     checkedForPath(sidePath) {
-        // if (sidePath === hashHistory.getCurrentLocation().pathname) {//alert(22)
+        // if (sidePath === hashHistory.getCurrentLocation().pathname) {
         //     return style.checked
         // }
     }

@@ -86,16 +86,6 @@ class ResetPwdBox extends React.Component {
         });
 
         return flag
-
-        // if (getFieldError('phone') !== undefined || getFieldError('phone')) {
-        //     alert("手机格式不对")
-        //     return false
-        // }
-        // if (getFieldError('authCode') === undefined || getFieldError('authCode')) {
-        //     alert("验证码不能为空")
-        //     return false
-        // }
-        // return true
     }
 
     getPicImg() {

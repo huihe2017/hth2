@@ -112,7 +112,8 @@ class LoginBox extends React.Component {
                                 </FormItem>
                             </div>
                             <div className={style.tuxing}>
-                                <FormItem>{getFieldDecorator('password', {
+                                <FormItem>
+                                    {getFieldDecorator('password', {
                                     rules: [{ required: true, message: '请输入正确格式的密码!',pattern:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/ }],
                                 })(<div>
                                     <Input type={'password'} onChange={(e)=>{this.setState({pwd:e.target.value})}} className={style.inputp} placeholder="密码6-24位字母、数字、字符"/></div>

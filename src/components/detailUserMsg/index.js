@@ -13,10 +13,7 @@ import {bindActionCreators} from 'redux'
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
-const file=[ {uid: -1,
-    name: 'xxx.png',
-    status: 'done',
-    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}]
+
 const qh = [{
     value: ["中国大陆", "+86"],
     key: 1
@@ -70,7 +67,7 @@ class DetailUserMsg extends React.Component {
         this.state = {
             confirmDirty: false,
             autoCompleteResult: [],
-            checkNick: this.props.user.status==="2"?true:false,
+            checkNick: this.props.user.status === "2" ? true : false,
         }
     }
 
@@ -89,7 +86,8 @@ class DetailUserMsg extends React.Component {
                 })
             }
         });
-    };
+    }
+
     handleChange(value) {
         console.log(`selected ${value}`);
     }
@@ -108,8 +106,6 @@ class DetailUserMsg extends React.Component {
     }
 
 
-
-
     componentDidMount() {
         this.props.getBankList()
         this.props.form.setFieldsValue({
@@ -123,6 +119,21 @@ class DetailUserMsg extends React.Component {
             dom.push(<Option value={s}>{data[s]}</Option>)
         }
         return dom
+    }
+
+    componentDidMount() {
+        this.props.getBankList()
+        this.props.form.setFieldsValue({
+            idCard: this.props.user.id,
+            userName: this.props.user.realName,
+            address: this.props.user.address,
+            setNumber: this.props.user.bankNo,
+            selectBank: this.props.user.bankCode,
+            idCard: this.props.user.id,
+            idCard: this.props.user.id,
+            idCard: this.props.user.id
+
+        });
     }
 
     render() {
@@ -170,17 +181,16 @@ class DetailUserMsg extends React.Component {
                     <div className={style.personal}>
                         <Title content={"/联络人信息"} color={"#5262ff"}/>
                         <div className={style.perimport}>
-                            <div className={style.percontent} hidden={this.state.checkNick?'hidden':''}>
+                            <div className={style.percontent} hidden={this.state.checkNick ? 'hidden' : ''}>
                                 <FormItem>
-                                    {(getFieldError('yanzhegnma')) ? <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
+                                    {(getFieldError('yanzhegnma')) ?
+                                        <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
                                         <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
                                     {getFieldDecorator('yanzhegnma', {
                                         rules: [{
-                                            required: true, pattern:  /^[0-9]*$/
+                                            required: true, pattern: /^[0-9]*$/
                                         }]
                                     })(
-
-
                                         <Countdown
                                             beforeClick={() => {
                                                 return true
@@ -200,21 +210,21 @@ class DetailUserMsg extends React.Component {
                             </div>
                             <div className={style.percontent}>
                                 <FormItem>
-                                    {(getFieldError('email')) ? <div onChange={()=>{}} className={style.errors}>请输入正确格式邮箱【选填】</div> : <div className={style.right}>请输入正确格式邮箱【选填】</div>}
+                                    {(getFieldError('email')) ? <div onChange={() => {
+                                        }} className={style.errors}>请输入正确格式邮箱【选填】</div> :
+                                        <div className={style.right}>请输入正确格式邮箱【选填】</div>}
                                     {getFieldDecorator('email', {
                                         rules: [{
                                             required: this.state.checkNick,
-                                            initialValue:'36363@ww.com',
+                                            initialValue: '36363@ww.com',
                                             pattern: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
                                         }],
                                     })(
-
-
-                                            <Input className={style.input}  disabled={this.state.checkNick}
-                                                   placeholder="邮箱" onChange={(e) => {
-                                                this.setState({email: e.target.value})
-                                            }}/>
-                                        )}
+                                        <Input className={style.input} disabled={this.state.checkNick}
+                                               placeholder="邮箱" onChange={(e) => {
+                                            this.setState({email: e.target.value})
+                                        }}/>
+                                    )}
                                 </FormItem>
                             </div>
                             <div className={style.percontent}>
@@ -228,11 +238,14 @@ class DetailUserMsg extends React.Component {
                                         rules: [{
                                             required: true,
                                             whitespace: true,
-                                            initialValue:'36363@ww.com',
+                                            initialValue: '36363@ww.com',
                                             pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
                                         }],
                                     })(<Input
-                                            className={style.input} disabled={this.state.checkNick} placeholder="身份证号" onChange={(e) => {this.setState({id: e.target.value})}}/>)}</FormItem>
+                                        className={style.input} disabled={this.state.checkNick} placeholder="身份证号"
+                                        onChange={(e) => {
+                                            this.setState({id: e.target.value})
+                                        }}/>)}</FormItem>
                             </div>
 
                             <div className={style.percontent}>
@@ -246,12 +259,11 @@ class DetailUserMsg extends React.Component {
                                             required: true, pattern: /^([a-zA-Z\u4e00-\u9fa5\·]{1,10})$/
                                         }]
                                     })(
-
-
-                                            <Input
-                                                className={style.input} disabled={this.state.checkNick} placeholder="姓名"
-                                                onChange={(e) => {
-                                                    this.setState({realName: e.target.value})}}/>
+                                        <Input
+                                            className={style.input} disabled={this.state.checkNick} placeholder="姓名"
+                                            onChange={(e) => {
+                                                this.setState({realName: e.target.value})
+                                            }}/>
                                     )}
                                 </FormItem>
                             </div>
@@ -265,14 +277,11 @@ class DetailUserMsg extends React.Component {
                                             message: 'Please input your nickname',
                                         }],
                                     })(
-
-
-                                            <Input
-                                                className={style.input} disabled={this.state.checkNick} placeholder="住址"
-                                                onChange={(e) => {
-                                                    this.setState({address: e.target.value})
-                                                }}/>
-
+                                        <Input
+                                            className={style.input} disabled={this.state.checkNick} placeholder="住址"
+                                            onChange={(e) => {
+                                                this.setState({address: e.target.value})
+                                            }}/>
                                     )}
                                 </FormItem>
                             </div>
@@ -284,12 +293,22 @@ class DetailUserMsg extends React.Component {
                             </span>
                             <div className={style.imgfile}>
                                 <div className={style.lupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file='' onChange={(url) => {
+                                    <UploadImg dis={this.state.checkNick} file={this.props.user.frontImg && [{
+                                        uid: -1,
+                                        name: 'xxx.png',
+                                        status: 'done',
+                                        url: 'http://47.91.236.245:4030/' + this.props.user.frontImg
+                                    }]} onChange={(url) => {
                                         this.setState({frontImg: url})
                                     }} tip="点击上传人像面"/>
                                 </div>
                                 <div className={style.rupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file='' onChange={(url) => {
+                                    <UploadImg dis={this.state.checkNick} file={this.props.user.reverseImg && [{
+                                        uid: -1,
+                                        name: 'xxx.png',
+                                        status: 'done',
+                                        url: 'http://47.91.236.245:4030/' + this.props.user.reverseImg
+                                    }]} onChange={(url) => {
                                         this.setState({reverseImg: url})
                                     }} tip="点击上传国徽面"/>
                                 </div>
@@ -311,16 +330,16 @@ class DetailUserMsg extends React.Component {
                                     //{...formItemLayout}
                                     hasFeedback
                                 >
-                                    {(getFieldError('setNumber')) ? <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> : <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
+                                    {(getFieldError('setNumber')) ?
+                                        <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
+                                        <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
                                     {getFieldDecorator('setNumber', {
                                         rules: [{required: true, whitespace: true}],
                                     })(
-
-
-                                            <Input className={style.input} disabled={this.state.checkNick}
-                                                   placeholder="结算卡号" onChange={(e) => {
-                                                this.setState({bankNo: e.target.value})
-                                            }}/>
+                                        <Input className={style.input} disabled={this.state.checkNick}
+                                               placeholder="结算卡号" onChange={(e) => {
+                                            this.setState({bankNo: e.target.value})
+                                        }}/>
                                     )}
                                 </FormItem>
                             </div>
@@ -329,15 +348,17 @@ class DetailUserMsg extends React.Component {
 
                                     hasFeedback
                                 >
-                                    {(getFieldError('selectBank')) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}
+                                    {(getFieldError('selectBank')) ? <div className={style.errors}>文案待定</div> :
+                                        <div className={style.right}>文案待定</div>}
                                     {getFieldDecorator('selectBank', {
                                         rules: [
-                                            { required: true, message: 'Please select your country!' }
+                                            {required: true, message: 'Please select your country!'}
                                         ],
                                     })(
-
-                                        <Select placeholder="请选择银行" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
-                                            {bank.map((v,i)=>{
+                                        <Select placeholder="请选择银行" size={'large'}
+                                                style={{width: '100%', height: 40, lineHeight: 40}}
+                                                onChange={this.handleChange}>
+                                            {bank.map((v, i) => {
                                                 console.log(v.value);
                                                 return (<Option value={v.value}>{v.value}</Option>)
                                             })
@@ -347,21 +368,25 @@ class DetailUserMsg extends React.Component {
                                 </FormItem>
 
                             </div>
-                            <div  className={style.percontent}>
+                            <div className={style.percontent}>
                                 <div className={style.selphone}>
                                     <div className={style.selbank}>
-                                        {(getFieldError('selectsheng'))||(getFieldError('selectCity'))||(getFieldError('setKaihuhang')) ? <div className={style.errors} >文案待定</div> :<div className={style.right}>文案待定</div>}
+                                        {(getFieldError('selectsheng')) || (getFieldError('selectCity')) || (getFieldError('setKaihuhang')) ?
+                                            <div className={style.errors}>文案待定</div> :
+                                            <div className={style.right}>文案待定</div>}
                                         <div className={style.kaihuhan}>
                                             <FormItem hasFeedback>
 
                                                 {getFieldDecorator('selectsheng', {
                                                     rules: [
-                                                        { required: true, message: 'Please select your country!' },
+                                                        {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Select placeholder="请选择省份" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
+                                                    <Select placeholder="请选择省份" size={'large'}
+                                                            style={{width: '100%', height: 40, lineHeight: 40}}
+                                                            onChange={this.handleChange}>
                                                         {
-                                                            sheng.map((v,i)=>{
+                                                            sheng.map((v, i) => {
                                                                 console.log(v.value);
                                                                 return (<Option value={v.value}>{v.value}</Option>)
                                                             })
@@ -374,12 +399,14 @@ class DetailUserMsg extends React.Component {
                                             <FormItem hasFeedback>
                                                 {getFieldDecorator('selectCity', {
                                                     rules: [
-                                                        { required: true, message: 'Please select your country!' },
+                                                        {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Select placeholder="请选择城市" size={'large'} style={{width:'100%',height:40,lineHeight:40 }} onChange={this.handleChange}>
+                                                    <Select placeholder="请选择城市" size={'large'}
+                                                            style={{width: '100%', height: 40, lineHeight: 40}}
+                                                            onChange={this.handleChange}>
                                                         {
-                                                            city.map((v,i)=>{
+                                                            city.map((v, i) => {
                                                                 console.log(v.value);
                                                                 return (<Option value={v.value}>{v.value}</Option>)
 
@@ -393,7 +420,7 @@ class DetailUserMsg extends React.Component {
                                             <FormItem hasFeedback>
                                                 {getFieldDecorator('setKaihuhang', {
                                                     rules: [
-                                                        { required: true, message: 'Please select your country!' },
+                                                        {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
                                                     <Input className={style.input} size="large" placeholder="开户行"/>)}
@@ -409,7 +436,12 @@ class DetailUserMsg extends React.Component {
                             </span>
                             <div className={style.imgfile}>
                                 <div className={style.lupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file={file} onChange={(url) => {
+                                    <UploadImg dis={this.state.checkNick} file={this.props.user.bankFrontImg && [{
+                                        uid: -1,
+                                        name: 'xxx.png',
+                                        status: 'done',
+                                        url: 'http://47.91.236.245:4030/' + this.props.user.bankFrontImg
+                                    }]} onChange={(url) => {
                                         this.setState({bankFrontImg: url})
                                     }} tip="点击上传银行卡正面"/>
                                 </div>

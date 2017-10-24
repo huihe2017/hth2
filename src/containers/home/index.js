@@ -5,6 +5,7 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import SideBar from '../../components/sideBar'
 import {hashHistory} from 'react-router'
+import PageTable from '../../components/pageTable'
 
 class Home extends React.Component {
     speedAccound() {
@@ -15,7 +16,7 @@ class Home extends React.Component {
         return (
             <div className={style.wrap}>
                 <Header/>
-                <SideBar/>
+                {/*<SideBar/>*/}
                 <div className={style.header}>
                     <div className={style.button}>
                         <Button type="primary" style={{
@@ -24,6 +25,8 @@ class Home extends React.Component {
                             fontSize: '24px'
                         }}>极速开户</Button>
                     </div>
+                    <div style={{width: 432, top: 67, position: 'absolute', right: 0}} ><PageTable/></div>
+
                 </div>
                 <div className="section">
                     <div className={style.superiority}>
