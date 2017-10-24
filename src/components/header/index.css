@@ -12,12 +12,6 @@
 :local(.autht){
     float: right;
 }
-:local(.headnav){
-    float: left;
-}
-:local(.headnavt){
-    float: left;
-}
 :local(.auth) span{
     padding: 0 30px;
     color: #656b6f;
@@ -25,42 +19,10 @@
     cursor: pointer;
 }
 :local(.autht) span{
-    padding: 0 25px;
+    padding: 0 30px;
     color: #fff;
     line-height: 68px;
     cursor: pointer;
-}
-:local(.headnav) span{
-    padding: 0 25px;
-    color: #656b6f;
-    line-height: 68px;
-    cursor: pointer;
-}
-:local(.headnavt) span{
-    padding: 0 25px;
-    color: #fff;
-    line-height: 68px;
-    cursor: pointer;
-}
-:local(.headnav) a{
-
-    color: #656b6f;
-
-}
-:local(.headnavt) a{
-
-    color: #fff;
-
-}
-
-:local(.linet){
-    width: 1px;
-    height: 30px;
-    background-color: rgba(59,61,64,.5);
-    float: left;
-    margin-left: 50px;
-    margin-right: 25px;
-    margin-top: 19px;
 }
 :local(.logo) {
     float: left;
