@@ -109,6 +109,41 @@ class Header extends React.Component {
                                 </Link>
                         }
                     </div>
+                    {
+                        this.state.otherStyle ?
+                            <div className={style.headnav}>
+                                <div>
+                                    <div className={style.linet}>
+
+                                    </div>
+                                    <span  >
+                                        <Link to="/userCenter">个人中心</Link>
+                                    </span>
+                                    <span  >
+                                        <Link to="/MT4Download">MT4下载</Link>
+                                    </span>
+                                    <span >
+                                        <Link to="/DolphinSchool">海豚学院</Link>
+                                    </span>
+                                </div>
+                            </div>:
+                            <div className={style.headnavt}>
+                                <div>
+                                    <div className={style.linet}>
+                                    </div>
+                                    <span >
+                                        <Link to="/userCenter">个人中心</Link>
+                                    </span>
+                                    <span >
+                                        <Link to="/MT4Download">MT4下载</Link>
+                                    </span>
+                                    <span >
+                                        <Link to="/DolphinSchool">海豚学院</Link>
+                                    </span>
+                                </div>
+
+                            </div>
+                    }
                     <div onMouseOver={this.openSlider} onMouseLeave={this.closeSlider} className={style.sider}>
                         全部导航
                         <SideBar show={this.state.open}/>
