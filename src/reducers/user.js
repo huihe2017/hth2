@@ -15,7 +15,8 @@ let initialState = {
     branch:'',
     bankFrontImg:'',
     frontImg:'',
-    reverseImg:''
+    reverseImg:'',
+    bankCode:''
 
 
 
@@ -70,7 +71,7 @@ export default function sign(state = initialState, action = {}) {
 
         case 'GET_DETAILMSG':
             console.log("ttt",action.data)
-            const {branch_name,bank_card,real_name,id_card,bank_name,id_card_face,bank_card_face,id_card_back} = action.data
+            const {branch_name,bank_card,real_name,id_card,bank_name,id_card_face,bank_card_face,id_card_back,bank_code} = action.data
             state.branch = branch_name
             state.bankNo = bank_card
             state.realName = real_name
@@ -79,6 +80,7 @@ export default function sign(state = initialState, action = {}) {
             state.bankFrontImg = bank_card_face
             state.frontImg = id_card_face
             state.reverseImg = id_card_back
+            state.bankCode = bank_code
             return Object.assign({}, state, {})
 
         case 'SET_STATUS':

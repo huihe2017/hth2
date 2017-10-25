@@ -126,7 +126,7 @@ class Home extends React.Component {
                                     style={{width: '220', height: '60', fontSize: '20'}}
                                     onClick={() => {
                                         this.setState({showQcode: true})
-                                        this.setState({QcodePath: 'andriod'})
+                                        this.setState({QcodePath: 'android'})
                                     }}
                                 >
                                     &nbsp;

@@ -103,7 +103,7 @@ class DetailUserMsg extends React.Component {
                 }, (errorText) => {
                     if (errorText) {
                     } else {
-                        hashHistory.push('/')
+                        this.setState({checkNick:true})
                     }
                 })
             }
@@ -127,14 +127,6 @@ class DetailUserMsg extends React.Component {
         }
     }
 
-
-    componentDidMount() {
-        this.props.getBankList()
-        this.props.form.setFieldsValue({
-            email: `18729029629@163.com`,
-        });
-    }
-
     getBankList(data) {
         let dom = []
         for (let s in data) {
@@ -146,15 +138,12 @@ class DetailUserMsg extends React.Component {
     componentDidMount() {
         this.props.getBankList()
         this.props.form.setFieldsValue({
+            email: this.props.user.email,
             idCard: this.props.user.id,
             userName: this.props.user.realName,
             address: this.props.user.address,
             setNumber: this.props.user.bankNo,
-            selectBank: this.props.user.bankCode,
-            idCard: this.props.user.id,
-            idCard: this.props.user.id,
-            idCard: this.props.user.id
-
+            selectBank: this.props.user.bankCode
         });
     }
 
@@ -343,7 +332,7 @@ class DetailUserMsg extends React.Component {
                                             >
                                                 {
                                                     <div className={style.unimg}>
-                                                        <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                        <img  src={'http://47.91.236.245:4030/' + this.props.user.frontImg} alt=""  />
                                                     </div>
 
                                                 }
@@ -372,7 +361,7 @@ class DetailUserMsg extends React.Component {
                                         >
                                             {
                                                 <div className={style.unimg}>
-                                                    <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                    <img  src={'http://47.91.236.245:4030/' + this.props.user.reverseImg} alt=""  />
                                                 </div>
                                             }
                                         </Upload>:<UploadImg dis={this.state.checkNick} file={this.props.user.reverseImg && [{
@@ -433,11 +422,8 @@ class DetailUserMsg extends React.Component {
                                         <Select placeholder="请选择银行" size={'large'} disabled={this.state.checkNick}
                                                 style={{width: '100%', height: 40, lineHeight: 40}}
                                                 onChange={this.handleChange}>
-                                            {bank.map((v, i) => {
-                                                console.log(v.value);
-                                                return (<Option value={v.value}>{v.value}</Option>)
-                                            })
-                                            }
+                                            {this.getBankList(this.props.foreignExchange.outGoldBanks)}
+
                                         </Select>
                                     )}
                                 </FormItem>
@@ -524,7 +510,7 @@ class DetailUserMsg extends React.Component {
                                             >
                                                 {
                                                     <div className={style.unimg}>
-                                                        <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                        <img  src={'http://47.91.236.245:4030/' + this.props.user.bankFrontImg} alt=""  />
                                                     </div>
                                                 }
                                             </Upload>:<UploadImg dis={this.state.checkNick} file={this.props.user.bankFrontImg && [{

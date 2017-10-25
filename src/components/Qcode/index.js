@@ -35,7 +35,7 @@ class QCode extends React.Component {
                         清扫描二维码进行开户
                     </span>
                     <div className={style.qcode}>
-                        <img className={style.img} src={require('./qrcode.png')} alt=""/>
+                        <img className={style.img} src={require('./images/'+ this.props.path +'.png')} alt=""/>
                     </div>
 
                 </Modal>
