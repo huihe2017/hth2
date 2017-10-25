@@ -40,7 +40,17 @@ class DealTerrace extends React.Component {
                             <div className={style.pcdown}>
                                 <img src={require('./images/pcDownload.png')} alt=""/>
                                 <div className={style.but}>
-                                    <Button type="primary" ghost icon="windows" className={style.butt} style={{width: '220', height: '60', fontSize: '22'}}>&nbsp;windows下载</Button>
+                                    <Button
+                                        type="primary"
+                                        ghost icon="windows"
+                                        className={style.butt}
+                                        style={{width: '220', height: '60', fontSize: '22'}}
+                                        onClick={() => {
+                                            window.location.href = 'http://ucml.oss-cn-shanghai.aliyuncs.com/downloads/market4setup.exe'
+                                        }}
+                                    >
+                                        &nbsp;windows下载
+                                    </Button>
                                 </div>
 
 
@@ -60,7 +70,7 @@ class DealTerrace extends React.Component {
                                     iOS版本下载
                                 </span>
                                     <div className={style.iosqcoad}>
-                                        <img src={require('./images/qcode.jpg')} alt=""/>
+                                        <img src={require('./images/ios.png')} alt=""/>
                                     </div>
                                 </div>
                                 <div className={style.andrioddown}>
@@ -71,7 +81,7 @@ class DealTerrace extends React.Component {
                                     Android版本下载
                                 </span>
                                     <div className={style.iosqcoad}>
-                                        <img src={require('./images/qcode.jpg')} alt=""/>
+                                        <img src={require('./images/android.png')} alt=""/>
                                     </div>
                                 </div>
                             </div>
