@@ -48,6 +48,7 @@ class UploadImg extends React.Component {
                     onPreview={this.handlePreview}
                     onChange={this.handleChange}
                     withCredentials={true}
+
                 >
                     {fileList.length >= 1 ? null : uploadButton}
                 </Upload>
@@ -60,3 +61,5 @@ class UploadImg extends React.Component {
 }
 
 export default UploadImg;
+
+// this.props.user.status === "2" ? true : false

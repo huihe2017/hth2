@@ -59,7 +59,7 @@ class PageTable extends Component {
                     <tr>
                         <th className={style.var}>品种</th>
                         <th className={style.spread}>点差</th>
-                        {/*<th className={style.total}>市场深度(M)</th>*/}
+                        <th className={style.total}>市场深度(M)</th>
                         <th className={style.ru}>买入价</th>
                         <th className={style.chu}>卖出价</th>
                     </tr>

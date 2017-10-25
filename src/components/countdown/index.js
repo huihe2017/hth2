@@ -11,7 +11,8 @@ class Countdown extends React.Component {
         super(props);
         this.state = {
             extraText: '获取验证码',
-            counting: false
+            counting: false,
+            type:1
         }
     }
 
@@ -56,16 +57,18 @@ class Countdown extends React.Component {
     }
 
     render() {
+        const bigrow='18';
+
         return (
             <Row >
-                <Col span={18}>
+                <Col span={this.props.type=='big'?18:15}>
 
                     <Input onChange={this.props.onChange} className={style.inputyz} placeholder="短信验证码"/>
 
                 </Col>
-                <Col span={6}>
+                <Col span={this.props.type=='big'?6:9}>
                     <Button onClick={this.handle} className={this.props.className}
-                            style={{height: 40, width: 110, marginLeft: 20}}>{this.state.extraText}</Button>
+                            style={{height: 40, width:this.props.type=='big'? 110:100, marginLeft: 20}}>{this.state.extraText}</Button>
                 </Col>
             </Row>
         )

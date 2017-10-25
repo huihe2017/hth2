@@ -165,8 +165,6 @@ class RegisterBox extends React.Component {
                                     )}
                                     </FormItem>
                                 </div>
-
-
                                 <div className={style.tuxing}>
                                     <FormItem>{getFieldDecorator('code', {
                                         rules: [{
@@ -185,6 +183,7 @@ class RegisterBox extends React.Component {
                                                 failCallback={() => {
                                                     this.setState({picImg: this.getPicImg()})
                                                 }}
+                                                type="small"
                                                 onChange={(e) => {
                                                     this.setState({code: e.target.value})
                                                 }}
@@ -194,8 +193,6 @@ class RegisterBox extends React.Component {
                                     }
                                     </FormItem>
                                 </div>
-
-
                                 <div className={style.tuxing}>
                                     <FormItem>{getFieldDecorator('password', {
                                         rules: [{

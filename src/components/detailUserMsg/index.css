@@ -21,6 +21,7 @@
     padding-top: 40px;
     padding-bottom: 60px;
     background: #fff;
+    position: relative;
 
 }
 
@@ -101,6 +102,38 @@
 :local(.perimport){
     width: 520px;
     float: left;
+}
+:local(.unimg){
+    width: 200px;
+    height: 150px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 8px;
+}
+:local(.unimg)>img{
+    width: 182px;
+    height: 132px;
+
+}
+:local(.state){
+    position: absolute;
+    top: 90px;
+    right: 100px;
+}
+:local(.statec){
+
+    font-size: 14px;
+    height: 20px;
+    overflow: hidden;
+}
+:local(.statec)>img{
+    float: left;
+}
+:local(.statec)>span{
+    float: left;
+    line-height: 20px;
+    color: #656b6f;
+    margin-left: 14px;
 }
 
 :local(.tiptext){

@@ -4,7 +4,7 @@ import Title from '../../components/title'
 import ContentList from '../../components/contentList'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
-import {Input, Select, Form, AutoComplete, Button, Row, Col} from 'antd';
+import {Input, Select, Form, AutoComplete, Button, Row, Col,Upload} from 'antd';
 import UploadImg from '../uploadImg'
 import Countdown from '../../components/countdown'
 import {getAccounded, getBankList} from '../../actions/foreignExchange'
@@ -68,10 +68,32 @@ class DetailUserMsg extends React.Component {
             confirmDirty: false,
             autoCompleteResult: [],
             checkNick: this.props.user.status === "2" ? true : false,
+            dynamics: {
+                state:'waiting'
+            }
         }
     }
 
 
+    statecontent(e){
+        if(e=="complete"){
+            return <span style={{color:"#5262ff"}}>
+                已通过审核，可出金
+            </span>
+        }else if(e=="unComplete"){
+            return <span style={{color:"#f59294"}}>
+                开户未完成，入金限额5000
+            </span>
+        }else if(e=="waiting"){
+            return <span style={{color:"#fab001"}}>
+                审核中，已提升入金额度
+            </span>
+        }else if(e=="imperfection"){
+            return <span style={{color:"#656b6f"}}>
+                资料不完善，如有疑问请联系客服：400-8530-050
+            </span>
+        }
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -136,6 +158,7 @@ class DetailUserMsg extends React.Component {
         });
     }
 
+
     render() {
         const {getFieldDecorator, getFieldError} = this.props.form;
         const {autoCompleteResult} = this.state;
@@ -167,6 +190,7 @@ class DetailUserMsg extends React.Component {
                 },
             },
         };
+
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',
         })(
@@ -178,6 +202,17 @@ class DetailUserMsg extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <div className={style.partreg}>
+                    <div className={style.state}>
+                        {
+                            <div className={style.statec}>
+                                <img src={require('./images/'+this.state.dynamics.state+'.png')} alt=""/>
+                                {
+                                    this.statecontent(this.state.dynamics.state)
+                                }
+
+                            </div>
+                        }
+                    </div>
                     <div className={style.personal}>
                         <Title content={"/联络人信息"} color={"#5262ff"}/>
                         <div className={style.perimport}>
@@ -199,6 +234,7 @@ class DetailUserMsg extends React.Component {
                                             business='VERIFICATION'
                                             failCallback={() => {
                                             }}
+                                            type="big"
                                             onChange={(e) => {
                                                 this.setState({code: e.target.value})
                                             }}
@@ -293,24 +329,62 @@ class DetailUserMsg extends React.Component {
                             </span>
                             <div className={style.imgfile}>
                                 <div className={style.lupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file={this.props.user.frontImg && [{
-                                        uid: -1,
-                                        name: 'xxx.png',
-                                        status: 'done',
-                                        url: 'http://47.91.236.245:4030/' + this.props.user.frontImg
-                                    }]} onChange={(url) => {
-                                        this.setState({frontImg: url})
-                                    }} tip="点击上传人像面"/>
+                                    {
+                                        this.state.checkNick?
+                                            <Upload
+                                                className="avatar-uploader"
+                                                name="avatar"
+                                                showUploadList={false}
+                                                action="//jsonplaceholder.typicode.com/posts/"
+                                                onChange={this.handleChange}
+                                                disabled={this.state.checkNick}
+                                                style={{width:'220',height:'150',position: 'relative',overflow:'hidden',}}
+                                            >
+                                                {
+                                                    <div className={style.unimg}>
+                                                        <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                    </div>
+
+                                                }
+                                            </Upload>:<UploadImg dis={this.state.checkNick} file={this.props.user.frontImg && [{
+                                                uid: -1,
+                                                name: 'xxx.png',
+                                                status: 'done',
+                                                url: 'http://47.91.236.245:4030/' + this.props.user.frontImg
+                                            }]} onChange={(url) => {
+                                                this.setState({frontImg: url})
+                                            }} tip="点击上传人像面"/>
+                                    }
+
                                 </div>
                                 <div className={style.rupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file={this.props.user.reverseImg && [{
-                                        uid: -1,
-                                        name: 'xxx.png',
-                                        status: 'done',
-                                        url: 'http://47.91.236.245:4030/' + this.props.user.reverseImg
-                                    }]} onChange={(url) => {
-                                        this.setState({reverseImg: url})
-                                    }} tip="点击上传国徽面"/>
+                                    {
+                                        this.state.checkNick?
+                                            <Upload
+                                            className="avatar-uploader"
+                                            name="avatar"
+                                            showUploadList={false}
+                                            action="//jsonplaceholder.typicode.com/posts/"
+                                            onChange={this.handleChange}
+                                            disabled={this.state.checkNick}
+                                            style={{width:'220',height:'150',position: 'relative',overflow:'hidden'}}
+                                        >
+                                            {
+                                                <div className={style.unimg}>
+                                                    <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                </div>
+                                            }
+                                        </Upload>:<UploadImg dis={this.state.checkNick} file={this.props.user.reverseImg && [{
+                                                    uid: -1,
+                                                    name: 'xxx.png',
+                                                    status: 'done',
+                                                    url: 'http://47.91.236.245:4030/' + this.props.user.reverseImg
+                                                }]} onChange={(url) => {
+                                                this.setState({reverseImg: url})
+                                            }} tip="点击上传国徽面"/>
+                                    }
+
+
                                 </div>
                             </div>
                             <div className={style.uprequire}>
@@ -355,7 +429,7 @@ class DetailUserMsg extends React.Component {
                                             {required: true, message: 'Please select your country!'}
                                         ],
                                     })(
-                                        <Select placeholder="请选择银行" size={'large'}
+                                        <Select placeholder="请选择银行" size={'large'} disabled={this.state.checkNick}
                                                 style={{width: '100%', height: 40, lineHeight: 40}}
                                                 onChange={this.handleChange}>
                                             {bank.map((v, i) => {
@@ -382,7 +456,7 @@ class DetailUserMsg extends React.Component {
                                                         {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Select placeholder="请选择省份" size={'large'}
+                                                    <Select placeholder="请选择省份" size={'large'} disabled={this.state.checkNick}
                                                             style={{width: '100%', height: 40, lineHeight: 40}}
                                                             onChange={this.handleChange}>
                                                         {
@@ -402,7 +476,7 @@ class DetailUserMsg extends React.Component {
                                                         {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Select placeholder="请选择城市" size={'large'}
+                                                    <Select placeholder="请选择城市" size={'large'} disabled={this.state.checkNick}
                                                             style={{width: '100%', height: 40, lineHeight: 40}}
                                                             onChange={this.handleChange}>
                                                         {
@@ -423,7 +497,7 @@ class DetailUserMsg extends React.Component {
                                                         {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Input className={style.input} size="large" placeholder="开户行"/>)}
+                                                    <Input className={style.input}  size="large" placeholder="开户行"/>)}
                                             </FormItem>
                                         </div>
                                     </div>
@@ -436,14 +510,32 @@ class DetailUserMsg extends React.Component {
                             </span>
                             <div className={style.imgfile}>
                                 <div className={style.lupingbox}>
-                                    <UploadImg dis={this.state.checkNick} file={this.props.user.bankFrontImg && [{
-                                        uid: -1,
-                                        name: 'xxx.png',
-                                        status: 'done',
-                                        url: 'http://47.91.236.245:4030/' + this.props.user.bankFrontImg
-                                    }]} onChange={(url) => {
-                                        this.setState({bankFrontImg: url})
-                                    }} tip="点击上传银行卡正面"/>
+                                    {
+                                        this.state.checkNick?
+                                            <Upload
+                                                className="avatar-uploader"
+                                                name="avatar"
+                                                showUploadList={false}
+                                                action="//jsonplaceholder.typicode.com/posts/"
+                                                onChange={this.handleChange}
+                                                disabled={this.state.checkNick}
+                                                style={{width:'220',height:'150',position: 'relative',overflow:'hidden'}}
+                                            >
+                                                {
+                                                    <div className={style.unimg}>
+                                                        <img  src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' alt=""  />
+                                                    </div>
+                                                }
+                                            </Upload>:<UploadImg dis={this.state.checkNick} file={this.props.user.bankFrontImg && [{
+                                                uid: -1,
+                                                name: 'xxx.png',
+                                                status: 'done',
+                                                url: 'http://47.91.236.245:4030/' + this.props.user.bankFrontImg
+                                            }]} onChange={(url) => {
+                                                this.setState({bankFrontImg: url})
+                                            }} tip="点击上传银行卡正面"/>
+                                    }
+
                                 </div>
 
                             </div>
