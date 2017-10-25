@@ -204,13 +204,14 @@ class DetailUserMsg extends React.Component {
                 <div className={style.partreg}>
                     <div className={style.state}>
                         {
-                            <div className={style.statec}>
+                            this.state.checkNick?<div className={style.statec}>
                                 <img src={require('./images/'+this.state.dynamics.state+'.png')} alt=""/>
                                 {
                                     this.statecontent(this.state.dynamics.state)
                                 }
 
-                            </div>
+                            </div>:''
+
                         }
                     </div>
                     <div className={style.personal}>
@@ -497,7 +498,7 @@ class DetailUserMsg extends React.Component {
                                                         {required: true, message: 'Please select your country!'},
                                                     ],
                                                 })(
-                                                    <Input className={style.input}  size="large" placeholder="开户行"/>)}
+                                                    <Input className={style.input} disabled={this.state.checkNick} size="large" placeholder="开户行"/>)}
                                             </FormItem>
                                         </div>
                                     </div>
