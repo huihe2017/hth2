@@ -1,10 +1,9 @@
 import React from 'react';
 import style from "./index.css"
-import Title from '../../components/title'
-import ContentList from '../../components/contentList'
-import {hashHistory, Link} from 'react-router';
+import Title from '../../../../components/title'
+import {hashHistory} from 'react-router';
 import {connect} from 'react-redux'
-import { Form,Input,Icon,Button } from 'antd'
+import { Form,Input,Button } from 'antd'
 
 const data={
     depositCount: 0,

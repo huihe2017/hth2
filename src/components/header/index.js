@@ -2,13 +2,13 @@ import React from 'react';
 import style from "./index.css"
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
-import SideBar from '../sideBar'
+import SideBar from './components/sideBar'
 import {bindActionCreators} from 'redux'
 import {showLogin, showRegister, hideAuth} from '../../actions/auth'
 import {logout} from '../../actions/user'
-import LoginBox from '../../components/loginBox'
-import RegisterBox from '../../components/registerBox'
-import ResetPwdBox from '../../components/resetPwdBox'
+import LoginBox from './components/loginBox'
+import RegisterBox from './components/registerBox'
+import ResetPwdBox from './components/resetPwdBox'
 
 
 class Header extends React.Component {

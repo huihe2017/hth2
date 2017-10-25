@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./index.css"
-import Title from '../title/index'
-import ContentList from '../contentList/index'
+import Title from '../../../../components/title/index'
+import ContentList from '../../../../components/contentList/index'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import { Input,Button,Form } from 'antd'

@@ -65,7 +65,7 @@ export function modifyPwd(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }
@@ -87,7 +87,7 @@ export function register(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }
@@ -104,7 +104,7 @@ export function getBaseUserMsg(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }
@@ -120,7 +120,7 @@ export function getDetailMsg(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }
@@ -143,7 +143,7 @@ export function resetPwd(data, callback) {
                 }
             })
             .catch(function (error) {
-                alert(error);
+
             });
     }
 }

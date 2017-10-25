@@ -26,7 +26,7 @@ class QCode extends React.Component {
                 <Modal
                     visible={this.state.visible}
                     onOk={this.hideModal}
-                    onCancel={this.hideModal}
+                    onCancel={this.props.onClose}
                     okText="确认"
                     cancelText="取消"
                     width="400"

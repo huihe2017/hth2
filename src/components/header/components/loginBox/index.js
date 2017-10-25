@@ -3,8 +3,8 @@ import style from "./index.css"
 import {connect} from 'react-redux'
 import { Modal,Input,Select,Form,Button } from 'antd';
 import {bindActionCreators} from 'redux'
-import {hideAuth,showRegister,showResetPwd} from '../../actions/auth'
-import {login,resetPwd} from '../../actions/user'
+import {hideAuth,showRegister,showResetPwd} from '../../../../actions/auth'
+import {login,resetPwd} from '../../../../actions/user'
 import Toast from 'antd-mobile/lib/toast';
 import 'antd-mobile/lib/toast/style/css';
 

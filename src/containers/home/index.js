@@ -3,11 +3,20 @@ import style from './index.css'
 import {Button} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import SideBar from '../../components/sideBar'
+import SideBar from '../../components/header/components/sideBar'
 import {hashHistory} from 'react-router'
-import PageTable from '../../components/pageTable'
+import PageTable from './components/pageTable'
+import Qcode from '../../components/Qcode'
 
 class Home extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            showQcode: false,
+            QcodePath: ''
+        }
+    }
+
     speedAccound() {
         hashHistory.push('/auth')
     }
@@ -25,7 +34,7 @@ class Home extends React.Component {
                             fontSize: '24px'
                         }}>极速开户</Button>
                     </div>
-                    <div style={{width: 432, top: 67, position: 'absolute', right: 0}} ><PageTable/></div>
+                    <div style={{width: 432, top: 67, position: 'absolute', right: 0}}><PageTable/></div>
 
                 </div>
                 <div className="section">
@@ -87,16 +96,42 @@ class Home extends React.Component {
                             </a>
                             <div className={style.downloadlist}>
                                 <Button ghost icon="windows"
-                                        style={{width: '220', height: '60', fontSize: '20', marginBottom: '30'}}>&nbsp;
-                                    windows下载</Button>
-                                <Button ghost icon="apple" style={{
-                                    width: '220',
-                                    height: '60',
-                                    fontSize: '20',
-                                    marginBottom: '30'
-                                }}> &nbsp;&nbsp;&nbsp;&nbsp;iOS下载&nbsp;&nbsp;&nbsp;&nbsp;</Button>
-                                <Button ghost icon="android" style={{width: '220', height: '60', fontSize: '20'}}>&nbsp;
-                                    Android下载</Button>
+                                        style={{width: '220', height: '60', fontSize: '20', marginBottom: '30'}}
+                                        onClick={() => {
+                                            window.location.href = 'http://ucml.oss-cn-shanghai.aliyuncs.com/downloads/market4setup.exe'
+                                        }}
+                                >
+                                    &nbsp;
+                                    windows下载
+                                </Button>
+                                <Button
+                                    ghost
+                                    icon="apple"
+                                    style={{
+                                        width: '220',
+                                        height: '60',
+                                        fontSize: '20',
+                                        marginBottom: '30'
+                                    }}
+                                    onClick={() => {
+                                        this.setState({showQcode: true})
+                                        this.setState({QcodePath: 'ios'})
+                                    }}
+                                >
+                                    &nbsp;&nbsp;&nbsp;&nbsp;iOS下载&nbsp;&nbsp;&nbsp;&nbsp;
+                                </Button>
+                                <Button
+                                    ghost
+                                    icon="android"
+                                    style={{width: '220', height: '60', fontSize: '20'}}
+                                    onClick={() => {
+                                        this.setState({showQcode: true})
+                                        this.setState({QcodePath: 'andriod'})
+                                    }}
+                                >
+                                    &nbsp;
+                                    Android下载
+                                </Button>
 
                             </div>
                         </div>
@@ -133,6 +168,7 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
+                    {this.state.showQcode ? <Qcode path={this.state.QcodePath} onClose={()=>{this.setState({showQcode:false})}} /> : ''}
                 </div>
                 <Footer/>
             </div>

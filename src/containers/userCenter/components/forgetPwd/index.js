@@ -1,13 +1,13 @@
 import React from 'react';
 import style from "./index.css"
-import Title from '../title/index'
-import ContentList from '../contentList/index'
+import Title from '../../../../components/title/index'
+import ContentList from '../../../../components/contentList/index'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import {Form, Input, Button} from 'antd'
 import {bindActionCreators} from 'redux'
-import {showLogin} from '../../actions/auth'
-import {modifyPwd, logout} from '../../actions/user'
+import {showLogin} from '../../../../actions/auth'
+import {modifyPwd, logout} from '../../../../actions/user'
 import Toast from 'antd-mobile/lib/toast';
 import 'antd-mobile/lib/toast/style/css';
 

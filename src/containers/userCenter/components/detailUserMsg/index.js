@@ -1,13 +1,13 @@
 import React from 'react';
 import style from "./index.css"
-import Title from '../../components/title'
-import ContentList from '../../components/contentList'
+import Title from '../../../../components/title/index'
+import ContentList from '../../../../components/contentList/index'
 import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import {Input, Select, Form, AutoComplete, Button, Row, Col,Upload} from 'antd';
-import UploadImg from '../uploadImg'
-import Countdown from '../../components/countdown'
-import {getAccounded, getBankList} from '../../actions/foreignExchange'
+import UploadImg from '../../../../components/uploadImg/index'
+import Countdown from '../../../../components/countdown/index'
+import {getAccounded, getBankList} from '../../../../actions/foreignExchange'
 import {bindActionCreators} from 'redux'
 
 const FormItem = Form.Item;
