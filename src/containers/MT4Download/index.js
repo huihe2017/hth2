@@ -7,6 +7,8 @@ import ContentList from '../../components/contentList'
 import { Button } from 'antd'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
 
 let data= [
     {
@@ -27,9 +29,13 @@ class DealTerrace extends React.Component {
         return(
             <div className={style.aboutus}>
                 <Header/>
+                <Crumb position={[{pos:'MT4软件下载'}]}/>
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.wlop}>
                     <div className={style.header}>
-                        <Title content="/交易平台" color="#5262ff" big={true} bold={true}/>
+                        <Title content="/MT4软件下载" color="#5262ff" big={true} bold={true}/>
                     </div>
                     <div className={style.content}>
                         <ContentList data={data}/>

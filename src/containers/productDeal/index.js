@@ -6,6 +6,8 @@ import {hashHistory, Link} from 'react-router';
 import {connect} from 'react-redux'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
 
 let data= [
     {
@@ -44,6 +46,10 @@ class ProductDeal extends React.Component {
         return(
             <div className={style.aboutus}>
                 <Header/>
+                <Crumb position={[{pos:'交易产品'}]}/>
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.wlop}>
                     <div className={style.header}>
                         <Title content="/外汇" color="#5262ff" big={true} bold={true}/>

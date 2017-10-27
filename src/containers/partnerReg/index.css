@@ -255,3 +255,8 @@ form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, f
 .has-error .ant-form-explain, .has-error .ant-form-split {
     color: #f59294!important;
 }
+:local(.toolbar){
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+}

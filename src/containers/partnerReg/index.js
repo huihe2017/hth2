@@ -5,6 +5,9 @@ import { Input,Select,Form,AutoComplete,Button } from 'antd';
 import UploadImg from '../../components/uploadImg'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
+
 // import Personmsg from "./personalMsg/index";
 // import Bannkmsg from "./bankMsg/index";
 // import Companymsg from "./companyMsg/index";
@@ -160,6 +163,10 @@ class PartnerReg extends React.Component {
             <div className={style.wlop}>
                 <Form onSubmit={this.handleSubmit}>
                     <Header/>
+                    <Crumb position={[{href:'#/partnerEntry',pos:'合伙人入口'},{pos:'合伙人注册'}]}/>
+                    <div className={style.toolbar}>
+                        <ToolBar/>
+                    </div>
                     <div className={style.partreg}>
                         <div className={style.avatar}>
                             <input type="file"/>
@@ -174,9 +181,7 @@ class PartnerReg extends React.Component {
                                             rules: [ {
                                                 required: true,pattern:/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/}]
                                         })(
-
-                                                <Input className={style.input} placeholder="邮箱"/>
-
+                                            <Input className={style.input} placeholder="邮箱"/>
                                         )}
                                     </FormItem>
                                 </div>

@@ -15,6 +15,8 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Toast from 'antd-mobile/lib/toast';
 import 'antd-mobile/lib/toast/style/css';
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -124,6 +126,10 @@ class userCenterHeadView extends React.Component {
         return (
             <div className={style.aboutus}>
                 <Header/>
+                <Crumb position={[{pos:'个人中心'}]}/>
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.wlop}>
                     <div className={style.userCenterHead}>
                         <div className={style.userCHl}>

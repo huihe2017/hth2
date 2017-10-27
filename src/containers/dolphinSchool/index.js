@@ -12,6 +12,8 @@ import Skill from './components/skill'
 import Question from './components/question'
 import AccountFlow from './components/accountFlow'
 import MoneyFlow from './components/moneyFlow'
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
 
 
 const TabPane = Tabs.TabPane;
@@ -29,6 +31,10 @@ class DolphinSchool extends React.Component {
         return(
             <div className={style.aboutus}>
                 <Header/>
+                <Crumb position={[{pos:'海豚学院'}]}/>
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.wlop}>
                     <Tabs activeKey={this.state.tabsActiveKey} onChange={(e) => {
                         this.setState({tabsActiveKey: e})

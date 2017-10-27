@@ -58,3 +58,8 @@
     color: #5262ff!important;
     border-color: #5262ff!important;
 }
+:local(.toolbar){
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+}

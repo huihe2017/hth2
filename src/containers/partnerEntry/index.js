@@ -6,6 +6,8 @@ import {connect} from 'react-redux'
 import ContentList from '../../components/contentList'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import ToolBar from '../../components/toolBar'
+import Crumb from '../../components/crumbs'
 
 let data= [
     {
@@ -40,6 +42,10 @@ class PartnerEntry extends React.Component {
         return (
             <div className={style.partnerEntry}>
                 <Header/>
+                <Crumb position={[{pos:'合伙人计划'}]}/>
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.wlop}>
                     <div className={style.parenimg}>
                 </div>

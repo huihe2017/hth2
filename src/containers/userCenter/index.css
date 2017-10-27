@@ -260,3 +260,8 @@
 .ant-tabs-nav .ant-tabs-tab{
     padding: 0!important;
 }
+:local(.toolbar){
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+}

@@ -92,11 +92,9 @@ class Skill extends React.Component {
                         this.pageNum()
                     }
                     <div className={style.page}>
-                        <Pagination defaultCurrent={10} total={14} onChange={this.onChange.bind(this)} defaultPageSize={1}/>
+                        <Pagination defaultCurrent={this.state.page} total={14} onChange={this.onChange.bind(this)} defaultPageSize={1}/>
                     </div>
-
                 </div>
-
             </div>
         )
     }

@@ -20,3 +20,8 @@
 :local(.red){
     color: #f59294;
 }
+:local(.toolbar){
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+}

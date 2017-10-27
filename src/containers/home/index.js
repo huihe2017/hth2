@@ -4,6 +4,7 @@ import {Button} from 'antd';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import SideBar from '../../components/header/components/sideBar'
+import ToolBar from '../../components/toolBar'
 import {hashHistory} from 'react-router'
 import PageTable from './components/pageTable'
 import Qcode from '../../components/Qcode'
@@ -25,7 +26,9 @@ class Home extends React.Component {
         return (
             <div className={style.wrap}>
                 <Header/>
-                {/*<SideBar/>*/}
+                <div className={style.toolbar}>
+                    <ToolBar/>
+                </div>
                 <div className={style.header}>
                     <div className={style.button}>
                         <Button type="primary" style={{
@@ -52,7 +55,7 @@ class Home extends React.Component {
                                                 资质合规
                                             </div>
                                             <div className={style.suppfcontent}>
-                                                <span></span>
+                                                <span>香港上市公司<br/>受新西兰金融市场监管</span>
                                             </div>
                                         </div>
                                     </a>
@@ -62,10 +65,10 @@ class Home extends React.Component {
                                         </div>
                                         <div className={style.suppfont}>
                                             <div className={style.suppftitle}>
-                                                资质合规
+                                                实力雄厚
                                             </div>
                                             <div className={style.suppfcontent}>
-                                                <span></span>
+                                                <span>新西兰FSP监管<br/>顶级金融机构从业30年的管理团队</span>
                                             </div>
                                         </div>
                                     </a>
@@ -75,10 +78,10 @@ class Home extends React.Component {
                                         </div>
                                         <div className={style.suppfont}>
                                             <div className={style.suppftitle}>
-                                                资质合规
+                                                佣金实惠
                                             </div>
                                             <div className={style.suppfcontent}>
-                                                <span></span>
+                                                <span>24小时双向交易<br/>超实惠的点差与保证金</span>
                                             </div>
                                         </div>
                                     </a>
