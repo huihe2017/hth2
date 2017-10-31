@@ -298,5 +298,6 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+
 userCenterHeadView = connect(mapStateToProps, mapDispatchToProps)(userCenterHeadView)
 export default userCenterHeadView;

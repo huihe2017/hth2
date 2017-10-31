@@ -7,6 +7,10 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import ToolBar from '../../components/toolBar'
 import Crumb from '../../components/crumbs'
+import Countdown from '../../components/countdown'
+import {getAccounded, getBankList} from '../../actions/foreignExchange'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
 // import Personmsg from "./personalMsg/index";
 // import Bannkmsg from "./bankMsg/index";
@@ -174,6 +178,59 @@ class PartnerReg extends React.Component {
                         <div className={style.personal}>
                             <Title content={"/联络人信息【必填】"} color={"#5262ff"}/>
                             <div className={style.perimport}>
+                                <div className={style.perselphone}>
+                                    <div className={style.selphone}>
+                                        <div className={style.qh}>
+                                            <Select defaultValue="+86" size={'large'} style={{ width: 100,height:40,lineHeight:40,marginTop:40 }} onChange={handleChange} dropdownStyle={{width:'520'}}>
+                                                {
+                                                    qh.map((v,i)=>{
+                                                        console.log(v.value[1]);
+                                                        return (<Option value={v.value[1]}>{v.value[1]}</Option>)
+
+                                                    })
+                                                }
+                                            </Select>
+                                        </div>
+                                        <div className={style.phone}>
+                                            <FormItem>
+                                                {(getFieldError('phone')) ? <div className={style.errorsp} >文案待定</div> :<div className={style.rightp}>文案待定</div>}                                         {getFieldDecorator('phone', {
+                                                rules: [{ required: true, message: 'Please input your phone number!',pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/ }],
+                                            })(
+                                                <Input className={style.inputp} placeholder="手机号"/>
+                                            )}
+                                            </FormItem>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={style.percontent} hidden={this.state.checkNick ? 'hidden' : ''}>
+                                    <FormItem>
+                                        {(getFieldError('yanzhegnma')) ?
+                                            <div className={style.errors}>结算卡号需与上传银行卡信息一致【必填】</div> :
+                                            <div className={style.right}>结算卡号需与上传银行卡信息一致【必填】</div>}
+                                        {getFieldDecorator('yanzhegnma', {
+                                            rules: [{
+                                                required: true, pattern: /^[0-9]*$/
+                                            }]
+                                        })(
+                                            <Countdown
+                                                beforeClick={() => {
+                                                    return true
+                                                }}
+                                                phone={this.props.user.userName}
+                                                business='VERIFICATION'
+                                                failCallback={() => {
+                                                }}
+                                                type="big"
+                                                onChange={(e) => {
+                                                    this.setState({code: e.target.value})
+                                                }}
+                                            />
+                                        )}
+
+
+                                    </FormItem>
+                                </div>
                                 <div className={style.percontent}>
                                     <FormItem hasFeedback>
                                         {(getFieldError('email')) ? <div className={style.errors} >联络人姓名需与身份证姓名一致</div> :<div className={style.right}>联络人姓名需与身份证姓名一致</div>}
@@ -207,31 +264,7 @@ class PartnerReg extends React.Component {
                                             rules: [{ required: true, message: '请输入联络人信息', whitespace: true,pattern:  /^([a-zA-Z\u4e00-\u9fa5\·]{1,10})$/ }],})(<Input className={style.input} placeholder="联络人"/>)}
                                     </FormItem>
                                 </div>
-                                <div className={style.perselphone}>
-                                    <div className={style.selphone}>
-                                        <div className={style.qh}>
-                                            <Select defaultValue="+86" size={'large'} style={{ width: 100,height:40,lineHeight:40,marginTop:40 }} onChange={handleChange} dropdownStyle={{width:'520'}}>
-                                                {
-                                                    qh.map((v,i)=>{
-                                                        console.log(v.value[1]);
-                                                        return (<Option value={v.value[1]}>{v.value[1]}</Option>)
 
-                                                    })
-                                                }
-                                            </Select>
-                                        </div>
-                                        <div className={style.phone}>
-                                            <FormItem>
-                                                {(getFieldError('phone')) ? <div className={style.errorsp} >文案待定</div> :<div className={style.rightp}>文案待定</div>}                                         {getFieldDecorator('phone', {
-                                            rules: [{ required: true, message: 'Please input your phone number!',pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/ }],
-                                        })(
-                                            <Input className={style.inputp} placeholder="手机号"/>
-                                        )}
-                                        </FormItem>
-
-                                        </div>
-                                    </div>
-                                </div>
                                 <div className={style.percontent}>
                                     <FormItem
                                         //{...formItemLayout}
@@ -487,6 +520,21 @@ class PartnerReg extends React.Component {
     }
 }
 
+function mapStateToProps(state, props) {
+    return {
+        user: state.user,
+        foreignExchange: state.foreignExchange
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        getAccounded: bindActionCreators(getAccounded, dispatch),
+        getBankList: bindActionCreators(getBankList, dispatch)
+    }
+}
+
+PartnerReg = connect(mapStateToProps, mapDispatchToProps)(PartnerReg);
 const WrappedPartnerReg = Form.create()(PartnerReg)
 
 export default WrappedPartnerReg;
