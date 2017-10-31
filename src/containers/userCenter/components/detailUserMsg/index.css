@@ -288,20 +288,4 @@ form .has-feedback :not(.ant-input-group-addon)>.ant-select .ant-select-arrow, f
 .ant-upload-list-picture-card .ant-upload-list-item-error, .ant-upload-list-picture .ant-upload-list-item-error{
     border-color: #3ca3fd!important;
 }
-:local(.selphone){
-    height: 80px;
-    overflow-y: hidden;
-}
-:local(.qh){
-    width: 100px;
-    float: left;
-    margin-top: 40px;
-
-}
-:local(.phone){
-    width: 400px;
-    height: 80px;
-    float: left;
-}
-
 

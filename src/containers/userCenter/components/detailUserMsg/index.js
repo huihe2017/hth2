@@ -70,8 +70,7 @@ class DetailUserMsg extends React.Component {
             checkNick: this.props.user.status === "2" ? true : false,
             dynamics: {
                 state:'waiting'
-            },
-            areaCode: ["86"]
+            }
         }
     }
 
@@ -207,30 +206,6 @@ class DetailUserMsg extends React.Component {
                     <div className={style.personal}>
                         <Title content={"/联络人信息"} color={"#5262ff"}/>
                         <div className={style.perimport}>
-                            <div className={style.selphone}>
-                                <div className={style.qh}>
-                                    <Select  value={this.state.areaCode} size={'large'} style={{ width: 100,height:40,lineHeight:40,}} onChange={(value)=>{this.setState({areaCode:value})}} dropdownStyle={{width:'520'}}>
-                                        <Option value="86">+86</Option>
-                                        <Option value="87">+87</Option>
-                                        <Option value="88">+88</Option>
-                                    </Select>
-                                </div>
-                                <div className={style.phone}>
-
-                                    <FormItem>
-                                        {(getFieldError('phone')) ? <div className={style.errorsp}>
-                                                请输入电话号码</div> :
-                                            <div className={style.rightp}>
-                                                请输入电话号码</div>}
-                                        {getFieldDecorator('phone', {
-                                        rules: [{
-                                            required: true, message: '请输入正确格式的手机号码!',pattern:/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/}],
-                                    })(
-                                        <Input onChange={(e)=>{this.setState({phone:e.target.value})}} className={style.inputp} placeholder="手机号"/>
-                                    )}
-                                    </FormItem>
-                                </div>
-                            </div>
                             <div className={style.percontent} hidden={this.state.checkNick ? 'hidden' : ''}>
                                 <FormItem>
                                     {(getFieldError('yanzhegnma')) ?
